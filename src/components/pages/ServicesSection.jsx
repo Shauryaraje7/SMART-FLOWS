@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { FaCogs, FaUsers, FaLaptopCode } from 'react-icons/fa';
 import '../styles/ServicesSection.css';
+import '../styles/Global.css';
 import  UipathLogo from '../../assets/UiPath-Logo.png';
 import PowerAutomateLogo from '../../assets/power-automate-logo-removebg-preview.png';
 import AgenticAiLogo from '../../assets/AgenticAiLogo.png'
@@ -53,9 +54,9 @@ const ServicesSection = () => {
 
   return (
     <div className="services-section  " id="services" ref={sectionRef}>
-      <div className="section-header">
+      <div className="section-header Allh1 ">
         <h2 ref={headerRef}>What We Offer</h2>
-        <p className="section-subtitle" ref={subtitleRef}>Tailored solutions for your success</p>
+        <p className="section-subtitle AllP " ref={subtitleRef}>Tailored solutions for your success</p>
       </div>
       <div className="services-grid">
         {[
@@ -77,7 +78,7 @@ const ServicesSection = () => {
           {
             icon: <img src={AutomationAnywher} alt=""  className="service-icon AutomationAnywher-Logo "   />,
             title: "Automation Anywhere",
-            description: "Intelligent automation solutions for complex business processes."
+            description: "Intelligent automation solutions  for complex business processes.Intelligent automation solutions "
           },
           {
             icon: <img src={BluePrism} alt=""  className="service-icon agenticailogo "   />,
@@ -99,8 +100,8 @@ const ServicesSection = () => {
             <div className="icon-wrapper">
               {service.icon}
             </div>
-            <h3>{service.title}</h3>
-            <p>{service.description}</p>
+            <h3 className='Allh1'   >{service.title}</h3>
+            <p  className='AllP'  >{service.description}</p>
           </div>
         ))}
       </div>

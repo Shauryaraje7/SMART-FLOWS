@@ -1,5 +1,8 @@
 import React from 'react';
 import '../styles/ClientsSection.css';
+import '../styles/Global.css';
+
+
 
 import K2PartneringSolutions from '../../assets/K2PartneringSolutions.svg';
 import Sofrkodetechnologies from '../../assets/Softkode Technologies.svg';
@@ -30,8 +33,8 @@ export function ClientsSection() {
 
     <section className="clients-section">
       <div className="section-header-clients">
-        <h2 className="section-title-clients">Trusted by <span>Leading Brands</span></h2>
-        <p className="section-subtitle-clients">We partner with innovative companies worldwide</p>
+        <h2 className="section-title-clients Allh1 ">Trusted by <span>Leading Brands</span></h2>
+        <p className="section-subtitle-clients AllP ">We partner with innovative companies worldwide</p>
       </div>
 
       <div className="grid-logos-container">

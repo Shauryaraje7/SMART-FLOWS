@@ -1,5 +1,9 @@
 import React, { useEffect, useRef } from 'react';
 import '../styles/WhyChooseUsSection.css';
+import '../styles/Global.css';
+
+
+
 
 const WhyChooseUsSection = () => {
   const sectionRef = useRef(null);
@@ -48,10 +52,10 @@ const WhyChooseUsSection = () => {
     <section className="choose-us-section" ref={sectionRef}>
       <div className="choose-us-container">
         <div className="section-header-Chooseus">
-          <h2 className="section-title-Chooseus" ref={titleRef}>
+          <h2 className="section-title-Chooseus Allh1 " ref={titleRef}>
             Why <span>Choose Us</span>
           </h2>
-          <p className="section-subtitle-Chooseus" ref={subtitleRef}>
+          <p className="section-subtitle-Chooseus AllP " ref={subtitleRef}>
             We're not just developers — we're your digital partners. Here's why brands trust SmartFlows.
           </p>
         </div>
@@ -98,8 +102,8 @@ const WhyChooseUsSection = () => {
               <div className="icon-wrapper">
                 <div className="choose-icon">{card.icon}</div>
               </div>
-              <h3>{card.title}</h3>
-              <p>{card.description}</p>
+              <h3 className='Allh1'  >{card.title}</h3>
+              <p className='AllP' >{card.description}</p>
             </div>
           ))}
         </div>

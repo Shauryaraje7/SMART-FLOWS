@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { FiPlus, FiMinus } from 'react-icons/fi';
 import '../styles/FAQ.css';
+import '../styles/Global.css';
+
 
 const FAQSection = () => {
   const [activeIndex, setActiveIndex] = useState(null);
@@ -68,8 +70,8 @@ const FAQSection = () => {
     >
       <div className="container">
         <div className="section-header-FAQ">
-          <h2 className="section-title-FAQ">Frequently Asked <span>Questions</span></h2>
-          <p className="section-subtitle-FAQ">Find answers to common queries about our services and processes</p>
+          <h2 className="section-title-FAQ Allh1 ">Frequently Asked <span>Questions</span></h2>
+          <p className="section-subtitle-FAQ AllP ">Find answers to common queries about our services and processes</p>
         </div>
 
         <div className="faq-container">
@@ -79,13 +81,13 @@ const FAQSection = () => {
               key={index}
               onClick={() => toggleFAQ(index)}
             >
-              <div className="faq-question">
+              <div className="faq-question Allh1 ">
                 <h3>{faq.question}</h3>
                 <span className="faq-icon">
                   {activeIndex === index ? <FiMinus /> : <FiPlus />}
                 </span>
               </div>
-              <div className="faq-answer">
+              <div className="faq-answer AllP ">
                 <p>{faq.answer}</p>
               </div>
             </div>

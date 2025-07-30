@@ -1,6 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
 import '../styles/AboutSection.css';
 import Robot from '../../assets/robot3.png'
+import '../styles/Global.css';
+
+
 
 const AboutSection = () => {
   const sectionRef = useRef(null);
@@ -89,10 +92,10 @@ const AboutSection = () => {
           </div>
         </div>
         <div className="about-right">
-          <h2 className="section-title" ref={titleRef}>
+          <h2 className="section-title Allh1 " ref={titleRef}>
             About <span>SmartFlows</span>
           </h2>
-          <p className="section-description" ref={descriptionRef}>
+          <p className="section-description AllP " ref={descriptionRef}>
             We're a passionate team of innovators dedicated to building digital solutions that drive growth.
             With a focus on cutting-edge technology and client collaboration, we turn complex challenges
             into seamless, scalable experiences.
