@@ -1,0 +1,200 @@
+.rpa-consultation-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(5px);
+}
+
+.rpa-consultation-container {
+  background-color: white;
+  padding: 2.5rem;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 700px;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.rpa-consultation-header {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.rpa-consultation-header h2 {
+  color: #2d3748;
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.rpa-consultation-header p {
+  color: #718096;
+  font-size: 1rem;
+}
+
+.rpa-consultation-close-btn {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  color: #718096;
+  transition: color 0.2s;
+}
+
+.rpa-consultation-close-btn:hover {
+  color: #2d3748;
+}
+
+.rpa-form-row {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.rpa-form-row .rpa-form-group {
+  flex: 1;
+}
+
+.rpa-form-group {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.rpa-form-group label {
+  /* position: absolute; */
+  left: 1rem;
+  top: 0.8rem;
+  bottom: 1rem;
+  color: #718096;
+  font-size: 0.95rem;
+  font-weight: 400;
+  transition: all 0.2s ease;
+  pointer-events: none;
+  background: white;
+  padding: 0 0.3rem;
+  margin: 0;
+}
+
+.rpa-form-group input,
+.rpa-form-group select,
+.rpa-form-group textarea {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  background-color: white;
+}
+
+.rpa-form-group input:focus,
+.rpa-form-group select:focus,
+.rpa-form-group textarea:focus {
+  outline: none;
+  border-color: #4299e1;
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.2);
+}
+
+/* Floating label effect */
+.rpa-form-group input:focus + label,
+.rpa-form-group input:not(:placeholder-shown) + label,
+.rpa-form-group select:focus + label,
+.rpa-form-group select:not([value=""]) + label,
+.rpa-form-group textarea:focus + label,
+.rpa-form-group textarea:not(:placeholder-shown) + label {
+  top: -0.6rem;
+  left: 0.8rem;
+  font-size: 0.75rem;
+  color: #4299e1;
+  font-weight: 600;
+  background: white;
+}
+
+/* Add placeholder space for inputs */
+.rpa-form-group input::placeholder,
+.rpa-form-group textarea::placeholder {
+  color: transparent;
+}
+
+/* Style for select dropdown arrow */
+.rpa-form-group select {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 0.7rem center;
+  background-size: 1rem;
+}
+
+.rpa-form-group textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.rpa-consultation-submit-btn {
+  width: 100%;
+  padding: 1rem;
+  background-color: #4299e1;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.rpa-consultation-submit-btn:hover {
+  background-color: #3182ce;
+}
+
+.rpa-form-footer {
+  margin-top: 2rem;
+}
+
+.rpa-form-disclaimer {
+  font-size: 0.8rem;
+  color: #718096;
+  text-align: center;
+  margin-top: 1rem;
+  line-height: 1.4;
+}
+
+.rpa-form-error-message {
+  color: #e53e3e;
+  background-color: #fff5f5;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+  border: 1px solid #fed7d7;
+}
+
+@media (max-width: 768px) {
+  .rpa-form-row {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .rpa-consultation-container {
+    padding: 1.5rem;
+  }
+  
+  .rpa-form-group {
+    margin-bottom: 1.8rem;
+  }
+}

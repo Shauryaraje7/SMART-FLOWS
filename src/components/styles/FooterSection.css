@@ -1,0 +1,323 @@
+/* ===== Footer Section ===== */
+.footer-section {
+  background: #0f172a;
+  color: #e2e8f0;
+  padding: 60px 20px 30px;
+  font-family: 'Inter', sans-serif;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  z-index: 1;
+  margin-top: 1px;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-main {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  margin-bottom: 60px;
+  justify-content: space-between;
+}
+
+.footer-brand {
+  flex: 1;
+  min-width: 250px;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #ffffff;
+  letter-spacing: -0.5px;
+}
+
+.tagline {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #94a3b8;
+  margin-bottom: 25px;
+  max-width: 300px;
+}
+
+.footer-contact {
+  margin-top: 25px;
+}
+
+.contact-email {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #00bcd4;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.contact-email:hover {
+  color: #38bdf8;
+}
+
+.footer-links {
+  display: flex;
+  flex: 2;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.links-column {
+  min-width: 150px;
+}
+
+.links-heading {
+  font-size: 1rem;
+  color: #ffffff;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.links-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.links-list li {
+  margin-bottom: 12px;
+}
+
+.links-list a {
+  color: #94a3b8;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+}
+
+.links-list a:hover {
+  color: #00bcd4;
+}
+
+.footer-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  min-width: 250px;
+}
+
+.newsletter {
+  max-width: 320px;
+}
+
+.newsletter h4 {
+  font-size: 1rem;
+  margin-bottom: 15px;
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.newsletter-form {
+  display: flex;
+  gap: 10px;
+}
+
+.newsletter-form input {
+  flex: 1;
+  padding: 10px 15px;
+  border: 1px solid #334155;
+  background: #1e293b;
+  color: #e2e8f0;
+  font-size: 0.9rem;
+  border-radius: 6px;
+  min-width: 200px;
+}
+
+.newsletter-form input::placeholder {
+  color: #64748b;
+}
+
+.newsletter-form button {
+  background: #00bcd4;
+  color: white;
+  border: none;
+  padding: 0 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.newsletter-form button:hover {
+  background: #0891b2;
+}
+
+.cta-button {
+  margin-top: 10px;
+}
+
+.appointment-button {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #00bcd4;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.appointment-button:hover {
+  background-color: #0891b2;
+  transform: translateY(-2px);
+}
+
+.social-links {
+  display: flex;
+  gap: 19px;
+  margin-top: 10px;
+}
+
+.social-link {
+  color: #94a3b8;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: scale(1.3);
+}
+
+.social-link:hover {
+  color: #00bcd4;
+  transform: translateY(-2px) scale(1.3);
+}
+
+.footer-bottom {
+  border-top: 1px solid #1e293b;
+  padding-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+}
+
+.legal-links {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.legal-links a {
+  color: #94a3b8;
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.legal-links a:hover {
+  color: #00bcd4;
+}
+
+.legal-links span {
+  color: #334155;
+  font-size: 0.85rem;
+}
+
+.copyright {
+  font-size: 0.85rem;
+  color: #64748b;
+  margin: 0;
+}
+
+/* Newsletter Form Styles */
+.subscription-message {
+  margin-top: 10px;
+  font-size: 14px;
+  text-align: center;
+  padding: 8px;
+  border-radius: 4px;
+}
+
+.subscription-message.success {
+  color: #4CAF50;
+  background-color: rgba(76, 175, 80, 0.1);
+}
+
+.subscription-message.error {
+  color: #F44336;
+  background-color: rgba(244, 67, 54, 0.1);
+}
+
+/* Loading Spinner */
+.loading-spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@media (max-width: 768px) {
+  .footer-main {
+    flex-direction: column;
+    gap: 40px;
+  }
+  .Services-Footer{
+   display: none;
+  }
+
+   .Company-Footer{
+   display: none;
+  }
+  
+  .footer-links {
+    flex-direction: column;
+    gap: 30px;
+  }
+  
+  .newsletter {
+    max-width: 100%;
+  }
+  
+  .newsletter-form {
+    flex-direction: column;
+  }
+  
+  .newsletter-form button {
+    width: 100%;
+    padding: 10px;
+  }
+  
+  .appointment-button {
+    width: 100%;
+  }
+}
+
+
+
+
+@media (max-width: 1024px) {
+
+  .Services-Footer{
+   display: none;
+  }
+
+   .Company-Footer{
+   display: none;
+  }
+  
+}
+
+
+
+

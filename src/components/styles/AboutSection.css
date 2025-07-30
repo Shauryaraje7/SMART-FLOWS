@@ -1,0 +1,330 @@
+/* About Section */
+.about-section {
+  padding: clamp(60px, 8vw, 1200px) 20px;
+  background: linear-gradient(135deg, #f8fafc 0%, #f0fdfa 100%);
+  position: relative;
+  overflow: hidden;
+  height: 100vh;
+  z-index: 6;
+  font-family: 'Plus Jakarta Sans', sans-serif; /* Added professional font */
+  
+}
+
+.about-section::before {
+  content: "";
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(0, 188, 212, 0.1) 0%, transparent 70%);
+  z-index: 0;
+}
+
+.about-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(2rem, 5vw, 4rem);
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* Image Section */
+.about-left {
+  flex: 1;
+  min-width: min(100%, 300px);
+  max-width: 550px;
+}
+
+.image-wrapper {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  transform: perspective(1000px) rotateY(-5deg);
+}
+
+.about-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  filter: drop-shadow(0 0 15px rgba(0, 188, 212, 0.6)) 
+          drop-shadow(0 0 30px rgba(0, 188, 212, 0.3));
+}
+
+.image-overlay {
+  position: absolute;
+  inset: 0;
+  mix-blend-mode: overlay;
+  opacity: 0.6;
+}
+
+.image-wrapper:hover .about-image {
+  transform: scale(1.05) perspective(1000px) rotateY(-3deg);
+}
+
+/* Content Section */
+.about-right {
+  flex: 1;
+  min-width: min(100%, 300px);
+  max-width: 550px;
+}
+
+.section-title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  color: #0f172a;
+  position: relative;
+  display: inline-block;
+  letter-spacing: -0.02em; /* Improved letter spacing */
+  font-family: 'Plus Jakarta Sans', sans-serif; /* Consistent font */
+}
+
+.section-title span {
+  color: #00bcd4;
+  position: relative;
+}
+
+.section-title span::after {
+  content: "";
+  position: absolute;
+  bottom: 5px;
+  left: 0;
+  width: 100%;
+  height: 8px;
+  background: rgba(0, 188, 212, 0.2);
+  z-index: -1;
+  border-radius: 4px;
+}
+
+.section-description {
+  font-size: clamp(1rem, 1.15vw, 1.15rem);
+  line-height: 1.8;
+  color: #475569;
+  margin-bottom: 2.5rem;
+  font-weight: 500; /* Added medium weight for better readability */
+  letter-spacing: 0.01em; /* Slightly tighter letter spacing */
+  font-family: 'Plus Jakarta Sans', sans-serif; /* Consistent font */
+}
+
+/* Buttons */
+.cta-group {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.primary-btn, .secondary-btn {
+  padding: 0.9rem clamp(1.5rem, 3vw, 2rem);
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  font-size: clamp(0.9rem, 1vw, 1rem);
+  text-align: center;
+  flex: 1 1 auto;
+  min-width: 120px;
+  font-family: 'Plus Jakarta Sans', sans-serif; /* Consistent font */
+  letter-spacing: 0.02em; /* Improved button typography */
+}
+
+.primary-btn {
+  background: linear-gradient(135deg, #00bcd4 0%, #0097a7 100%);
+  color: white;
+  box-shadow: 0 4px 20px rgba(0, 188, 212, 0.3);
+  border: none;
+}
+
+.secondary-btn {
+  background: transparent;
+  color: #00bcd4;
+  border: 2px solid #00bcd4;
+}
+
+.primary-btn:hover, .secondary-btn:hover {
+  transform: translateY(-3px);
+}
+
+.primary-btn:hover {
+  box-shadow: 0 8px 25px rgba(0, 188, 212, 0.4);
+}
+
+.secondary-btn:hover {
+  background: rgba(0, 188, 212, 0.05);
+}
+
+/* Stats */
+.stats-grid {
+  display: flex;
+  gap: clamp(1rem, 2vw, 2rem);
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.stat-item {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  min-width: 120px;
+  flex: 1;
+}
+
+.stat-number {
+  display: block;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  color: #00bcd4;
+  margin-bottom: 0.5rem;
+  font-family: 'Plus Jakarta Sans', sans-serif; /* Consistent font */
+}
+
+.stat-label {
+  font-size: clamp(0.8rem, 1vw, 0.9rem);
+  color: #64748b;
+  font-weight: 500;
+  font-family: 'Plus Jakarta Sans', sans-serif; /* Consistent font */
+  letter-spacing: 0.01em; /* Improved typography */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+  .about-section{
+    height: 100%;
+  }
+  .about-container {
+    gap: 3rem;
+  }
+  
+  .image-wrapper {
+    transform: perspective(800px) rotateY(-5deg);
+  }
+}
+
+@media (max-width: 768px) {
+  .about-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .section-title span::after {
+    height: 6px;
+    bottom: 3px;
+  }
+
+  .cta-group {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-section::before {
+    top: -50px;
+    right: -50px;
+    width: 200px;
+    height: 200px;
+  }
+
+  .stats-grid {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .stat-item {
+    padding: 1rem;
+  }
+}
+
+/* Animation Styles */
+.about-section {
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+.about-section.appear {
+  opacity: 1;
+}
+
+.image-wrapper {
+  opacity: 0;
+  transform: perspective(1000px) rotateY(-15deg) translateX(-20px);
+  transition: opacity 0.8s ease 0.2s, transform 0.8s cubic-bezier(0.215, 0.61, 0.355, 1) 0.2s;
+}
+
+.image-wrapper.appear {
+  opacity: 1;
+  transform: perspective(1000px) rotateY(-5deg) translateX(0);
+}
+
+.section-title {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease 0.3s, transform 0.6s ease 0.3s;
+}
+
+.section-title.appear {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.section-description {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease 0.4s, transform 0.6s ease 0.4s;
+}
+
+.section-description.appear {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.cta-group {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease 0.5s, transform 0.6s ease 0.5s;
+}
+
+.cta-group.appear {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.stat-item {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.stat-item.appear {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+
+
+
+
+@media (max-width: 1024px) {
+
+ .about-section{
+  margin: 0px;
+ }
+  
+}
+
+
+
+
+
+
+
