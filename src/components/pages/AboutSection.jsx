@@ -95,7 +95,7 @@ const AboutSection = () => {
           <h2 className="section-title Allh1 " ref={titleRef}>
             About <span>SmartFlows</span>
           </h2>
-          <p className="section-description AllP " ref={descriptionRef}>
+          <p className="section-description AllP headingpara " ref={descriptionRef}>
             We're a passionate team of innovators dedicated to building digital solutions that drive growth.
             With a focus on cutting-edge technology and client collaboration, we turn complex challenges
             into seamless, scalable experiences.

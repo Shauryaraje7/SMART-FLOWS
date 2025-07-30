@@ -55,7 +55,7 @@ const WhyChooseUsSection = () => {
           <h2 className="section-title-Chooseus Allh1 " ref={titleRef}>
             Why <span>Choose Us</span>
           </h2>
-          <p className="section-subtitle-Chooseus AllP " ref={subtitleRef}>
+          <p className="section-subtitle-Chooseus AllP headingpara " ref={subtitleRef}>
             We're not just developers — we're your digital partners. Here's why brands trust SmartFlows.
           </p>
         </div>

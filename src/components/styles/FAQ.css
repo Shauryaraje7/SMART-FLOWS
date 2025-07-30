@@ -78,7 +78,7 @@ margin-top: 1px;
 }
 
 .section-subtitle-FAQ {
-  font-size: 1.25rem;
+
   color: #64748b;
   max-width: 650px;
   margin: 0 auto;
@@ -222,9 +222,7 @@ margin-top: 1px;
     font-size: 2.4rem;
   }
   
-  .section-subtitle-FAQ {
-    font-size: 1.15rem;
-  }
+
   
   .faq-item {
     padding: 22px 26px;
@@ -250,9 +248,7 @@ margin-top: 1px;
     font-size: 2rem;
   }
   
-  .section-subtitle {
-    font-size: 1.05rem;
-  }
+
   
   .faq-item {
     padding: 18px 22px;

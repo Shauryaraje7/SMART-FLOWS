@@ -4,3 +4,19 @@
 .AllP{
       font-family: "Times New Roman", Times, serif;
 }
+
+
+.headingpara{
+    font-size: 23px;
+}
+@media (max-width: 1024px) {
+
+.headingpara{
+    font-size: 18px;
+}
+  
+}
+
+
+
+
