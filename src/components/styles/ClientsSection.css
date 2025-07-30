@@ -139,26 +139,36 @@
     padding: 10px;
   }
   
-  .logo-image-client {
-    max-height: 50px;
-  }
+ 
 }
 
 @media (max-width: 480px) {
+
+
+.logo-1 img { max-width: 40%; } /* K2 Partnering Solutions */
+.logo-2 img { max-width: 80%; } /* Softkode Technologies */
+.logo-3 img { max-width: 50%; } /* Lirik Infotech */
+.logo-4 img { max-width: 70%; } /* Whiddon */
+.logo-5 img { max-width: 90%; } /* Dermalogica */
+.logo-6 img { max-width: 60%; } /* Southeast Dental Partners */
+.logo-7 img { max-width: 75%; } /* Legacy Lane Ventures */
+.logo-8 img { max-width: 70%; } /* Wyndham */
+.logo-9 img { max-width: 80%; } /* Insight Global */
+.logo-10 img { max-width: 90%; } /* WE Logo */
+
+
+
   .grid-logos {
     gap: 8px;
   }
   
   .grid-logo-item {
-    height: 70px;
+    /* height: 70px; */
     padding: 8px;
   }
   
-  .logo-image-client {
-    max-height: 40px;
-  }
+ 
   
   /* Adjust specific logos on small screens */
-  .logo-1 img { max-width: 25%; }
-  .logo-10 img { max-width: 25%; }
+
 }
