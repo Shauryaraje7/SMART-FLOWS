@@ -104,7 +104,7 @@ const ContactSection = () => {
     <section className="contact-section" id="contact" ref={sectionRef}>
       <div className="contact-container">
         <div className="section-header-contacts">
-          <h2 className="section-title-contacts Allh1 " ref={titleRef}>
+          <h2 className="section-title-contacts Allh1 headings" ref={titleRef}>
             Get in <span>Touch</span>
           </h2>
           <p className="section-subtitle-contacts headingpara " ref={subtitleRef}>

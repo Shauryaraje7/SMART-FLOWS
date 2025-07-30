@@ -54,7 +54,7 @@ const ServicesSection = () => {
 
   return (
     <div className="services-section  " id="services" ref={sectionRef}>
-      <div className="section-header Allh1 ">
+      <div className="section-header Allh1 headings ">
         <h2 ref={headerRef}>What We Offer</h2>
         <p className="section-subtitle AllP headingpara " ref={subtitleRef}>Tailored solutions for your success</p>
       </div>

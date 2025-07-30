@@ -33,7 +33,7 @@ export function ClientsSection() {
 
     <section className="clients-section">
       <div className="section-header-clients">
-        <h2 className="section-title-clients Allh1 ">Trusted by <span>Leading Brands</span></h2>
+        <h2 className="section-title-clients Allh1 headings">Trusted by <span>Leading Brands</span></h2>
         <p className="section-subtitle-clients AllP headingpara ">We partner with innovative companies worldwide</p>
       </div>
 

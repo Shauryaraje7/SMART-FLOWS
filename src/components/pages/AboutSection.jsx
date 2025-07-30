@@ -92,7 +92,7 @@ const AboutSection = () => {
           </div>
         </div>
         <div className="about-right">
-          <h2 className="section-title Allh1 " ref={titleRef}>
+          <h2 className="section-title Allh1 headings" ref={titleRef}>
             About <span>SmartFlows</span>
           </h2>
           <p className="section-description AllP headingpara " ref={descriptionRef}>

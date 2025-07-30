@@ -70,7 +70,7 @@ const FAQSection = () => {
     >
       <div className="container">
         <div className="section-header-FAQ">
-          <h2 className="section-title-FAQ Allh1 ">Frequently Asked <span>Questions</span></h2>
+          <h2 className="section-title-FAQ Allh1 headings ">Frequently Asked <span>Questions</span></h2>
           <p className="section-subtitle-FAQ AllP headingpara ">Find answers to common queries about our services and processes</p>
         </div>
 

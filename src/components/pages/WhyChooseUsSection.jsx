@@ -52,7 +52,7 @@ const WhyChooseUsSection = () => {
     <section className="choose-us-section" ref={sectionRef}>
       <div className="choose-us-container">
         <div className="section-header-Chooseus">
-          <h2 className="section-title-Chooseus Allh1 " ref={titleRef}>
+          <h2 className="section-title-Chooseus Allh1 headings" ref={titleRef}>
             Why <span>Choose Us</span>
           </h2>
           <p className="section-subtitle-Chooseus AllP headingpara " ref={subtitleRef}>

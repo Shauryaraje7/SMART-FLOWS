@@ -58,7 +58,7 @@ margin-top: 1px;
 }
 
 .section-title-FAQ {
-  font-size: 3.2rem;
+
   font-weight: 800;
   line-height: 1.2;
   margin-bottom: 1.2rem;
@@ -198,9 +198,7 @@ margin-top: 1px;
     padding: 100px 20px;
   }
   
-  .section-title-FAQ {
-    font-size: 2.8rem;
-  }
+
 }
 
 
@@ -218,10 +216,7 @@ margin-top: 1px;
 
 
 @media (max-width: 768px) {
-  .section-title-FAQ {
-    font-size: 2.4rem;
-  }
-  
+
 
   
   .faq-item {
@@ -244,10 +239,7 @@ margin-top: 1px;
     padding: 80px 20px;
   }
   
-  .section-title {
-    font-size: 2rem;
-  }
-  
+
 
   
   .faq-item {

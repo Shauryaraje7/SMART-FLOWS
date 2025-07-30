@@ -9,6 +9,13 @@
 .headingpara{
     font-size: 23px;
 }
+
+
+.headings{
+
+  font-size: clamp(2rem, 5vw, 3rem);
+
+}
 @media (max-width: 1024px) {
 
 .headingpara{
