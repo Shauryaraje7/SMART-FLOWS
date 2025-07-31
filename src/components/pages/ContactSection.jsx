@@ -2,8 +2,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import '../styles/ContactSection.css';
 import '../styles/Global.css';
 
-
-
 const ContactSection = () => {
   // Refs for animation
   const sectionRef = useRef(null);
@@ -95,6 +93,14 @@ const ContactSection = () => {
     }
   };
 
+  // Handle WhatsApp click
+  const handleWhatsAppClick = () => {
+    const phoneNumber = '+919922668095';
+    const message = 'Hello SmartFlows, I have a question about your services.';
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+  };
+
   // Pre-filled email content
   const emailAddress = 'corporate@smartflows.in';
   const emailSubject = 'Inquiry from SmartFlows Website';
@@ -115,8 +121,6 @@ Looking forward to your response.
 
 Best regards,  
 [Your Name]`;
-
-
 
   return (
     <section className="contact-section" id="contact" ref={sectionRef}>
@@ -186,7 +190,6 @@ Best regards,
               disabled={isSubmitting}
             >
               <span>{isSubmitting ? 'Sending...' : 'Send Message'}</span>
-             
             </button>
           </form>
 
@@ -225,7 +228,14 @@ Best regards,
                     <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
                   </svg>
                 </div>
-                <a href="tel:+919922668095" className="contact-link">
+                <a 
+                  href="#" 
+                  className="contact-link" 
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleWhatsAppClick();
+                  }}
+                >
                   +91 9922668095
                 </a>
               </div>
