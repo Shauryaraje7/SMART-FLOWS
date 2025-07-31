@@ -15,7 +15,7 @@
 .rpa-consultation-container {
   background-color: white;
   padding: 2.5rem;
-  border-radius: 12px;
+  /* border-radius: 12px; */
   width: 90%;
   max-width: 700px;
   position: relative;

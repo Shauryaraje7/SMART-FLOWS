@@ -96,7 +96,7 @@ const ContactSection = () => {
   // Handle WhatsApp click
   const handleWhatsAppClick = () => {
     const phoneNumber = '+919922668095';
-    const message = 'Hello SmartFlows, I have a question about your services.';
+    const message = 'Hi SmartFlows Team 👋,\n\nWe are interested in your RPA services and would like to know more about how automation can help our business.\n\nPlease share more details or let us know a good time to connect.\n\nThanks!';
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   };
