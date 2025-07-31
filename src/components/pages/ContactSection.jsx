@@ -98,7 +98,25 @@ const ContactSection = () => {
   // Pre-filled email content
   const emailAddress = 'corporate@smartflows.in';
   const emailSubject = 'Inquiry from SmartFlows Website';
-  const emailBody = 'Hello SmartFlows team,\n\nI would like to discuss the following:\n\n[Please enter your message here]\n\nBest regards,\n[Your Name]';
+  const emailBody = `Hello SmartFlows Team,
+
+I hope this message finds you well.
+
+I am reaching out regarding the following query:
+[Please briefly describe your query here – e.g., service inquiry, automation requirement, support request, etc.]
+
+Some quick details to help you respond better:
+- Name: [Your Full Name]
+- Organization: [Your Company Name]
+- Contact Number: [Your Contact Number]
+- Preferred Time for Contact: [Your availability]
+
+Looking forward to your response.
+
+Best regards,  
+[Your Name]`;
+
+
 
   return (
     <section className="contact-section" id="contact" ref={sectionRef}>
