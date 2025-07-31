@@ -1,5 +1,17 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination, EffectCoverflow } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/effect-coverflow';
 import '../styles/testimonials.css';
+import '../styles/Global.css';
+
+
+
+
+// Import your logo images
 import WElogo from '../../assets/WElogo.png';
 import K2PartneringSolutions from '../../assets/K2PartneringSolutions.webp';
 import Sofrkodetechnologies from '../../assets/Softkode Technologies.png';
@@ -117,153 +129,108 @@ const testimonials = [
   }
 ];
 
-const Testimonials = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [direction, setDirection] = useState('right');
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef(null);
-
+const TestimonialSlider = () => {
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const [entry] = entries;
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.unobserve(entry.target);
-        }
-      },
-      {
-        threshold: 0.1,
-        rootMargin: '0px 0px -100px 0px'
-      }
-    );
+    const script1 = document.createElement('script');
+    script1.type = 'module';
+    script1.src = 'https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js';
+    document.body.appendChild(script1);
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
-    };
+    const script2 = document.createElement('script');
+    script2.noModule = true;
+    script2.src = 'https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js';
+    document.body.appendChild(script2);
   }, []);
 
-  const nextTestimonial = () => {
-    setDirection('right');
-    setCurrentIndex(prev => (prev + 1) % testimonials.length);
-  };
-
-  const prevTestimonial = () => {
-    setDirection('left');
-    setCurrentIndex(prev => (prev - 1 + testimonials.length) % testimonials.length);
-  };
-
-  const getVisibleTestimonials = () => {
-    const prevIndex = (currentIndex - 1 + testimonials.length) % testimonials.length;
-    const nextIndex = (currentIndex + 1) % testimonials.length;
-
-    return [
-      testimonials[prevIndex],
-      testimonials[currentIndex],
-      testimonials[nextIndex]
-    ];
-  };
-
   return (
-    <section
-      className={`testimonials-section ${isVisible ? 'visible' : ''}`}
-      id="testimonials"
-      ref={sectionRef}
-    >
+    <section id="testimonials" className="testimonials-section">
       <div className="container">
         <div className="section-header-testimonials">
           <h2 className="section-title-testimonials">Trusted by <span>Innovators</span></h2>
           <p className="section-subtitle-testimonials">Don't just take our word for it - here's what our partners say</p>
         </div>
 
-        <div className="testimonials-carousel">
-          <button
-            className="carousel-button desktop prev"
-            onClick={prevTestimonial}
-            aria-label="Previous testimonial"
-          >
-            &lt;
-          </button>
-
-          <div className="testimonials-slider-container">
-            <div
-              className={`testimonials-slider ${direction}`}
-              key={currentIndex}
-            >
-              {getVisibleTestimonials().map((testimonial, index) => (
-                <div
-                  key={`${testimonial.id}-${index}`}
-                  className={`testimonial-card ${index === 1 ? 'center-card' : 'side-card'}`}
-                  style={{
-                    width: 'calc(33.333% - 20px)',
-                    flexShrink: 0
-                  }}
-                >
-                  <div className="card-header">
-                    <img
-                      src={companyLogos[testimonial.company]}
-                      alt={testimonial.company}
-                      className={`testimonial-logo ${testimonial.company === 'WorkiFicient' ? 'we-logo' : ''}`}
-                      loading="lazy"
-                    />
-                    <div className="quote-icon">"</div>
-                  </div>
-                  <p className="testimonial-text">
-                    {testimonial.text}
-                  </p>
-                  <div className="client-info">
-                    <h4 className="client-name">{testimonial.name}</h4>
-                    <span className="client-role">{testimonial.role}, {testimonial.company}</span>
-                    <div className="rating">{testimonial.rating}</div>
-                  </div>
-                  <a
-                    href={testimonial.url}
-                    className="company-link"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`Visit ${testimonial.company}`}
-                  >
-                    Visit {testimonial.company}
-                  </a>
+        <Swiper
+          modules={[EffectCoverflow, Pagination, Navigation]}
+          effect="coverflow"
+          grabCursor={true}
+          centeredSlides={true}
+          loop={true}
+          slidesPerView={'auto'}
+          coverflowEffect={{
+            rotate: 0,
+            stretch: 0,
+            depth: 100,
+            modifier: 2.5,
+            slideShadows: false,
+          }}
+          pagination={{ clickable: true }}
+          navigation={{
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          }}
+          className="testimonial-slider"
+          breakpoints={{
+            320: {
+              slidesPerView: 1,
+              spaceBetween: 20
+            },
+            768: {
+              slidesPerView: 2,
+              spaceBetween: 30
+            },
+            1024: {
+              slidesPerView: 3,
+              spaceBetween: 40
+            }
+          }}
+        >
+          {testimonials.map((testimonial) => (
+            <SwiperSlide key={testimonial.id} className="testimonial-slide">
+              <div className="testimonial-card">
+                <div className="card-header  ">
+                  <img
+                    src={companyLogos[testimonial.company]}
+                    alt={testimonial.company}
+                    className={`testimonial-logo ${testimonial.company === 'WorkiFicient' ? 'we-logo' : ''}`}
+                    loading="lazy"
+                  />
+                  <div className="quote-icon">"</div>
                 </div>
-              ))}
+                <p className="testimonial-text">
+                  {testimonial.text}
+                </p>
+                <div className="client-info">
+                  <h4 className="client-name  Allh1 ">{testimonial.name}</h4>
+                  <span className="client-role Allh1 ">{testimonial.role}, {testimonial.company}</span>
+                  <div className="rating">{testimonial.rating}</div>
+                </div>
+                <a
+                  href={testimonial.url}
+                  className="company-link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Visit ${testimonial.company}`}
+                >
+                  Visit {testimonial.company}
+                </a>
+              </div>
+            </SwiperSlide>
+          ))}
+
+          <div className="testimonial-slider-control">
+            <div className="swiper-button-prev slider-arrow">
+        
             </div>
+            <div className="swiper-button-next slider-arrow">
+             
+            </div>
+            <div className="swiper-pagination"></div>
           </div>
-
-          <button
-            className="carousel-button desktop next"
-            onClick={nextTestimonial}
-            aria-label="Next testimonial"
-          >
-            &gt;
-          </button>
-        </div>
-
-        <div className="carousel-buttons-mobile">
-          <button
-            className="carousel-button mobile prev"
-            onClick={prevTestimonial}
-            aria-label="Previous testimonial"
-          >
-            &lt;
-          </button>
-          <button
-            className="carousel-button mobile next"
-            onClick={nextTestimonial}
-            aria-label="Next testimonial"
-          >
-            &gt;
-          </button>
-        </div>
+        </Swiper>
       </div>
     </section>
   );
 };
 
-export default Testimonials;
+export default TestimonialSlider;
