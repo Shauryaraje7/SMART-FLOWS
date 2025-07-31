@@ -121,8 +121,8 @@ const handleSubmit = async (e) => {
         </button>
         
         <div className="rpa-consultation-header">
-          <h2>RPA Consultation Request</h2>
-          <p>Complete this form to schedule a free consultation with our automation experts</p>
+          <h2 className='Allh1'  >RPA Consultation Request</h2>
+          <p  className='AllP'  >Complete this form to schedule a free consultation with our automation experts</p>
         </div>
         
         {submitError && (
