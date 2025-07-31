@@ -142,20 +142,26 @@
 }
 
 .rpa-consultation-submit-btn {
-  width: 100%;
-  padding: 1rem;
-  background-color: #4299e1;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
+
+ margin: auto;
+    border: none;
+    color: white;
+    background: linear-gradient(135deg, #00bcd4 0%, #0097a7 100%);
+    box-shadow: 0 4px 20px rgba(0, 188, 212, 0.3);
+    width: 37%;
+    padding: 1rem;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: flex
+;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
 }
 
 .rpa-consultation-submit-btn:hover {
@@ -163,7 +169,7 @@
 }
 
 .rpa-form-footer {
-  margin-top: 2rem;
+  margin-top: 1rem;
 }
 
 .rpa-form-disclaimer {
