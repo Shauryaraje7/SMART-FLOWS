@@ -1,30 +1,33 @@
 /* ===== Hero Section ===== */
-/* Font imports - add this to your main CSS file or HTML head */
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
-
 .hero-container1 {
   width: 100%;
   min-height: 100vh;
-  min-height: 100dvh;
   color: rgb(0, 0, 0);
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
-  text-align: left;
-  padding: clamp(1rem, 3vw, 2rem);
   position: relative;
-  background-image: url('../../assets/wallpaper3.webp');
+  padding: clamp(1rem, 3vw, 2rem);
+  overflow: hidden;
+  margin: 0;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.hero-bg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  z-index: 0;
+  background-image: url('../../assets/12345.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed;
-  overflow: hidden;
-  margin: 0;
-  font-family: 'Plus Jakarta Sans', sans-serif; /* Professional font family */
+  transform: scaleX(-1); /* Mirror effect */
 }
 
-.hero-container1::before {
+.hero-bg::after {
   content: '';
   position: absolute;
   top: 0;
@@ -32,17 +35,13 @@
   width: 100%;
   height: 100%;
   background: rgba(255, 255, 255, 0.2);
-  z-index: 0;
 }
 
 .hero-content1 {
   position: relative;
   z-index: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  max-width: 1200px;
-  padding: 0 clamp(1rem, 3vw, 2rem);
+  max-width: 50%;
+  padding-right: 2rem;
 }
 
 .hero-content1 h1 {
@@ -104,7 +103,7 @@
 
 .cta-btn2 {
   border: 2px solid #00bcd4;
-  color: #00bcd4 ;
+  color: #00bcd4;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   background: rgba(255, 255, 255, 0.25);
@@ -118,9 +117,18 @@
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
 
-/* Responsive styles */
+/* Mobile responsiveness */
 @media (max-width: 768px) {
+  .hero-bg {
+    width: 100%;
+    opacity: 0.3;
+    transform: none;
+  }
+  
   .hero-content1 {
+    max-width: 100%;
+    padding: 1rem;
+    background-color: rgba(255, 255, 255, 0.7);
     align-items: center;
     text-align: center;
     margin-top: 20vh;
