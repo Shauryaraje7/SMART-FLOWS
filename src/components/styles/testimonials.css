@@ -49,12 +49,12 @@
 
 /* Testimonial Card Styles */
 .testimonial-slider {
-  padding: 20px;
+  padding: 66px;
 }
 
 .testimonial-slide {
   width: 350px;
-  padding: 20px;
+  padding: 10px;
   transition: transform 0.3s ease;
 }
 
