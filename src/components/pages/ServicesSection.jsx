@@ -88,8 +88,8 @@ const ServicesSection = () => {
             <div className="icon-wrapper">
               {service.icon}
             </div>
-            <h3 id={`service-title-${index}`}>{service.title}</h3>
-            <p>{service.description}</p>
+            <h3  className='Allh1'  id={`service-title-${index}`}>{service.title}</h3>
+            <p  className='AllP'  >{service.description}</p>
           </article>
         ))}
       </div>
