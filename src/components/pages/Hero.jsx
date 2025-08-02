@@ -1,22 +1,23 @@
+import React from 'react';
 import '../styles/Hero.css';
 
-const Hero = () => {
+const Hero = React.memo(() => {
   return (
-    <div className="hero-container" id='Home'>
+    <section className="hero-container" id="home">
       <div className="hero-content">
         <h1>Welcome to <br />SmartFlows</h1>
         <p>Your trusted partner in Intelligent Automation & AI Solutions</p>
         <div className="hero-buttons">
-          <a href="#services">
+          <a href="#services" aria-label="Explore our solutions">
             <button className="cta-btn">Explore Solutions</button>
           </a>
-          <a href="#contact">
+          <a href="#contact" aria-label="Contact us">
             <button className="cta-btn2">Contact Us</button>
           </a>
         </div>
       </div>
-    </div>
+    </section>
   );
-};
+});
 
 export default Hero;
