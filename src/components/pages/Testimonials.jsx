@@ -218,7 +218,9 @@ const TestimonialSlider = () => {
             </SwiperSlide>
           ))}
 
-          <div className="testimonial-slider-control">
+       
+        </Swiper>
+           <div className="testimonial-slider-control">
             <div className="swiper-button-prev slider-arrow">
         
             </div>
@@ -227,7 +229,6 @@ const TestimonialSlider = () => {
             </div>
             <div className="swiper-pagination"></div>
           </div>
-        </Swiper>
       </div>
     </section>
   );

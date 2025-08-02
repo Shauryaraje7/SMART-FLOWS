@@ -168,6 +168,7 @@
 
 /* Slider Controls */
 .testimonial-slider-control {
+
   position: relative;
   margin-top: -30px;
   display: flex;
@@ -264,3 +265,40 @@ margin-top: 20px;
     height: 60px;
   }
 }
+
+
+
+
+
+@media only screen and (min-width: 1200px) {
+.testimonial-slider-control {
+  bottom: 40vh;
+
+}
+
+.swiper-button-prev{
+position: relative;
+left: -6vw;
+}
+.swiper-button-next{
+position: relative;
+left: 43vw;
+}
+.testimonial-slider-control {
+
+  position: relative;
+  margin-top: -30px;
+  display: flex;
+  align-items: unset;
+  justify-content: space-between;
+  height: 15vh;
+}
+
+
+
+}
+
+
+
+
+
