@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import '../styles/courses.css';
+import '../styles/Global.css';
+
+
 
 const Courses = () => {
   const [email, setEmail] = useState('');
@@ -60,8 +63,8 @@ const Courses = () => {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
             </div>
-            <h3>Exciting Courses Coming Soon!</h3>
-            <p>We're currently working on creating the best learning experience for you. Stay tuned for our upcoming courses that will help you grow your skills.</p>
+            <h3 className='Allh1' >Exciting Courses Coming Soon!</h3>
+            <p className='AllP'  >We're currently working on creating the best learning experience for you. Stay tuned for our upcoming courses that will help you grow your skills.</p>
             <button 
               className="notify-btn" 
               onClick={() => setShowPopup(true)}

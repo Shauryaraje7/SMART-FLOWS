@@ -1,15 +1,11 @@
 import React, { useEffect, useRef } from 'react';
-import { FaCogs, FaUsers, FaLaptopCode } from 'react-icons/fa';
+import { FaLaptopCode } from 'react-icons/fa';
 import '../styles/ServicesSection.css';
-import '../styles/Global.css';
-import  UipathLogo from '../../assets/UiPath-Logo.png';
+import UipathLogo from '../../assets/UiPath-Logo.png';
 import PowerAutomateLogo from '../../assets/power-automate-logo-removebg-preview.png';
-import AgenticAiLogo from '../../assets/AgenticAiLogo.png'
+import AgenticAiLogo from '../../assets/AgenticAiLogo.png';
 import AutomationAnywher from '../../assets/Automation-Anywhere.png';
-import BluePrism from '../../assets/Blue-Prism.png'
-
-
-
+import BluePrism from '../../assets/Blue-Prism.png';
 
 const ServicesSection = () => {
   const sectionRef = useRef(null);
@@ -23,90 +19,82 @@ const ServicesSection = () => {
       rootMargin: '0px 0px -50px 0px'
     };
 
-    const appearOnScroll = new IntersectionObserver((entries) => {
+    const appearOnScroll = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('appear');
-          appearOnScroll.unobserve(entry.target);
+          observer.unobserve(entry.target);
         }
       });
     }, observerOptions);
 
-    // Observe section
-    if (sectionRef.current) {
-      appearOnScroll.observe(sectionRef.current);
-    }
+    if (sectionRef.current) appearOnScroll.observe(sectionRef.current);
+    if (headerRef.current) appearOnScroll.observe(headerRef.current);
+    if (subtitleRef.current) appearOnScroll.observe(subtitleRef.current);
 
-    // Observe header elements
-    [headerRef.current, subtitleRef.current].forEach(el => {
-      if (el) appearOnScroll.observe(el);
-    });
-
-    // Observe cards
     serviceCardsRef.current.forEach(card => {
       if (card) appearOnScroll.observe(card);
     });
 
-    return () => {
-      appearOnScroll.disconnect();
-    };
+    return () => appearOnScroll.disconnect();
   }, []);
 
   return (
-    <div className="services-section  " id="services" ref={sectionRef}>
-      <div className="section-header Allh1 headings ">
-        <h2 ref={headerRef}>What We Offer</h2>
-        <p className="section-subtitle AllP headingpara " ref={subtitleRef}>Tailored solutions for your success</p>
+    <section className="services-section" id="services" ref={sectionRef} aria-labelledby="services-heading">
+      <div className="section-header">
+        <h2 id="services-heading" ref={headerRef}>What We Offer</h2>
+        <p className="section-subtitle" ref={subtitleRef}>Tailored solutions for your success</p>
       </div>
       <div className="services-grid">
         {[
           {
-            icon: <img src={UipathLogo} alt="UiPath Logo" className="service-icon" />,
+            icon: <img src={UipathLogo} alt="UiPath Automation" className="service-icon" width="40" height="40" loading="lazy" />,
             title: "UiPath Automation",
             description: "End-to-end automation solutions with the industry-leading UiPath platform, featuring AI agents and Power Apps integration."
           },
           {
-            icon: <img src={PowerAutomateLogo} alt="Power Automate Logo" className="service-icon" />,
+            icon: <img src={PowerAutomateLogo} alt="Power Automate" className="service-icon" width="40" height="40" loading="lazy" />,
             title: "Power Automate",
             description: "Microsoft's powerful automation tools to streamline your workflows."
           },
           {
-            icon: <FaLaptopCode className="icon" />,
+            icon: <FaLaptopCode className="service-icon" aria-hidden="true" focusable="false" />,
             title: "Process Consulting",
             description: "Identify and optimize processes ready for automation."
           },
           {
-            icon: <img src={AutomationAnywher} alt=""  className="service-icon AutomationAnywher-Logo "   />,
+            icon: <img src={AutomationAnywher} alt="Automation Anywhere" className="service-icon AutomationAnywher-Logo" width="40" height="40" loading="lazy" />,
             title: "Automation Anywhere",
-            description: "Intelligent automation solutions  for complex business processes.Intelligent automation solutions "
+            description: "Intelligent automation solutions for complex business processes."
           },
           {
-            icon: <img src={BluePrism} alt=""  className="service-icon agenticailogo "   />,
+            icon: <img src={BluePrism} alt="Blue Prism" className="service-icon agenticailogo" width="40" height="40" loading="lazy" />,
             title: "Blue Prism",
             description: "Enterprise-grade RPA with digital workforce capabilities."
           },
           {
-            icon: <img src={AgenticAiLogo} alt=""  className="service-icon agenticailogo "   />,
+            icon: <img src={AgenticAiLogo} alt="Custom Automation Apps" className="service-icon agenticailogo" width="40" height="40" loading="lazy" />,
             title: "Custom Automation Apps",
             description: "Tailored automation applications for your specific business needs."
           }
         ].map((service, index) => (
-          <div 
+          <article 
             className="service-card" 
             key={index}
             ref={el => serviceCardsRef.current[index] = el}
             style={{ transitionDelay: `${index * 100}ms` }}
+            aria-labelledby={`service-title-${index}`}
           >
             <div className="icon-wrapper">
               {service.icon}
             </div>
-            <h3 className='Allh1'   >{service.title}</h3>
-            <p  className='AllP'  >{service.description}</p>
-          </div>
+            <h3 id={`service-title-${index}`}>{service.title}</h3>
+            <p>{service.description}</p>
+          </article>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 
-export default ServicesSection;
+export default React.memo(ServicesSection);
