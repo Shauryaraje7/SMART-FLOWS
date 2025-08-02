@@ -260,6 +260,8 @@ margin-top: 20px;
     margin-bottom: 25px;
     padding: 6px;
     min-height: 350px;
+    margin-left: -20px;
+    margin-right: -20px;
   }
   
   .testimonial-logo {
