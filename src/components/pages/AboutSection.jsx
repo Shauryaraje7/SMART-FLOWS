@@ -1,11 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
 import '../styles/AboutSection.css';
-import Robot from '../../assets/robot3.png'
+import Robot from '../../assets/robot3.png';
 import '../styles/Global.css';
 
-
-
-const AboutSection = () => {
+const AboutSection = React.memo(() => {
   const sectionRef = useRef(null);
   const imageWrapperRef = useRef(null);
   const titleRef = useRef(null);
@@ -23,7 +21,7 @@ const AboutSection = () => {
       rootMargin: '0px 0px -50px 0px'
     };
 
-    const appearOnScroll = new IntersectionObserver((entries) => {
+    const appearOnScroll = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('appear');
@@ -41,7 +39,7 @@ const AboutSection = () => {
             }
           }
           
-          appearOnScroll.unobserve(entry.target);
+          observer.unobserve(entry.target);
         }
       });
     }, observerOptions);
@@ -63,10 +61,15 @@ const AboutSection = () => {
     };
 
     // Observe elements
-    [sectionRef.current, imageWrapperRef.current, titleRef.current, 
-     descriptionRef.current, ctaGroupRef.current].forEach(el => {
-      if (el) appearOnScroll.observe(el);
-    });
+    const elementsToObserve = [
+      sectionRef.current, 
+      imageWrapperRef.current, 
+      titleRef.current, 
+      descriptionRef.current, 
+      ctaGroupRef.current
+    ].filter(Boolean);
+    
+    elementsToObserve.forEach(el => appearOnScroll.observe(el));
 
     // Observe stats
     statsRef.current.forEach(stat => {
@@ -79,51 +82,65 @@ const AboutSection = () => {
   }, []);
 
   return (
-    <section className="about-section   " ref={sectionRef}>
-      <div className="about-container ">
+    <section 
+      className="about-section" 
+      ref={sectionRef} 
+      id="about"
+      aria-labelledby="about-heading"
+    >
+      <div className="about-container">
         <div className="about-left">
           <div className="image-wrapper" ref={imageWrapperRef}>
             <img
               src={Robot}
-              alt="Our Team at Smart flows"
+              alt="Illustration of automation technology"
               className="about-image"
+              width="550"
+              height="550"
+              loading="lazy"
             />
-            <div className="image-overlay"></div>
+            <div className="image-overlay" aria-hidden="true"></div>
           </div>
         </div>
         <div className="about-right">
-          <h2 className="section-title Allh1 headings" ref={titleRef}>
+          <h2 className="section-title Allh1 headings" ref={titleRef} id="about-heading">
             About <span>SmartFlows</span>
           </h2>
-          <p className="section-description AllP headingpara " ref={descriptionRef}>
+          <p className="section-description AllP headingpara" ref={descriptionRef}>
             We're a passionate team of innovators dedicated to building digital solutions that drive growth.
             With a focus on cutting-edge technology and client collaboration, we turn complex challenges
             into seamless, scalable experiences.
           </p>
           <div className="cta-group" ref={ctaGroupRef}>
-            <a href="#contact" className="primary-btn">Get Started</a>
-            <a href="#process" className="secondary-btn">Our Process</a>
+            <a href="#contact" className="primary-btn" aria-label="Get started with SmartFlows">
+              Get Started
+            </a>
+            <a href="#process" className="secondary-btn" aria-label="Learn about our process">
+              Our Process
+            </a>
           </div>
           <div className="stats-grid">
-            <div 
+            <article 
               className="stat-item" 
               ref={el => statsRef.current[0] = el}
+              aria-label={`${projectCount}+ projects delivered`}
             >
               <span className="stat-number">{projectCount}+</span>
               <span className="stat-label">Projects Delivered</span>
-            </div>
-            <div 
+            </article>
+            <article 
               className="stat-item" 
               ref={el => statsRef.current[1] = el}
+              aria-label={`${satisfactionCount}% client satisfaction`}
             >
               <span className="stat-number">{satisfactionCount}%</span>
               <span className="stat-label">Client Satisfaction</span>
-            </div>
+            </article>
           </div>
         </div>
       </div>
     </section>
   );
-};
+});
 
 export default AboutSection;

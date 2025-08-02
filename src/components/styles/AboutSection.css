@@ -1,13 +1,11 @@
 /* About Section */
 .about-section {
-  padding: clamp(60px, 8vw, 1200px) 20px;
+  padding: clamp(60px, 8vw, 120px) 20px;
   background: linear-gradient(135deg, #f8fafc 0%, #f0fdfa 100%);
   position: relative;
   overflow: hidden;
-  height: 100%;
   z-index: 6;
-
-  
+  will-change: transform, opacity;
 }
 
 .about-section::before {
@@ -45,6 +43,7 @@
   border-radius: 24px;
   overflow: hidden;
   transform: perspective(1000px) rotateY(-5deg);
+  will-change: transform;
 }
 
 .about-image {
@@ -75,15 +74,13 @@
 }
 
 .section-title {
-
   font-weight: 800;
   line-height: 1.2;
   margin-bottom: 1.5rem;
   color: #0f172a;
   position: relative;
   display: inline-block;
-  letter-spacing: -0.02em; /* Improved letter spacing */
-
+  letter-spacing: -0.02em;
 }
 
 .section-title span {
@@ -108,9 +105,8 @@
   line-height: 1.8;
   color: #475569;
   margin-bottom: 2.5rem;
-  font-weight: 500; /* Added medium weight for better readability */
-  letter-spacing: 0.01em; /* Slightly tighter letter spacing */
-
+  font-weight: 500;
+  letter-spacing: 0.01em;
 }
 
 /* Buttons */
@@ -129,10 +125,10 @@
   font-size: clamp(1rem, 1.5vw, 1.2rem);
   cursor: pointer;
   transition: all 0.3s ease;
-  min-width: 16vw;
+  min-width: 120px;
   text-align: center;
-  font-family: 'Plus Jakarta Sans', sans-serif;
   letter-spacing: 0.02em;
+  will-change: transform;
 }
 
 .primary-btn {
@@ -184,22 +180,17 @@
   font-weight: 700;
   color: #00bcd4;
   margin-bottom: 0.5rem;
-
 }
 
 .stat-label {
   font-size: clamp(0.8rem, 1vw, 0.9rem);
   color: #64748b;
   font-weight: 500;
-
-  letter-spacing: 0.01em; /* Improved typography */
+  letter-spacing: 0.01em;
 }
 
 /* Responsive Adjustments */
 @media (max-width: 1024px) {
-  .about-section{
-    height: 100%;
-  }
   .about-container {
     gap: 3rem;
   }
@@ -308,22 +299,23 @@
   transform: translateY(0);
 }
 
-
-
-
-
-
-@media (max-width: 1024px) {
-
- .about-section{
-  margin: 0px;
- }
+/* Reduced motion media query */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
   
+  .about-section,
+  .image-wrapper,
+  .section-title,
+  .section-description,
+  .cta-group,
+  .stat-item {
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }
-
-
-
-
-
-
-
