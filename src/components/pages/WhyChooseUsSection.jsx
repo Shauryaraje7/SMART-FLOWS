@@ -2,9 +2,6 @@ import React, { useEffect, useRef } from 'react';
 import '../styles/WhyChooseUsSection.css';
 import '../styles/Global.css';
 
-
-
-
 const WhyChooseUsSection = () => {
   const sectionRef = useRef(null);
   const titleRef = useRef(null);
@@ -17,7 +14,7 @@ const WhyChooseUsSection = () => {
       rootMargin: '0px 0px -50px 0px'
     };
 
-    const appearOnScroll = new IntersectionObserver((entries) => {
+    const appearOnScroll = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('appear');
@@ -27,14 +24,18 @@ const WhyChooseUsSection = () => {
             entry.target.style.transitionDelay = `${delay}ms`;
           }
           
-          appearOnScroll.unobserve(entry.target);
+          observer.unobserve(entry.target);
         }
       });
     }, observerOptions);
 
-    [sectionRef.current, titleRef.current, subtitleRef.current].forEach(el => {
-      if (el) appearOnScroll.observe(el);
-    });
+    const elementsToObserve = [
+      sectionRef.current, 
+      titleRef.current, 
+      subtitleRef.current
+    ].filter(Boolean);
+    
+    elementsToObserve.forEach(el => appearOnScroll.observe(el));
 
     cardsRef.current.forEach((card, index) => {
       if (card) {
@@ -49,13 +50,22 @@ const WhyChooseUsSection = () => {
   }, []);
 
   return (
-    <section className="choose-us-section" ref={sectionRef}>
+    <section 
+      className="choose-us-section" 
+      ref={sectionRef}
+      id="why-choose-us"
+      aria-labelledby="why-choose-us-heading"
+    >
       <div className="choose-us-container">
         <div className="section-header-Chooseus">
-          <h2 className="section-title-Chooseus Allh1 headings" ref={titleRef}>
+          <h2 
+            className="section-title-Chooseus Allh1 headings" 
+            ref={titleRef}
+            id="why-choose-us-heading"
+          >
             Why <span>Choose Us</span>
           </h2>
-          <p className="section-subtitle-Chooseus AllP headingpara " ref={subtitleRef}>
+          <p className="section-subtitle-Chooseus AllP headingpara" ref={subtitleRef}>
             We're not just developers — we're your digital partners. Here's why brands trust SmartFlows.
           </p>
         </div>
@@ -93,18 +103,19 @@ const WhyChooseUsSection = () => {
               description: "Bot orchestration across departments with self-healing workflows and exception handling for 24/7 reliability."
             }
           ].map((card, index) => (
-            <div 
+            <article 
               className="choose-card" 
               key={index}
               ref={el => cardsRef.current[index] = el}
+              aria-labelledby={`card-title-${index}`}
             >
-              <div className="card-badge">{card.badge}</div>
+              <div className="card-badge" aria-hidden="true">{card.badge}</div>
               <div className="icon-wrapper">
-                <div className="choose-icon">{card.icon}</div>
+                <div className="choose-icon" aria-hidden="true">{card.icon}</div>
               </div>
-              <h3 className='Allh1'  >{card.title}</h3>
-              <p className='AllP' >{card.description}</p>
-            </div>
+              <h3 id={`card-title-${index}`} className="Allh1">{card.title}</h3>
+              <p className="AllP">{card.description}</p>
+            </article>
           ))}
         </div>
       </div>
@@ -112,4 +123,4 @@ const WhyChooseUsSection = () => {
   );
 };
 
-export default WhyChooseUsSection;
+export default React.memo(WhyChooseUsSection);
