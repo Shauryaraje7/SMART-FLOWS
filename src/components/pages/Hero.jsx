@@ -1,46 +1,40 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import '../styles/Hero.css';
+import backgroundImage from '../../assets/background101.png';
 
-const Hero = React.memo(() => {
-  const bgImageRef = useRef(null);
+const Hero = () => {
+  const [imageLoaded, setImageLoaded] = useState(false);
+  const bgRef = useRef(null);
 
   useEffect(() => {
-    // Preload critical image
+    // Preload the background image
     const img = new Image();
-    img.src = '/assets/background101-optimized.webp';
+    img.src = backgroundImage;
     img.onload = () => {
-      if (bgImageRef.current) {
-        bgImageRef.current.classList.add('loaded');
+      setImageLoaded(true);
+      if (bgRef.current) {
+        bgRef.current.style.backgroundImage = `url(${backgroundImage})`;
       }
     };
 
-    // Load mobile image if needed
-    if (window.innerWidth <= 768) {
-      const mobileImg = new Image();
-      mobileImg.src = '/assets/background101-mobile-optimized.webp';
-    }
+    // Fallback if image fails to load
+    img.onerror = () => {
+      if (bgRef.current) {
+        bgRef.current.style.backgroundColor = '#f0fdfa';
+      }
+    };
   }, []);
 
   return (
-    <section className="hero-container" id="home">
-      {/* Optimized background image loading */}
-      <picture>
-        <source 
-          media="(max-width: 768px)" 
-          srcSet="/assets/background101-mobile-optimized.webp" 
-        />
-        <img
-          ref={bgImageRef}
-          className="hero-bg-image"
-          src="/assets/background101-optimized.webp"
-          alt="Decorative background"
-          loading="eager"
-          decoding="async"
-          width="1920"
-          height="1080"
-        />
-      </picture>
-      
+    <section 
+      className="hero-container" 
+      id="home"
+      ref={bgRef}
+      style={{
+        backgroundImage: imageLoaded ? `url(${backgroundImage})` : 'none',
+        backgroundColor: '#f0fdfa' // Fallback color
+      }}
+    >
       <div className="hero-overlay"></div>
       
       <div className="hero-content">
@@ -57,6 +51,6 @@ const Hero = React.memo(() => {
       </div>
     </section>
   );
-});
+};
 
-export default Hero;
+export default React.memo(Hero);
