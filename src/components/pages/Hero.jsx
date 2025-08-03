@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import '../styles/Hero.css';
-import backgroundImage from '../../assets/background101.png';
+import backgroundImage from '../../assets/background104.jpeg';
 
 const Hero = () => {
   const [imageLoaded, setImageLoaded] = useState(false);

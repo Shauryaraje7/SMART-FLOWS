@@ -117,7 +117,7 @@ function Navbar() {
 
               <div className="button-container">
                 <button className="navbar-btn" onClick={handleBookAppointment}>
-                  <span>Book A Call</span>
+                  <span>Book  Call</span>
                   
                 </button>
               </div>
