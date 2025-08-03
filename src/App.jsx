@@ -2,12 +2,10 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Courses from './components/pages/courses.jsx';
-// import './components/styles/Home.css'
 import './App.css';
 
 // Import all sections directly
 import Hero from './components/pages/Hero.jsx';
-
 import ServicesSection from './components/pages/ServicesSection.jsx';
 import AboutSection from './components/pages/AboutSection.jsx';
 import WhyChooseUsSection from './components/pages/WhyChooseUsSection.jsx';
@@ -19,7 +17,7 @@ import FooterSection from './components/pages/FooterSection.jsx';
 
 function HomeContent() {
   return (
-    <><div className="appcontainer">
+    <div className="appcontainer">
       <Hero />
       <ServicesSection />
       <AboutSection />
@@ -29,8 +27,7 @@ function HomeContent() {
       <FAQSection />
       <ContactSection />
       <FooterSection />
-      </div>
-    </>
+    </div>
   );
 }
 
@@ -43,6 +40,13 @@ function App() {
           <Routes>
             <Route path="/" element={<HomeContent />} />
             <Route path="/courses" element={<Courses />} />
+            {/* Add a catch-all route for 404 pages */}
+            <Route path="*" element={
+              <div style={{ padding: '2rem', textAlign: 'center' }}>
+                <h1>404 - Page Not Found</h1>
+                <p>The page you're looking for doesn't exist.</p>
+              </div>
+            } />
           </Routes>
         </main>
       </div>
