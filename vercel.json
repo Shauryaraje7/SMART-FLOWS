@@ -11,17 +11,14 @@
   ],
   "routes": [
     {
-      "src": "/static/(.*)",
+      "src": "/assets/(.*)",
       "headers": {
         "Cache-Control": "public, max-age=31536000, immutable"
       }
     },
     {
       "src": "/(.*)",
-      "dest": "/index.html",
-      "headers": {
-        "Cache-Control": "no-cache"
-      }
+      "dest": "/index.html"
     }
   ]
 }
