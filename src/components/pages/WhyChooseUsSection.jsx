@@ -113,8 +113,8 @@ const WhyChooseUsSection = () => {
               <div className="icon-wrapper">
                 <div className="choose-icon" aria-hidden="true">{card.icon}</div>
               </div>
-              <h3 id={`card-title-${index}`} className="Allh1">{card.title}</h3>
-              <p className="AllP">{card.description}</p>
+              <h3 id={`card-title-${index}`} className="Allh1 smallheading ">{card.title}</h3>
+              <p className="AllP smallpara ">{card.description}</p>
             </article>
           ))}
         </div>

@@ -9,20 +9,62 @@
 .headingpara{
     font-size: 23px;
 }
-
-
 .headings{
 
   font-size: clamp(2rem, 5vw, 3rem);
 
 }
+
+.smallheading{
+  font-size:28px;
+}
+
+ .smallpara{
+    font-size: 20px;
+}
+
+
+
 @media (max-width: 1024px) {
 
-.headingpara{
-    font-size: 16px;
+.smallheading{
+  font-size:80px;
+}
+
+ .smallpara{
+    font-size: 17px;
 }
   
 }
+
+
+
+
+
+
+
+
+
+@media (max-width: 480px) {
+
+.smallheading{
+   font-size:30px;
+}
+
+ .smallpara{
+    font-size: 17px;
+}
+.headingpara{
+    font-size: 20px;
+}
+
+}
+
+
+
+
+
+
 
 
 

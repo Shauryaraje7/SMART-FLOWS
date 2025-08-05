@@ -168,7 +168,7 @@
 }
 
 .service-card h3 {
-  font-size: clamp(1.3rem, 2vw, 1.5rem);
+
   font-weight: 700;
   margin-bottom: clamp(10px, 2vw, 15px);
   color: #0f172a;
@@ -176,7 +176,7 @@
 }
 
 .service-card p {
-  font-size: clamp(1rem, 1.2vw, 1.05rem);
+
   color: #475569;
   line-height: 1.8;
   margin: 0;

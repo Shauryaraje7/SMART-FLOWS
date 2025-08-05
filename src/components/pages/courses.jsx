@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import '../styles/courses.css';
 import '../styles/Global.css';
 
+import FooterSection from './FooterSection.jsx';
+
 const CoursePage = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [activeFilter, setActiveFilter] = useState('All');
@@ -694,9 +696,12 @@ const CoursePage = () => {
       </div>
     </div>
   </div>
-)}
+  
+)}  <FooterSection />
      
     </div>
+
+    
   );
 };
 

@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { FaLaptopCode } from 'react-icons/fa';
 import '../styles/ServicesSection.css';
+import '../styles/Global.css';
 import UipathLogo from '../../assets/UiPath-Logo.png';
 import PowerAutomateLogo from '../../assets/power-automate-logo-removebg-preview.png';
 import AgenticAiLogo from '../../assets/AgenticAiLogo.png';
@@ -88,8 +89,8 @@ const ServicesSection = () => {
             <div className="icon-wrapper">
               {service.icon}
             </div>
-            <h3  className='Allh1'  id={`service-title-${index}`}>{service.title}</h3>
-            <p  className='AllP'  >{service.description}</p>
+            <h3  className='Allh1 smallheading '  id={`service-title-${index}`}>{service.title}</h3>
+            <p  className='AllP  smallpara '  >{service.description}</p>
           </article>
         ))}
       </div>

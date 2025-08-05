@@ -66,9 +66,6 @@ function Navbar() {
             </Link>
           </div>
 
-
-
-
           <div className={`navbar-links ${isOpen ? 'active' : ''}`}>
             <NavLink
               to="/"
@@ -105,35 +102,32 @@ function Navbar() {
               <span>Courses</span>
             </NavLink>
 
-            {/* Group Contact and Button together */}
-            <div className="contact-and-button">
-              <a
-                href="#contact"
-                onClick={(e) => handleInPageNavigation('#contact', e)}
-                className="nav-link contact-link-navbar"
-              >
-                <span>Contact</span>
-              </a>
+            {/* Contact link in mobile menu */}
+            <a
+              href="#contact"
+              onClick={(e) => handleInPageNavigation('#contact', e)}
+              className="nav-link mobile-contact-link"
+            >
+              <span>Contact</span>
+            </a>
 
+            {/* This will be hidden on mobile */}
+            <div className="contact-and-button">
+              
               <div className="button-container">
                 <button className="navbar-btn" onClick={handleBookAppointment}>
-                  <span>Book  Call</span>
-                  
+                  <span>Book a Demo</span>
                 </button>
               </div>
             </div>
           </div>
 
-
-
-
-
-
-
-
-
-
-
+          {/* Mobile button container */}
+          <div className="mobile-button-container">
+            <button className="navbar-btn" onClick={handleBookAppointment}>
+              <span>Book Demo</span>
+            </button>
+          </div>
 
           <button
             className={`hamburger ${isOpen ? 'active' : ''}`}

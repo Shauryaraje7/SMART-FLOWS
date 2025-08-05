@@ -5,7 +5,7 @@ import twittericon from '../../assets/twitter.svg';
 import linkedinicon from '../../assets/linkedin.svg';
 import instaicon from '../../assets/instagram.svg';
 import gmailicon from '../../assets/gmail.svg';
-import Mainlogo from '../../assets/Logomain3.png';
+import Mainlogo from '../../assets/logo-for-footer.png';
 
 const FooterSection = () => {
   const [email, setEmail] = useState('');

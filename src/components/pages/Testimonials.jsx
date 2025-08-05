@@ -164,11 +164,7 @@ const TestimonialSlider = () => {
             modifier: 2.5,
             slideShadows: false,
           }}
-          pagination={{ clickable: true }}
-          navigation={{
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-          }}
+          
           className="testimonial-slider"
           breakpoints={{
             320: {
@@ -220,15 +216,7 @@ const TestimonialSlider = () => {
 
        
         </Swiper>
-           <div className="testimonial-slider-control">
-            <div className="swiper-button-prev slider-arrow">
-        
-            </div>
-            <div className="swiper-button-next slider-arrow">
-             
-            </div>
-            <div className="swiper-pagination"></div>
-          </div>
+
       </div>
     </section>
   );

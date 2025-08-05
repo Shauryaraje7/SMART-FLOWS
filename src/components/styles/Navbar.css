@@ -101,7 +101,7 @@
   color: #0f172a;
   padding: 10px 20px;
   border: none;
-  border-radius: 15px;
+  border-radius: 8px;
   font-weight: 600;
   font-size: 20px;
   cursor: pointer;
@@ -197,6 +197,11 @@
   background: #00bcd4;
 }
 
+/* Mobile Button Container */
+.mobile-button-container {
+  display: none;
+}
+
 /* Responsive Design - Modified Mobile Menu */
 .contact-and-button{
   display: flex;
@@ -217,6 +222,29 @@
   }
   .navbar.scrolled {
     top: 0;
+  }
+
+  /* Move button next to hamburger */
+  .mobile-button-container {
+    display: block;
+    margin-right: 15px;
+  }
+
+  .mobile-button-container .navbar-btn {
+    padding: 8px 12px;
+    font-size: 14px;
+    margin-right: 10px;
+  }
+
+  /* Hide the desktop contact-and-button container */
+  .contact-and-button {
+    display: none;
+  }
+
+  /* Show contact link in mobile menu */
+  .mobile-contact-link {
+    display: block !important;
+    text-align: center;
   }
 
   .navbar-links {
@@ -253,24 +281,6 @@
   .navbar-links.active {
     max-height: 500px;
     padding: 20px;
-  }
-
-  .navbar-links .contact-and-button {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    width: 100%;
-    font-family: "Times New Roman", Times, serif;
-  }
-
-  .navbar-links .contact-link-navbar {
-    grid-column: 1;
-    font-family: "Times New Roman", Times, serif;
-  }
-
-  .navbar-links .button-container {
-    grid-column: 2;
-    font-family: "Times New Roman", Times, serif;
   }
 
   .nav-link {
