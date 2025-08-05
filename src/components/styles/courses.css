@@ -47,21 +47,21 @@ body {
   background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjA1KSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3QgZmlsbD0idXJsKCNwYXR0ZXJuKSIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIvPjwvc3ZnPg==');
 }
 
-.hero-content {
+.hero-content-course {
   max-width: 800px;
-  margin: 0 auto;
+  margin: 30px auto;
   position: relative;
   z-index: 1;
 }
 
-.hero-content h1 {
+.hero-content-course h1 {
   font-size: 3rem;
   margin-bottom: 1rem;
   font-weight: 700;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.hero-content p {
+.hero-content-course p {
   font-size: 1.2rem;
   opacity: 0.9;
 }
@@ -857,12 +857,15 @@ body {
 }
 
 .form-group label {
-  font-weight: 600;
-  color: #4a5568;
-  font-size: 0.95rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+bottom: 51px;
+    position: absolute;
+    /* top: 15px; */
+    /* left: 20px; */
+    color: #94a3b8;
+    transition: all 0.3s ease;
+    pointer-events: none;
+    /* background: #f8fafc; */
+  
 }
 
 .form-group label i {
@@ -921,6 +924,9 @@ body {
 }
 
 .checkbox-group label {
+  position: relative;
+  bottom:4px;
+  margin-left: 20px;
   font-weight: normal;
   font-size: 0.9rem;
   color: #4a5568;

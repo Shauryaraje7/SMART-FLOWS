@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import '../styles/courses.css';
-
+import '../styles/Global.css';
 
 const CoursePage = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -324,15 +324,15 @@ const CoursePage = () => {
   return (
     <div className="course-page">
       <div className="course-hero">
-        <div className="hero-content">
-          <h1>Transform Your Career with Automation</h1>
+        <div className="hero-content-course">
+          <h1 className='Allh1'  >Transform Your Career with Automation</h1>
           <p>Master the tools that are shaping the future of business processes</p>
         </div>
       </div>
 
       <div className="course-container">
         <div className="course-header">
-          <h2>Our Automation Courses</h2>
+          <h2  className='Allh1'  >Our Automation Courses</h2>
           <p className="subtitle">Browse our comprehensive curriculum designed for all skill levels</p>
           
           <div className="controls-container">
@@ -661,9 +661,7 @@ const CoursePage = () => {
           </div>
           
           <div className="form-group">
-            <label htmlFor="goals">
-              <i className="fas fa-bullseye"></i> Learning Goals
-            </label>
+          
             <textarea 
               id="goals" 
               name="goals"
@@ -674,8 +672,9 @@ const CoursePage = () => {
             ></textarea>
           </div>
           
-          <div className="form-group checkbox-group">
+          <div className=" checkbox-group">
             <input 
+          
               type="checkbox" 
               id="terms" 
               name="terms"
@@ -683,7 +682,7 @@ const CoursePage = () => {
               onChange={handleInputChange}
               required 
             />
-            <label htmlFor="terms">
+            <label    className='enroll-form-checkbox'  htmlFor="terms">
               I agree to the <a href="#">terms and conditions</a> and <a href="#">privacy policy</a>
             </label>
           </div>

@@ -136,7 +136,7 @@ Best regards,
 
         <div className="contact-content">
           <form className="contact-form AllP " ref={formRef} onSubmit={handleSubmit}>
-            <div className="form-group">
+            <div className="form-group-contactform">
               <input 
                 type="text" 
                 name="name"
@@ -148,7 +148,7 @@ Best regards,
               <label>Your Name</label>
             </div>
             
-            <div className="form-group">
+            <div className="form-group-contactform">
               <input 
                 type="email" 
                 name="email"
@@ -160,7 +160,7 @@ Best regards,
               <label>Your Email</label>
             </div>
             
-            <div className="form-group">
+            <div className="form-group-contactform">
               <textarea 
                 rows="5" 
                 name="message"
