@@ -42,7 +42,7 @@ const ServicesSection = () => {
   return (
     <section className="services-section" id="services" ref={sectionRef} aria-labelledby="services-heading">
       <div className="section-header">
-        <h2 id="services-heading" className='Allh1'  ref={headerRef}>What We Offer</h2>
+        <h2 id="services-heading" className='Allh1 headings '  ref={headerRef}>What We Offer</h2>
         <p className="section-subtitle" ref={subtitleRef}>Tailored solutions for your success</p>
       </div>
       <div className="services-grid">
