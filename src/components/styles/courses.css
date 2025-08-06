@@ -1079,6 +1079,10 @@ body {
 }
 
 @media (max-width: 480px) {
+.hero-content-course{
+  margin-top: 15vh;
+} 
+
   .modal-content {
     padding: 1.8rem 1.2rem;
     width: 95%;

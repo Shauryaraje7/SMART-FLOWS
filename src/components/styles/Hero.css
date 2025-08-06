@@ -10,11 +10,9 @@
   overflow: hidden;
   margin: 0;
   font-family: system-ui, -apple-system, sans-serif;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   will-change: transform;
 }
+
 
 .hero-overlay {
   position: absolute;
