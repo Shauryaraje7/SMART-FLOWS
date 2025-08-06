@@ -101,7 +101,7 @@
 }
 
 .section-description {
-  font-size: clamp(1rem, 1.15vw, 1.15rem);
+
   line-height: 1.8;
   color: #475569;
   margin-bottom: 2.5rem;
