@@ -267,7 +267,7 @@
 
 @media (max-width: 768px) {
   .footer-main {
-    flex-direction: column;
+  flex-direction: column-reverse;
     gap: 40px;
   }
   
@@ -307,6 +307,7 @@
   }
   
   .footer-main {
+    flex-direction: column-reverse;
     margin-bottom: 40px;
   }
   
