@@ -1,6 +1,12 @@
 import React, { useState } from 'react';
 import '../styles/courses.css';
 import '../styles/Global.css';
+import UipathLogo from '../../assets/Ui-path-cloured-logo.svg';
+
+
+
+
+
 
 import FooterSection from './FooterSection.jsx';
 
@@ -21,12 +27,13 @@ const CoursePage = () => {
   });
 
   const courses = [
-    { 
+    {
       id: 1,
       name: 'UiPath Automation',
       levels: {
-         Beginner: {
+        Beginner: {
           title: 'UiPath Automation – Beginner',
+          imageUrl: UipathLogo,
           description: 'A beginner-friendly course to get started with UiPath. Build real-world bots, automate tasks, and understand core RPA concepts from the ground up — no prior experience needed.',
           detailedDescription: 'This foundational UiPath course is designed to introduce aspiring automation professionals to the world of Robotic Process Automation. You\'ll learn the basics of building automation workflows, using UiPath Studio, variables, activities, control flow, error handling, and more. By the end of the course, you\'ll be able to design and deploy your own bots for daily business tasks.',
           duration: '20+ hours',
@@ -38,9 +45,10 @@ const CoursePage = () => {
           instructor: 'Marcelo Cruz',
           instructorBio: 'UiPath MVP with 6+ years of RPA development experience.'
         },
-       Intermediate: {
+        Intermediate: {
           title: 'UiPath Automation – Intermediate',
           description: 'Build on your UiPath fundamentals with advanced workflow logic, arguments, exception handling and deployment practices. Ideal for professionals preparing for UiPath certifications.',
+          imageUrl: UipathLogo,
           detailedDescription: 'Take your UiPath automation skills to the next level with this intermediate course focused on building robust, scalable bots. Learn how to manage workflows, use data scraping, automate in Citrix environments, and deploy bots via Orchestrator.',
           duration: '24 hours live + 13 hours self-paced',
           mode: 'Blended',
@@ -51,9 +59,10 @@ const CoursePage = () => {
           instructor: 'SmartFlows Corporate Trainers',
           instructorBio: 'Corporate trainers from SmartFlows with deep experience in RPA project delivery and certification preparation.'
         },
-          Advanced: {
+        Advanced: {
           title: 'UiPath Automation – Advanced',
           description: 'Master enterprise-grade UiPath automation with hands-on projects. Learn how to build reusable components and deploy production-ready bots.',
+          imageUrl: UipathLogo,
           detailedDescription: 'This advanced UiPath course helps you move beyond basics to become an expert in building real-world bots. You\'ll use REFramework, APIs, orchestrator queues, and intelligent document processing to automate complex business workflows.',
           duration: 'Project-based (~15 hours)',
           mode: 'Self-paced',
@@ -74,7 +83,7 @@ const CoursePage = () => {
         { name: 'Priya K.', rating: 4, comment: 'Excellent content and instructor support' }
       ]
     },
-    { 
+    {
       id: 2,
       name: 'Power Apps',
       levels: {
@@ -123,11 +132,11 @@ const CoursePage = () => {
         { name: 'Sophia G.', rating: 4, comment: 'Great real-world examples' }
       ]
     },
-    { 
+    {
       id: 3,
       name: 'Automation Anywhere',
       levels: {
-       Beginner: {
+        Beginner: {
           title: 'Automation Anywhere – Beginner',
           description: 'Start building bots using Automation Anywhere. Learn platform essentials, bot creation, and document automation.',
           detailedDescription: 'This beginner course teaches you how to build bots with Automation Anywhere\'s Task Bots and MetaBots. Explore the Control Room, document automation, and prepare for official AA certification.',
@@ -149,7 +158,7 @@ const CoursePage = () => {
           prerequisites: 'Automation Anywhere Beginner course or equivalent knowledge',
           certification: 'Automation Anywhere Certified Advanced RPA Professional'
         },
-       Advanced: {
+        Advanced: {
           title: 'Automation Anywhere – Advanced',
           description: 'Master intelligent automation with Automation Anywhere. Includes OpenAI/GPT integration and real-world bots.',
           detailedDescription: 'This hands-on course covers advanced bot building with Automation Anywhere, error handling, deployment, and integrations with AI. Build 7 real-world bots and even integrate with OpenAI GPT to create intelligent digital workers.',
@@ -172,7 +181,7 @@ const CoursePage = () => {
         { name: 'James P.', rating: 4, comment: 'Good pace and coverage of topics' }
       ]
     },
-    { 
+    {
       id: 4,
       name: 'Blue Prism',
       levels: {
@@ -221,11 +230,11 @@ const CoursePage = () => {
         { name: 'Ava S.', rating: 5, comment: 'Best RPA course Ive taken' }
       ]
     },
-    { 
+    {
       id: 5,
       name: 'Custom Automation Apps',
       levels: {
-                Beginner: {
+        Beginner: {
           title: 'Power Apps – Beginner',
           description: 'Build your first custom business app without writing code. Learn to create Canvas and Model-driven apps from scratch.',
           detailedDescription: 'Learn how to use Microsoft Power Apps to rapidly build mobile-friendly, data-driven applications. This beginner course covers Canvas apps, screen design, formulas, and integrations with Excel and SharePoint.',
@@ -247,7 +256,7 @@ const CoursePage = () => {
           prerequisites: 'Custom Automation Beginner course or equivalent knowledge',
           certification: 'Custom Automation Professional Certificate'
         },
-          Advanced: {
+        Advanced: {
           title: 'Power Apps – Advanced',
           description: 'Create advanced business applications using Power Apps and Dataverse. Perfect for developers and tech-savvy users.',
           detailedDescription: 'Learn to build advanced Canvas and Model-driven apps, use custom connectors, and manage app lifecycle with Dataverse. Covers real-world integrations and enterprise app deployment techniques.',
@@ -275,12 +284,12 @@ const CoursePage = () => {
   const levels = ['All', 'Beginner', 'Intermediate', 'Advanced'];
 
   const filteredCourses = courses
-    .filter(course => 
+    .filter(course =>
       (course.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      Object.keys(course.levels).some(level => level.toLowerCase().includes(searchTerm.toLowerCase()))) &&
+        Object.keys(course.levels).some(level => level.toLowerCase().includes(searchTerm.toLowerCase()))) &&
       (activeFilter === 'All' || activeFilter in course.levels)
     )
-    .flatMap(course => 
+    .flatMap(course =>
       Object.entries(course.levels).map(([level, levelData]) => ({
         ...course,
         level: level,
@@ -334,9 +343,9 @@ const CoursePage = () => {
 
       <div className="course-container">
         <div className="course-header">
-          <h2  className='Allh1'  >Our Automation Courses</h2>
+          <h2 className='Allh1'  >Our Automation Courses</h2>
           <p className="subtitle">Browse our comprehensive curriculum designed for all skill levels</p>
-          
+
           <div className="controls-container">
             <div className="search-filter-container">
               <div className="search-container">
@@ -368,14 +377,14 @@ const CoursePage = () => {
 
         <div className="course-grid">
           {filteredCourses.map((course, index) => (
-            <div 
+            <div
               className="course-card"
               key={`${course.id}-${course.level}`}
               style={{ '--accent-color': course.accentColor }}
               onClick={() => handleCourseClick(course)}
             >
               <div className="course-image">
-                <img src={course.imageUrl} alt={`${course.name} ${course.level}`} />
+                <img src={course.levelData.imageUrl} alt={course.name} />
                 <div className="course-badge">{course.level}</div>
               </div>
               <div className="course-info">
@@ -385,8 +394,8 @@ const CoursePage = () => {
                   <span><i className="fas fa-star"></i> {course.rating}</span>
                 </div>
                 <p className="course-description">{course.levelData.description}</p>
-                
-                <button 
+
+                <button
                   className="enroll-button"
                   onClick={(e) => {
                     e.stopPropagation();
@@ -406,23 +415,23 @@ const CoursePage = () => {
         <div className="course-details-modal">
           <div className="modal-overlay" onClick={() => setShowCourseModal(false)}></div>
           <div className="modal-content">
-            <button 
-              className="close-modal" 
+            <button
+              className="close-modal"
               onClick={() => setShowCourseModal(false)}
             >
               <i className="fas fa-times"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M18 6L6 18" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M6 6L18 18" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-</svg></i>
+                <path d="M18 6L6 18" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M6 6L18 18" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg></i>
             </button>
-            
+
             <div className="modal-header">
               <h3>{selectedCourse.name} - {selectedCourse.level}</h3>
               <div className="course-rating">
                 <span className="stars">
                   {[...Array(5)].map((_, i) => (
-                    <i 
-                      key={i} 
+                    <i
+                      key={i}
                       className={`fas fa-star ${i < Math.floor(selectedCourse.rating) ? 'filled' : ''} ${i === Math.floor(selectedCourse.rating) && selectedCourse.rating % 1 >= 0.5 ? 'half-filled' : ''}`}
                     ></i>
                   ))}
@@ -508,8 +517,8 @@ const CoursePage = () => {
                         <div className="reviewer">{review.name}</div>
                         <div className="review-stars">
                           {[...Array(5)].map((_, i) => (
-                            <i 
-                              key={i} 
+                            <i
+                              key={i}
                               className={`fas fa-star ${i < review.rating ? 'filled' : ''}`}
                             ></i>
                           ))}
@@ -522,8 +531,8 @@ const CoursePage = () => {
               </div>
             </div>
 
-       <div className="modal-footer">
-              <button 
+            <div className="modal-footer">
+              <button
                 className="enroll-now-button"
                 onClick={handleEnrollClick}
               >
@@ -534,174 +543,174 @@ const CoursePage = () => {
         </div>
       )}
 
-    {/* Enrollment Modal */}
-{showEnrollmentModal && selectedCourse && (
-  <div className="enrollment-modal">
-    <div className="modal-overlay" onClick={() => setShowEnrollmentModal(false)}></div>
-    <div className="modal-content">
-      <button 
-        className="close-modal" 
-        onClick={() => setShowEnrollmentModal(false)}
-      >
-        <i className="fas fa-times"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M18 6L6 18" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M6 6L18 18" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-</svg></i>
-      </button>
-      
-      <div className="enrollment-header">
-        <h3>Enroll in <span className="course-name">{selectedCourse.name}</span></h3>
-        <p className="course-level">{selectedCourse.level} Level</p>
-        <div className="header-decoration">
-          <div className="decoration-circle"></div>
-          <div className="decoration-circle"></div>
-          <div className="decoration-circle"></div>
-        </div>
-      </div>
-      
-      <div className="modal-body">
-        <div className="course-info-banner">
-          <div className="banner-content">
-            <div className="banner-left">
-              <img src={selectedCourse.imageUrl} alt={selectedCourse.name} />
-              <div className="banner-details">
-                <p><i className="fas fa-clock"></i> {selectedCourse.levelData.duration}</p>
-                <p><i className="fas fa-chalkboard-teacher"></i> {selectedCourse.instructor}</p>
-              </div>
-            </div>
-            <div className="banner-right">
-              <div className="price-tag">
-                <span className="original-price"> Rs. 299</span>
-                <span className="discounted-price">Rs. 249</span>
-                <span className="discount-badge">Save Rs. 50</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <form className="enrollment-form" onSubmit={handleEnrollmentSubmit}>
-          <h4 className="form-title">Your Information</h4>
-          
-          <div className="form-row">
-            <div className="form-group">
-              <label htmlFor="firstName">
-                <i className="fas fa-user"></i> First Name
-              </label>
-              <input 
-                type="text" 
-                id="firstName" 
-                name="firstName"
-                placeholder="Enter your first name" 
-                value={formData.firstName}
-                onChange={handleInputChange}
-                required 
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="lastName">
-                <i className="fas fa-user"></i> Last Name
-              </label>
-              <input 
-                type="text" 
-                id="lastName" 
-                name="lastName"
-                placeholder="Enter your last name" 
-                value={formData.lastName}
-                onChange={handleInputChange}
-                required 
-              />
-            </div>
-          </div>
-          
-          <div className="form-row">
-            <div className="form-group">
-              <label htmlFor="email">
-                <i className="fas fa-envelope"></i> Email Address
-              </label>
-              <input 
-                type="email" 
-                id="email" 
-                name="email"
-                placeholder="Enter your email" 
-                value={formData.email}
-                onChange={handleInputChange}
-                required 
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="phone">
-                <i className="fas fa-phone"></i> Phone Number
-              </label>
-              <input 
-                type="tel" 
-                id="phone" 
-                name="phone"
-                placeholder="Enter your phone number" 
-                value={formData.phone}
-                onChange={handleInputChange}
-                required 
-              />
-            </div>
-          </div>
-          
-          <div className="form-group">
-            <label htmlFor="experience">
-              <i className="fas fa-chart-line"></i> Current Experience Level
-            </label>
-            <select 
-              id="experience" 
-              name="experience"
-              value={formData.experience}
-              onChange={handleInputChange}
-              required
+      {/* Enrollment Modal */}
+      {showEnrollmentModal && selectedCourse && (
+        <div className="enrollment-modal">
+          <div className="modal-overlay" onClick={() => setShowEnrollmentModal(false)}></div>
+          <div className="modal-content">
+            <button
+              className="close-modal"
+              onClick={() => setShowEnrollmentModal(false)}
             >
-              <option value="">Select your experience</option>
-              <option value="beginner">Beginner (0-1 years)</option>
-              <option value="intermediate">Intermediate (1-3 years)</option>
-              <option value="advanced">Advanced (3+ years)</option>
-            </select>
+              <i className="fas fa-times"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18 6L6 18" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M6 6L18 18" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg></i>
+            </button>
+
+            <div className="enrollment-header">
+              <h3>Enroll in <span className="course-name">{selectedCourse.name}</span></h3>
+              <p className="course-level">{selectedCourse.level} Level</p>
+              <div className="header-decoration">
+                <div className="decoration-circle"></div>
+                <div className="decoration-circle"></div>
+                <div className="decoration-circle"></div>
+              </div>
+            </div>
+
+            <div className="modal-body">
+              <div className="course-info-banner">
+                <div className="banner-content">
+                  <div className="banner-left">
+                    <img src={selectedCourse.imageUrl} alt={selectedCourse.name} />
+                    <div className="banner-details">
+                      <p><i className="fas fa-clock"></i> {selectedCourse.levelData.duration}</p>
+                      <p><i className="fas fa-chalkboard-teacher"></i> {selectedCourse.instructor}</p>
+                    </div>
+                  </div>
+                  <div className="banner-right">
+                    <div className="price-tag">
+                      <span className="original-price"> Rs. 299</span>
+                      <span className="discounted-price">Rs. 249</span>
+                      <span className="discount-badge">Save Rs. 50</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <form className="enrollment-form" onSubmit={handleEnrollmentSubmit}>
+                <h4 className="form-title">Your Information</h4>
+
+                <div className="form-row">
+                  <div className="form-group">
+                    <label htmlFor="firstName">
+                      <i className="fas fa-user"></i> First Name
+                    </label>
+                    <input
+                      type="text"
+                      id="firstName"
+                      name="firstName"
+                      placeholder="Enter your first name"
+                      value={formData.firstName}
+                      onChange={handleInputChange}
+                      required
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="lastName">
+                      <i className="fas fa-user"></i> Last Name
+                    </label>
+                    <input
+                      type="text"
+                      id="lastName"
+                      name="lastName"
+                      placeholder="Enter your last name"
+                      value={formData.lastName}
+                      onChange={handleInputChange}
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div className="form-row">
+                  <div className="form-group">
+                    <label htmlFor="email">
+                      <i className="fas fa-envelope"></i> Email Address
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      placeholder="Enter your email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      required
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="phone">
+                      <i className="fas fa-phone"></i> Phone Number
+                    </label>
+                    <input
+                      type="tel"
+                      id="phone"
+                      name="phone"
+                      placeholder="Enter your phone number"
+                      value={formData.phone}
+                      onChange={handleInputChange}
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div className="form-group">
+                  <label htmlFor="experience">
+                    <i className="fas fa-chart-line"></i> Current Experience Level
+                  </label>
+                  <select
+                    id="experience"
+                    name="experience"
+                    value={formData.experience}
+                    onChange={handleInputChange}
+                    required
+                  >
+                    <option value="">Select your experience</option>
+                    <option value="beginner">Beginner (0-1 years)</option>
+                    <option value="intermediate">Intermediate (1-3 years)</option>
+                    <option value="advanced">Advanced (3+ years)</option>
+                  </select>
+                </div>
+
+                <div className="form-group">
+
+                  <textarea
+                    id="goals"
+                    name="goals"
+                    placeholder="What do you hope to achieve with this course?"
+                    rows="3"
+                    value={formData.goals}
+                    onChange={handleInputChange}
+                  ></textarea>
+                </div>
+
+                <div className=" checkbox-group">
+                  <input
+
+                    type="checkbox"
+                    id="terms"
+                    name="terms"
+                    checked={formData.terms}
+                    onChange={handleInputChange}
+                    required
+                  />
+                  <label className='enroll-form-checkbox' htmlFor="terms">
+                    I agree to the <a href="#">terms and conditions</a> and <a href="#">privacy policy</a>
+                  </label>
+                </div>
+
+                <button type="submit" className="submit-enrollment">
+                  Complete Enrollment <i className="fas fa-check"></i>
+                </button>
+              </form>
+            </div>
           </div>
-          
-          <div className="form-group">
-          
-            <textarea 
-              id="goals" 
-              name="goals"
-              placeholder="What do you hope to achieve with this course?" 
-              rows="3"
-              value={formData.goals}
-              onChange={handleInputChange}
-            ></textarea>
-          </div>
-          
-          <div className=" checkbox-group">
-            <input 
-          
-              type="checkbox" 
-              id="terms" 
-              name="terms"
-              checked={formData.terms}
-              onChange={handleInputChange}
-              required 
-            />
-            <label    className='enroll-form-checkbox'  htmlFor="terms">
-              I agree to the <a href="#">terms and conditions</a> and <a href="#">privacy policy</a>
-            </label>
-          </div>
-          
-          <button type="submit" className="submit-enrollment">
-            Complete Enrollment <i className="fas fa-check"></i>
-          </button>
-        </form>
-      </div>
-    </div>
-  </div>
-  
-)}  <FooterSection />
-     
+        </div>
+
+      )}  <FooterSection />
+
     </div>
 
-    
+
   );
 };
 

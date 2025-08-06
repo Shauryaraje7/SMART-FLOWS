@@ -252,10 +252,11 @@ body {
 }
 
 .course-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.5s ease;
+    margin-left: 22px;
+    width: 91%;
+    height: 83%;
+    object-fit: revert-layer;
+    transition: transform 0.5s ease;
 }
 
 .course-card:hover .course-image img {

@@ -227,7 +227,7 @@
   /* Move button next to hamburger */
   .mobile-button-container {
     display: block;
-    margin-top: 8px;
+    margin-top: 0px;
     margin-left: 25vw;
   }
 
@@ -344,3 +344,13 @@
     background: #00bcd4;
   }
 }
+
+@media (max-width: 480px) {
+.hamburger {
+  margin-bottom: 12px;
+}
+
+
+
+}
+
