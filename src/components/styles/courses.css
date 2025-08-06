@@ -252,10 +252,10 @@ body {
 }
 
 .course-image img {
-    margin-top: 48px;
-    margin-left: 57px;
-    width: 70%;
-    height: 58%;
+    margin-top: 16px;
+    margin-left: 35px;
+    width: 82%;
+    height: 90%;
     object-fit: revert-layer;
     transition: transform 0.5s ease;
 }

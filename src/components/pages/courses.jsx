@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import '../styles/courses.css';
 import '../styles/Global.css';
-import UipathLogo from '../../assets/Ui-path-cloured-logo.svg';
+import UipathLogo from '../../assets/UiPath-Logo.png';
+import PowerApps from '../../assets/background105.png';
+
 
 
 
@@ -89,6 +91,7 @@ const CoursePage = () => {
       levels: {
         Beginner: {
           title: 'Power Automate – Beginner',
+          imageUrl:PowerApps ,
           description: 'Start your journey with Microsoft Power Automate. Learn to build basic flows and automate everyday tasks using cloud and desktop flows.',
           detailedDescription: 'This beginner-friendly course introduces you to the world of Power Automate. Learn how to build automated workflows that integrate with Microsoft 365, use pre-built templates, and create triggers for tasks like sending emails or extracting data from forms.',
           duration: '15+ hours',
