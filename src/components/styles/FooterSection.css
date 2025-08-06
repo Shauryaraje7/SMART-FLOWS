@@ -291,6 +291,13 @@
 }
 
 @media (max-width: 480px) {
+  .quicklinks-coloumn-footer{
+    display: none;
+  }
+
+  .serveice-coloumn-footer{
+    display: none;
+  }
   .footer-section {
     padding: 40px 20px 20px;
   }

@@ -4,7 +4,7 @@ import '../styles/ServicesSection.css';
 import '../styles/Global.css';
 import UipathLogo from '../../assets/UiPath-Logo.png';
 import PowerAutomateLogo from '../../assets/power-automate-logo-removebg-preview.png';
-import AgenticAiLogo from '../../assets/AgenticAiLogo.png';
+import AgenticAiLogo from '../../assets/new-ai-logo.png';
 import AutomationAnywher from '../../assets/Automation-Anywhere.png';
 import BluePrism from '../../assets/Blue-Prism.png';
 

@@ -54,7 +54,7 @@ const FooterSection = () => {
       <div className="footer-container">
         <div className="footer-main">
           <div className="footer-links">
-            <div className="links-column">
+            <div className="links-column quicklinks-coloumn-footer ">
               <h4 className="links-heading">Quick Links</h4>
               <ul className="links-list">
                 <li><a href="/">Home</a></li>
@@ -65,8 +65,8 @@ const FooterSection = () => {
               </ul>
             </div>
 
-            <div className="links-column">
-              <h4 className="links-heading">Services</h4>
+            <div className="links-column serveice-coloumn-footer">
+              <h4 className="links-heading  ">Services</h4>
               <ul className="links-list">
                 <li><a href="/services/automation">Process Automation</a></li>
                 <li><a href="/services/ai">AI Solutions</a></li>
