@@ -291,6 +291,10 @@
 }
 
 @media (max-width: 480px) {
+  .footer-bottom {
+   /* flex-direction: row; */
+
+  }
   .quicklinks-coloumn-footer{
     display: none;
   }
@@ -325,7 +329,7 @@
   }
   
   .legal-links {
-    flex-direction: column;
+    flex-direction: row;
     gap: 8px;
   }
   

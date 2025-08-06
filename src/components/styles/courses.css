@@ -182,17 +182,62 @@ body {
   margin-top: 2rem;
 }
 
+
+
+
+
+
+
+
+
 /* Course Card */
 .course-card {
   background: white;
-  border-radius: var(--border-radius);
+  border-top-left-radius: 75px;
+  border-bottom-right-radius: 75px;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 0;
   overflow: hidden;
   box-shadow: var(--box-shadow);
   transition: var(--transition);
   position: relative;
   cursor: pointer;
   border: 1px solid #e0f7fa;
+  
+  /* Add a subtle blue gradient overlay on the corners */
+  background: linear-gradient(
+    135deg,
+    rgba(224, 247, 250, 0.3) 0%,
+    rgba(255, 255, 255, 1) 30%,
+    rgba(255, 255, 255, 1) 70%,
+    rgba(224, 247, 250, 0.3) 100%
+  );
 }
+
+.course-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, #00bcd4 0%, #0097a7 100%);
+  border-top-left-radius: 75px; /* Match the card's top-left radius */
+  border-top-right-radius: 0;   /* Match the card's top-right radius */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .course-card:hover {
   transform: translateY(-5px);

@@ -227,7 +227,8 @@
   /* Move button next to hamburger */
   .mobile-button-container {
     display: block;
-    margin-right: 15px;
+    margin-top: 8px;
+    margin-left: 25vw;
   }
 
   .mobile-button-container .navbar-btn {
