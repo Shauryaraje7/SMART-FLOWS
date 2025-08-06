@@ -23,13 +23,15 @@
     font-size: 20px;
 }
 
-
+@media (max-width: 768px) {
+.smallheading{
+  font-size:20px;
+}
+}
 
 @media (max-width: 1024px) {
 
-.smallheading{
-  font-size:80px;
-}
+
 
  .smallpara{
     font-size: 17px;
