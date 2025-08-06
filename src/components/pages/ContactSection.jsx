@@ -129,7 +129,7 @@ Best regards,
           <h2 className="section-title-contacts Allh1 headings" ref={titleRef}>
             Get in <span>Touch</span>
           </h2>
-          <p className="section-subtitle-contacts headingpara " ref={subtitleRef}>
+          <p className="section-subtitle-contacts headingpara AllP" ref={subtitleRef}>
             Have a project in mind or want to discuss possibilities? We'd love to hear from you.
           </p>
         </div>
