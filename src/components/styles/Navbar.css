@@ -313,7 +313,7 @@
   }
 
   .navbar-btn {
-    width: 110%;
+    
     justify-content: center;
     margin: 0;
     font-size: 1rem;
@@ -369,6 +369,8 @@
     gap: 20px;
   }
 
-
+.navbar-btn{
+  width: 30vw;
+}
 
 }
