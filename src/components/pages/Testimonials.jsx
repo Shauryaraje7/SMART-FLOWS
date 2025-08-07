@@ -8,9 +8,6 @@ import 'swiper/css/effect-coverflow';
 import '../styles/testimonials.css';
 import '../styles/Global.css';
 
-
-
-
 // Import your logo images
 import WElogo from '../../assets/WElogo.png';
 import K2PartneringSolutions from '../../assets/K2PartneringSolutions.webp';
@@ -150,7 +147,7 @@ const TestimonialSlider = () => {
           <p className="section-subtitle-testimonials headingpara  AllP ">Don't just take our word for it - here's what our partners say</p>
         </div>
 
-        <Swiper
+           <Swiper
           modules={[EffectCoverflow, Pagination, Navigation]}
           effect="coverflow"
           grabCursor={true}
@@ -164,7 +161,11 @@ const TestimonialSlider = () => {
             modifier: 2.5,
             slideShadows: false,
           }}
-          
+          pagination={{ clickable: true }}
+          navigation={{
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          }}
           className="testimonial-slider"
           breakpoints={{
             320: {
@@ -216,7 +217,6 @@ const TestimonialSlider = () => {
 
        
         </Swiper>
-
       </div>
     </section>
   );
