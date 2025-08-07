@@ -123,12 +123,13 @@ function Navbar() {
           </div>
 
           {/* Mobile button container */}
-          <div className="mobile-button-container">
+         
+         <div className="ham-and-demo-formobile">
+           <div className="mobile-button-container">
             <button className="navbar-btn" onClick={handleBookAppointment}>
               <span>Book Demo</span>
             </button>
           </div>
-
           <button
             className={`hamburger ${isOpen ? 'active' : ''}`}
             onClick={toggleMenu}
@@ -138,6 +139,7 @@ function Navbar() {
             <span className="hamburger-line"></span>
             <span className="hamburger-line"></span>
           </button>
+          </div>
         </div>
       </nav>
 
