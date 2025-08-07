@@ -362,6 +362,37 @@ body {
   background: rgba(0, 0, 0, 0.05);
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* Course Details Modal */
 .course-details-modal {
   position: fixed;
@@ -671,6 +702,192 @@ body {
   transform: translateY(-2px);
   box-shadow: 0 7px 15px rgba(0, 139, 163, 0.3);
 }
+
+
+/* Enhanced Syllabus Accordion Styles */
+.syllabus-accordion {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.syllabus-topic {
+  margin-bottom: 8px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.topic-header {
+  padding: 16px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  background-color: #fff;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.topic-header:hover {
+  background-color: #f5f5f5;
+}
+
+.topic-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 600;
+  color: #333;
+}
+
+.topic-chevron {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  flex-shrink: 0;
+}
+
+.topic-toggle {
+  color: #666;
+  font-size: 0.85rem;
+}
+
+.topic-content-wrapper {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: max-height;
+}
+
+.topic-content {
+  padding: 0 20px 16px 48px;
+  background-color: #fff;
+  border-left: 1px solid #eee;
+  border-right: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  border-radius: 0 0 8px 8px;
+}
+
+.subtopics-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.subtopics-list li {
+  padding: 8px 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  line-height: 1.4;
+}
+
+.subtopics-list li svg {
+  color: #4a90e2;
+  margin-top: 6px;
+  flex-shrink: 0;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .topic-header {
+    padding: 14px 16px;
+  }
+  
+  .topic-title {
+    font-size: 0.95rem;
+  }
+  
+  .topic-content {
+    padding: 0 16px 14px 44px;
+  }
+  
+  .subtopics-list li {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .topic-header {
+    padding: 12px 14px;
+  }
+  
+  .topic-title {
+    gap: 8px;
+    font-size: 0.9rem;
+  }
+  
+  .topic-chevron {
+    width: 14px;
+    height: 14px;
+  }
+  
+  .topic-content {
+    padding: 0 14px 12px 40px;
+  }
+  
+  .topic-toggle {
+    font-size: 0.8rem;
+  }
+  
+  .subtopics-list li {
+    padding: 6px 0;
+    font-size: 0.85rem;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* Enrollment Modal */
 .enrollment-modal {

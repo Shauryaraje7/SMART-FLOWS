@@ -3,13 +3,6 @@ import '../styles/courses.css';
 import '../styles/Global.css';
 import UipathLogo from '../../assets/UiPath-Logo.png';
 import PowerApps from '../../assets/background105.png';
-
-
-
-
-
-
-
 import FooterSection from './FooterSection.jsx';
 
 const CoursePage = () => {
@@ -18,6 +11,7 @@ const CoursePage = () => {
   const [showCourseModal, setShowCourseModal] = useState(false);
   const [showEnrollmentModal, setShowEnrollmentModal] = useState(false);
   const [selectedCourse, setSelectedCourse] = useState(null);
+  const [expandedTopics, setExpandedTopics] = useState({});
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -40,7 +34,53 @@ const CoursePage = () => {
           detailedDescription: 'This foundational UiPath course is designed to introduce aspiring automation professionals to the world of Robotic Process Automation. You\'ll learn the basics of building automation workflows, using UiPath Studio, variables, activities, control flow, error handling, and more. By the end of the course, you\'ll be able to design and deploy your own bots for daily business tasks.',
           duration: '20+ hours',
           mode: 'Self-paced',
-          syllabus: ['Introduction to RPA and UiPath Studio', 'Designing workflows: Sequences, Flowcharts, State Machines', 'Email, Excel, PDF & Web Automation', 'Orchestrator Basics', 'Real-life Use Cases'],
+          syllabus: [
+            {
+              topic: 'Introduction to RPA and UiPath Studio',
+              subtopics: [
+                'Understanding RPA concepts',
+                'UiPath ecosystem overview',
+                'Installing UiPath Studio',
+                'Basic UI navigation'
+              ]
+            },
+            {
+              topic: 'Designing workflows: Sequences, Flowcharts, State Machines',
+              subtopics: [
+                'When to use each type',
+                'Creating your first sequence',
+                'Flowchart decision making',
+                'State machine basics'
+              ]
+            },
+            {
+              topic: 'Email, Excel, PDF & Web Automation',
+              subtopics: [
+                'Automating email processing',
+                'Excel data manipulation',
+                'PDF text extraction',
+                'Web scraping techniques'
+              ]
+            },
+            {
+              topic: 'Orchestrator Basics',
+              subtopics: [
+                'Understanding Orchestrator',
+                'Robot management',
+                'Queue management',
+                'Monitoring and logging'
+              ]
+            },
+            {
+              topic: 'Real-life Use Cases',
+              subtopics: [
+                'Data entry automation',
+                'Report generation',
+                'Invoice processing',
+                'End-to-end case study'
+              ]
+            }
+          ],
           projects: ['Automate Excel data processing', 'Web data scraping to a spreadsheet', 'Email inbox automation', 'Final capstone: End-to-end business process automation'],
           prerequisites: 'No prior experience needed',
           certification: 'UiPath Certified Associate',
@@ -54,7 +94,53 @@ const CoursePage = () => {
           detailedDescription: 'Take your UiPath automation skills to the next level with this intermediate course focused on building robust, scalable bots. Learn how to manage workflows, use data scraping, automate in Citrix environments, and deploy bots via Orchestrator.',
           duration: '24 hours live + 13 hours self-paced',
           mode: 'Blended',
-          syllabus: ['UiPath Studio Advanced Activities', 'Workflow Layouts: Flowcharts, State Machines', 'Data Scraping, Citrix Automation', 'Orchestrator Features: Robots, Queues', 'Debugging and Error Handling'],
+          syllabus: [
+            {
+              topic: 'UiPath Studio Advanced Activities',
+              subtopics: [
+                'Advanced UI automation',
+                'Working with APIs',
+                'Database activities',
+                'Custom activities'
+              ]
+            },
+            {
+              topic: 'Workflow Layouts: Flowcharts, State Machines',
+              subtopics: [
+                'Complex flowchart design',
+                'State machine transitions',
+                'Error handling in workflows',
+                'Best practices'
+              ]
+            },
+            {
+              topic: 'Data Scraping, Citrix Automation',
+              subtopics: [
+                'Advanced data scraping',
+                'Citrix environment setup',
+                'Image-based automation',
+                'Text recognition'
+              ]
+            },
+            {
+              topic: 'Orchestrator Features: Robots, Queues',
+              subtopics: [
+                'Advanced queue management',
+                'Robot scheduling',
+                'Asset management',
+                'Process monitoring'
+              ]
+            },
+            {
+              topic: 'Debugging and Error Handling',
+              subtopics: [
+                'Exception handling techniques',
+                'Logging strategies',
+                'Debugging tools',
+                'Recovery scenarios'
+              ]
+            }
+          ],
           projects: ['Extracting data from PDFs to Excel', 'Automating virtual desktop tasks', 'Deploying bots with Orchestrator queues'],
           prerequisites: 'UiPath Beginner course or equivalent knowledge',
           certification: 'UiPath Certified Professional',
@@ -68,7 +154,53 @@ const CoursePage = () => {
           detailedDescription: 'This advanced UiPath course helps you move beyond basics to become an expert in building real-world bots. You\'ll use REFramework, APIs, orchestrator queues, and intelligent document processing to automate complex business workflows.',
           duration: 'Project-based (~15 hours)',
           mode: 'Self-paced',
-          syllabus: ['Advanced UiPath Activities and REFramework', 'API Integration & Database Automation', 'Intelligent Document Processing', 'Queue Management and Logging', 'Real-world Bot Deployment Techniques'],
+          syllabus: [
+            {
+              topic: 'Advanced UiPath Activities and REFramework',
+              subtopics: [
+                'REFramework structure',
+                'Transaction processing',
+                'State machine implementation',
+                'Exception handling'
+              ]
+            },
+            {
+              topic: 'API Integration & Database Automation',
+              subtopics: [
+                'REST API consumption',
+                'SOAP services',
+                'Database CRUD operations',
+                'Data validation'
+              ]
+            },
+            {
+              topic: 'Intelligent Document Processing',
+              subtopics: [
+                'Document Understanding',
+                'Machine learning models',
+                'Data extraction techniques',
+                'Validation workflows'
+              ]
+            },
+            {
+              topic: 'Queue Management and Logging',
+              subtopics: [
+                'Advanced queue operations',
+                'Transaction item design',
+                'Logging strategies',
+                'Performance monitoring'
+              ]
+            },
+            {
+              topic: 'Real-world Bot Deployment Techniques',
+              subtopics: [
+                'Deployment strategies',
+                'Version control',
+                'CI/CD pipelines',
+                'Maintenance best practices'
+              ]
+            }
+          ],
           projects: ['Banking fixed deposit entry bot', 'Invoice processing with OCR', 'Customer creation and validation bot', 'Image-based processing bot (Citrix)'],
           prerequisites: 'UiPath Intermediate course or equivalent knowledge',
           certification: 'UiPath Certified Advanced Developer',
@@ -91,12 +223,58 @@ const CoursePage = () => {
       levels: {
         Beginner: {
           title: 'Power Automate – Beginner',
-          imageUrl:PowerApps ,
+          imageUrl: PowerApps,
           description: 'Start your journey with Microsoft Power Automate. Learn to build basic flows and automate everyday tasks using cloud and desktop flows.',
           detailedDescription: 'This beginner-friendly course introduces you to the world of Power Automate. Learn how to build automated workflows that integrate with Microsoft 365, use pre-built templates, and create triggers for tasks like sending emails or extracting data from forms.',
           duration: '15+ hours',
           mode: 'Self-paced or Instructor-led',
-          syllabus: ['Flow types: Instant, Automated, Scheduled', 'Using connectors (SharePoint, Excel, Outlook)', 'Creating simple approval workflows', 'Using Power Automate Desktop', 'Microsoft Forms and Teams automation'],
+          syllabus: [
+            {
+              topic: 'Flow types: Instant, Automated, Scheduled',
+              subtopics: [
+                'Understanding flow types',
+                'When to use each type',
+                'Creating instant flows',
+                'Scheduled flow configuration'
+              ]
+            },
+            {
+              topic: 'Using connectors (SharePoint, Excel, Outlook)',
+              subtopics: [
+                'Connector overview',
+                'SharePoint integration',
+                'Excel automation',
+                'Outlook email flows'
+              ]
+            },
+            {
+              topic: 'Creating simple approval workflows',
+              subtopics: [
+                'Approval process design',
+                'Approval types',
+                'Conditional approvals',
+                'Approval tracking'
+              ]
+            },
+            {
+              topic: 'Using Power Automate Desktop',
+              subtopics: [
+                'Desktop flow basics',
+                'UI automation',
+                'Desktop to cloud integration',
+                'Recording actions'
+              ]
+            },
+            {
+              topic: 'Microsoft Forms and Teams automation',
+              subtopics: [
+                'Forms response processing',
+                'Teams notification flows',
+                'Chatbot integration',
+                'Meeting automation'
+              ]
+            }
+          ],
           projects: ['Automate employee onboarding checklist', 'Send automated reminders via Outlook', 'Collect and store Microsoft Forms responses'],
           prerequisites: 'Basic computer skills',
           certification: 'Microsoft Power Platform Fundamentals',
@@ -109,7 +287,53 @@ const CoursePage = () => {
           detailedDescription: 'This course expands your Power Automate skills by covering business process flows, expressions, approval automation, and integration with AI Builder and custom connectors. Includes best practices for secure flow management and error handling.',
           duration: '22+ hours',
           mode: 'Self-paced',
-          syllabus: ['Advanced expressions and conditions', 'Integrating with SharePoint, Dataverse', 'Approval flows and business process flows', 'Flow error handling and optimization', 'Power Automate Desktop deep dive'],
+          syllabus: [
+            {
+              topic: 'Advanced expressions and conditions',
+              subtopics: [
+                'Expression syntax',
+                'Complex conditions',
+                'Data operations',
+                'Formula reference'
+              ]
+            },
+            {
+              topic: 'Integrating with SharePoint, Dataverse',
+              subtopics: [
+                'SharePoint list operations',
+                'Dataverse tables',
+                'Relationship management',
+                'Business rules'
+              ]
+            },
+            {
+              topic: 'Approval flows and business process flows',
+              subtopics: [
+                'Multi-stage approvals',
+                'Parallel approvals',
+                'BPF design',
+                'Stage transitions'
+              ]
+            },
+            {
+              topic: 'Flow error handling and optimization',
+              subtopics: [
+                'Error handling patterns',
+                'Retry policies',
+                'Flow checker',
+                'Performance optimization'
+              ]
+            },
+            {
+              topic: 'Power Automate Desktop deep dive',
+              subtopics: [
+                'Advanced UI automation',
+                'Web automation',
+                'Desktop flow variables',
+                'Exception handling'
+              ]
+            }
+          ],
           projects: ['Expense approval automation', 'Multi-stage document review process', 'AI-based sentiment analysis using AI Builder'],
           prerequisites: 'Power Automate Beginner course or equivalent knowledge',
           certification: 'Microsoft Power Platform App Maker',
@@ -117,13 +341,54 @@ const CoursePage = () => {
           instructorBio: 'Veteran Power Platform instructor with 90,000+ students.'
         },
         Advanced: {
+          title: 'Power Apps – Advanced',
           description: 'Implement enterprise solutions with advanced Power Platform features.',
           detailedDescription: 'Master advanced techniques including component libraries, portals, and AI Builder integration.',
           duration: '7 weeks',
-          syllabus: ['Component Libraries', 'Portals', 'AI Builder', 'Solution Architecture'],
+          mode: 'Self-paced',
+          syllabus: [
+            {
+              topic: 'Component Libraries',
+              subtopics: [
+                'Creating components',
+                'Reusable controls',
+                'Component properties',
+                'Library management'
+              ]
+            },
+            {
+              topic: 'Portals',
+              subtopics: [
+                'Portal architecture',
+                'Authentication setup',
+                'Content management',
+                'Custom forms'
+              ]
+            },
+            {
+              topic: 'AI Builder',
+              subtopics: [
+                'AI model types',
+                'Form processing',
+                'Object detection',
+                'Custom models'
+              ]
+            },
+            {
+              topic: 'Solution Architecture',
+              subtopics: [
+                'Solution design',
+                'Environment strategy',
+                'ALM processes',
+                'Governance'
+              ]
+            }
+          ],
           projects: ['Customer Portal', 'AI-Powered Inspection App'],
           prerequisites: 'Power Apps Intermediate course or equivalent knowledge',
-          certification: 'Microsoft Power Platform Developer'
+          certification: 'Microsoft Power Platform Developer',
+          instructor: 'Michael Chen',
+          instructorBio: 'Microsoft MVP with 8 years of experience in Power Platform solutions.'
         }
       },
       instructor: 'Michael Chen',
@@ -145,7 +410,53 @@ const CoursePage = () => {
           detailedDescription: 'This beginner course teaches you how to build bots with Automation Anywhere\'s Task Bots and MetaBots. Explore the Control Room, document automation, and prepare for official AA certification.',
           duration: '24h instructor-led + 24h videos + 32h projects',
           mode: 'Blended',
-          syllabus: ['RPA and AA architecture', 'Task Bots and MetaBots', 'Recorders and editors', 'IQ Bot (document understanding)', 'Control Room and user roles'],
+          syllabus: [
+            {
+              topic: 'RPA and AA architecture',
+              subtopics: [
+                'Understanding RPA concepts',
+                'AA architecture overview',
+                'Control Room setup',
+                'Bot deployment models'
+              ]
+            },
+            {
+              topic: 'Task Bots and MetaBots',
+              subtopics: [
+                'Creating basic Task Bots',
+                'MetaBot fundamentals',
+                'Reusable components',
+                'Best practices'
+              ]
+            },
+            {
+              topic: 'Recorders and editors',
+              subtopics: [
+                'Smart recorder usage',
+                'Object cloning',
+                'Web recorder',
+                'Manual editing'
+              ]
+            },
+            {
+              topic: 'IQ Bot (document understanding)',
+              subtopics: [
+                'IQ Bot setup',
+                'Document classification',
+                'Field extraction',
+                'Validation rules'
+              ]
+            },
+            {
+              topic: 'Control Room and user roles',
+              subtopics: [
+                'User management',
+                'Bot scheduling',
+                'Audit logs',
+                'Security settings'
+              ]
+            }
+          ],
           projects: ['Form data entry bot', 'Excel file manipulation', 'PDF data extraction with IQ Bot'],
           prerequisites: 'Basic computer skills',
           certification: 'Automation Anywhere Certified Basic RPA Professional',
@@ -153,13 +464,54 @@ const CoursePage = () => {
           instructorBio: 'Industry experts from Intellipaat with Automation Anywhere certification.'
         },
         Intermediate: {
+          title: 'Automation Anywhere – Intermediate',
           description: 'Create metabots and handle complex automation scenarios.',
           detailedDescription: 'Develop reusable components and handle more complex automation scenarios with error handling.',
           duration: '6 weeks',
-          syllabus: ['MetaBot Creation', 'Error Handling', 'Advanced Commands', 'Object Cloning'],
+          mode: 'Self-paced',
+          syllabus: [
+            {
+              topic: 'MetaBot Creation',
+              subtopics: [
+                'Advanced MetaBot design',
+                'Surface automation',
+                'Object cloning techniques',
+                'Best practices'
+              ]
+            },
+            {
+              topic: 'Error Handling',
+              subtopics: [
+                'Exception handling',
+                'Recovery scenarios',
+                'Logging mechanisms',
+                'Notification systems'
+              ]
+            },
+            {
+              topic: 'Advanced Commands',
+              subtopics: [
+                'String operations',
+                'Excel advanced commands',
+                'Database operations',
+                'XML/JSON processing'
+              ]
+            },
+            {
+              topic: 'Object Cloning',
+              subtopics: [
+                'Dynamic object handling',
+                'Application mapping',
+                'Object identification',
+                'Troubleshooting'
+              ]
+            }
+          ],
           projects: ['ERP Integration', 'Multi-System Workflow'],
           prerequisites: 'Automation Anywhere Beginner course or equivalent knowledge',
-          certification: 'Automation Anywhere Certified Advanced RPA Professional'
+          certification: 'Automation Anywhere Certified Advanced RPA Professional',
+          instructor: 'David Wilson',
+          instructorBio: 'RPA architect with expertise in Automation Anywhere and cognitive automation.'
         },
         Advanced: {
           title: 'Automation Anywhere – Advanced',
@@ -167,7 +519,53 @@ const CoursePage = () => {
           detailedDescription: 'This hands-on course covers advanced bot building with Automation Anywhere, error handling, deployment, and integrations with AI. Build 7 real-world bots and even integrate with OpenAI GPT to create intelligent digital workers.',
           duration: '20+ hours',
           mode: 'Self-paced',
-          syllabus: ['Advanced Bot Creator concepts', 'Error handling and testing', 'IQ Bot and Document AI', 'AA + OpenAI integration', 'Project deployment best practices'],
+          syllabus: [
+            {
+              topic: 'Advanced Bot Creator concepts',
+              subtopics: [
+                'Bot lifecycle management',
+                'Version control',
+                'Code reuse strategies',
+                'Performance optimization'
+              ]
+            },
+            {
+              topic: 'Error handling and testing',
+              subtopics: [
+                'Comprehensive error handling',
+                'Unit testing bots',
+                'Integration testing',
+                'Regression testing'
+              ]
+            },
+            {
+              topic: 'IQ Bot and Document AI',
+              subtopics: [
+                'Advanced document processing',
+                'Custom classifiers',
+                'Machine learning models',
+                'Validation workflows'
+              ]
+            },
+            {
+              topic: 'AA + OpenAI integration',
+              subtopics: [
+                'GPT API integration',
+                'Natural language processing',
+                'Chatbot implementation',
+                'Content generation'
+              ]
+            },
+            {
+              topic: 'Project deployment best practices',
+              subtopics: [
+                'Production deployment',
+                'Change management',
+                'Performance monitoring',
+                'Maintenance strategies'
+              ]
+            }
+          ],
           projects: ['Resume generator bot', 'Form autofill bot', 'AI-based chatbot for FAQs', 'Invoice processing with OpenAI'],
           prerequisites: 'Automation Anywhere Beginner course or equivalent knowledge',
           certification: 'Automation Anywhere Certified Master RPA Professional',
@@ -194,7 +592,53 @@ const CoursePage = () => {
           detailedDescription: 'This foundational course is ideal for those new to Blue Prism. Learn how to create, manage and deploy automated processes using Blue Prism Studio, Control Room, and Object Studio. The course covers Blue Prism architecture, development stages, and exception handling.',
           duration: '20+ hours',
           mode: 'Self-paced',
-          syllabus: ['Introduction to Blue Prism', 'Process Studio and Object Studio', 'Control Room and Session Management', 'Basic Stages: Inputs, Decisions, Calculations', 'Exception handling'],
+          syllabus: [
+            {
+              topic: 'Introduction to Blue Prism',
+              subtopics: [
+                'RPA fundamentals',
+                'Blue Prism architecture',
+                'Installation and setup',
+                'Navigation basics'
+              ]
+            },
+            {
+              topic: 'Process Studio and Object Studio',
+              subtopics: [
+                'Process flow design',
+                'Object creation',
+                'Application modeling',
+                'Best practices'
+              ]
+            },
+            {
+              topic: 'Control Room and Session Management',
+              subtopics: [
+                'Control Room overview',
+                'Session management',
+                'Resource scheduling',
+                'Monitoring tools'
+              ]
+            },
+            {
+              topic: 'Basic Stages: Inputs, Decisions, Calculations',
+              subtopics: [
+                'Data items',
+                'Decision stages',
+                'Calculation stages',
+                'Looping structures'
+              ]
+            },
+            {
+              topic: 'Exception handling',
+              subtopics: [
+                'Exception types',
+                'Recovery stages',
+                'Exception logging',
+                'Best practices'
+              ]
+            }
+          ],
           projects: ['Automating login and data entry to a web form', 'Generating summary reports from Excel', 'Basic customer record automation'],
           prerequisites: 'Basic understanding of business processes',
           certification: 'Blue Prism Certified Associate Developer',
@@ -202,13 +646,54 @@ const CoursePage = () => {
           instructorBio: 'Intelligent Automation Architect with 15+ years of experience.'
         },
         Intermediate: {
+          title: 'Blue Prism – Intermediate',
           description: 'Build complex automations with exception handling.',
           detailedDescription: 'Develop robust automations with exception handling, collections, and queue management.',
           duration: '7 weeks',
-          syllabus: ['Exception Handling', 'Collections', 'Work Queues', 'Surface Automation'],
+          mode: 'Self-paced',
+          syllabus: [
+            {
+              topic: 'Exception Handling',
+              subtopics: [
+                'Advanced exception types',
+                'Exception workflows',
+                'Retry mechanisms',
+                'Notification systems'
+              ]
+            },
+            {
+              topic: 'Collections',
+              subtopics: [
+                'Collection operations',
+                'Data manipulation',
+                'Sorting and filtering',
+                'Performance considerations'
+              ]
+            },
+            {
+              topic: 'Work Queues',
+              subtopics: [
+                'Queue configuration',
+                'Item processing',
+                'Priority management',
+                'Queue reporting'
+              ]
+            },
+            {
+              topic: 'Surface Automation',
+              subtopics: [
+                'Surface automation techniques',
+                'Region mode',
+                'Application modeling',
+                'Best practices'
+              ]
+            }
+          ],
           projects: ['Complex Data Processing', 'Multi-Step Workflow'],
           prerequisites: 'Blue Prism Beginner course or equivalent knowledge',
-          certification: 'Blue Prism Certified Professional Developer'
+          certification: 'Blue Prism Certified Professional Developer',
+          instructor: 'Emma Rodriguez',
+          instructorBio: 'Blue Prism expert with experience in large-scale enterprise automation.'
         },
         Advanced: {
           title: 'Blue Prism – Advanced',
@@ -216,7 +701,53 @@ const CoursePage = () => {
           detailedDescription: 'Designed for certified developers or experienced Blue Prism users, this course dives into advanced development strategies, exception handling, and enterprise features like work queues, scheduling, and multi-bot deployment.',
           duration: '25+ hours',
           mode: 'Self-paced',
-          syllabus: ['Advanced object and process design', 'Work Queues and Scheduler', 'Release Manager and Deployment', 'Multi-environment configuration', 'Certification (AD01, ASDEV01) prep'],
+          syllabus: [
+            {
+              topic: 'Advanced object and process design',
+              subtopics: [
+                'Modular design',
+                'Reusable components',
+                'Process optimization',
+                'Code review techniques'
+              ]
+            },
+            {
+              topic: 'Work Queues and Scheduler',
+              subtopics: [
+                'Advanced queue management',
+                'Dynamic prioritization',
+                'Scheduler configuration',
+                'Resource allocation'
+              ]
+            },
+            {
+              topic: 'Release Manager and Deployment',
+              subtopics: [
+                'Release pipelines',
+                'Version control',
+                'Deployment strategies',
+                'Environment management'
+              ]
+            },
+            {
+              topic: 'Multi-environment configuration',
+              subtopics: [
+                'Dev/Test/Prod setup',
+                'Environment variables',
+                'Configuration management',
+                'Migration strategies'
+              ]
+            },
+            {
+              topic: 'Certification (AD01, ASDEV01) prep',
+              subtopics: [
+                'Exam structure',
+                'Key concepts review',
+                'Practice tests',
+                'Exam strategies'
+              ]
+            }
+          ],
           projects: ['Invoice automation using PDF inputs', 'Lead qualification via email parsing', 'Blue Prism Release Manager automation'],
           prerequisites: 'Blue Prism Beginner course or equivalent knowledge',
           certification: 'Blue Prism Certified Solution Designer',
@@ -243,7 +774,53 @@ const CoursePage = () => {
           detailedDescription: 'Learn how to use Microsoft Power Apps to rapidly build mobile-friendly, data-driven applications. This beginner course covers Canvas apps, screen design, formulas, and integrations with Excel and SharePoint.',
           duration: '20+ hours',
           mode: 'Self-paced or live',
-          syllabus: ['Power Apps UI and Canvas apps', 'Controls, forms, and formulas', 'Connectors (Excel, SharePoint, SQL)', 'Dataverse overview', 'Power Automate integrations'],
+          syllabus: [
+            {
+              topic: 'Power Apps UI and Canvas apps',
+              subtopics: [
+                'Canvas app basics',
+                'Screen design',
+                'Control types',
+                'Layout best practices'
+              ]
+            },
+            {
+              topic: 'Controls, forms, and formulas',
+              subtopics: [
+                'Common controls',
+                'Form design',
+                'Basic formulas',
+                'Data validation'
+              ]
+            },
+            {
+              topic: 'Connectors (Excel, SharePoint, SQL)',
+              subtopics: [
+                'Connector overview',
+                'Excel integration',
+                'SharePoint lists',
+                'SQL connections'
+              ]
+            },
+            {
+              topic: 'Dataverse overview',
+              subtopics: [
+                'Dataverse basics',
+                'Table creation',
+                'Relationships',
+                'Business rules'
+              ]
+            },
+            {
+              topic: 'Power Automate integrations',
+              subtopics: [
+                'Flow integration',
+                'Triggering flows',
+                'Passing data',
+                'Error handling'
+              ]
+            }
+          ],
           projects: ['Timesheet entry app', 'Feedback tracker with SharePoint', 'Mobile inventory app'],
           prerequisites: 'Basic computer skills',
           certification: 'Microsoft Power Platform Fundamentals',
@@ -251,21 +828,108 @@ const CoursePage = () => {
           instructorBio: 'SmartFlows trainers with Microsoft PL-400 credentials.'
         },
         Intermediate: {
+          title: 'Custom Automation – Intermediate',
           description: 'Develop integrated solutions with multiple technologies.',
           detailedDescription: 'Build more complex solutions by integrating RPA tools with APIs and databases.',
           duration: '8 weeks',
-          syllabus: ['Advanced API Integration', 'Database Connectivity', 'Custom Components', 'Error Handling'],
+          mode: 'Self-paced',
+          syllabus: [
+            {
+              topic: 'Advanced API Integration',
+              subtopics: [
+                'REST API concepts',
+                'Authentication methods',
+                'Request/response handling',
+                'Error handling'
+              ]
+            },
+            {
+              topic: 'Database Connectivity',
+              subtopics: [
+                'SQL queries',
+                'Stored procedures',
+                'ORM basics',
+                'Performance optimization'
+              ]
+            },
+            {
+              topic: 'Custom Components',
+              subtopics: [
+                'Component design',
+                'Reusable libraries',
+                'Version control',
+                'Documentation'
+              ]
+            },
+            {
+              topic: 'Error Handling',
+              subtopics: [
+                'Exception patterns',
+                'Logging strategies',
+                'Recovery mechanisms',
+                'User notifications'
+              ]
+            }
+          ],
           projects: ['Order Processing System', 'Data Validation Tool'],
           prerequisites: 'Custom Automation Beginner course or equivalent knowledge',
-          certification: 'Custom Automation Professional Certificate'
+          certification: 'Custom Automation Professional Certificate',
+          instructor: 'James Peterson',
+          instructorBio: 'Automation architect specializing in custom enterprise solutions.'
         },
         Advanced: {
           title: 'Power Apps – Advanced',
           description: 'Create advanced business applications using Power Apps and Dataverse. Perfect for developers and tech-savvy users.',
-          detailedDescription: 'Learn to build advanced Canvas and Model-driven apps, use custom connectors, and manage app lifecycle with Dataverse. Covers real-world integrations and enterprise app deployment techniques.',
+          detailedDescription: 'Learn to build advanced Canvas and Model-driven apps, use custom connectors, and manage app lifecycle with Datverse. Covers real-world integrations and enterprise app deployment techniques.',
           duration: '7+ hours',
           mode: 'Self-paced',
-          syllabus: ['Model-driven apps and Dataverse', 'Responsive app layouts', 'Custom connectors and APIs', 'Advanced logic and formulas', 'Real-world enterprise app examples'],
+          syllabus: [
+            {
+              topic: 'Model-driven apps and Dataverse',
+              subtopics: [
+                'App design principles',
+                'Entity relationships',
+                'Business process flows',
+                'Advanced forms'
+              ]
+            },
+            {
+              topic: 'Responsive app layouts',
+              subtopics: [
+                'Responsive design',
+                'Device-specific layouts',
+                'Screen size detection',
+                'Adaptive components'
+              ]
+            },
+            {
+              topic: 'Custom connectors and APIs',
+              subtopics: [
+                'Connector development',
+                'API authentication',
+                'Swagger integration',
+                'Testing and deployment'
+              ]
+            },
+            {
+              topic: 'Advanced logic and formulas',
+              subtopics: [
+                'Complex expressions',
+                'Performance optimization',
+                'Debugging techniques',
+                'Best practices'
+              ]
+            },
+            {
+              topic: 'Real-world enterprise app examples',
+              subtopics: [
+                'Case studies',
+                'Architecture patterns',
+                'Scalability considerations',
+                'Maintenance strategies'
+              ]
+            }
+          ],
           projects: ['Customer onboarding app', 'Project tracking dashboard', 'HR portal with form submissions'],
           prerequisites: 'Power Apps Beginner course or equivalent knowledge',
           certification: 'Microsoft Power Platform Developer',
@@ -304,7 +968,15 @@ const CoursePage = () => {
 
   const handleCourseClick = (course) => {
     setSelectedCourse(course);
+    setExpandedTopics({}); // Reset expanded topics when opening a new course
     setShowCourseModal(true);
+  };
+
+  const toggleTopic = (topicIndex) => {
+    setExpandedTopics(prev => ({
+      ...prev,
+      [topicIndex]: !prev[topicIndex]
+    }));
   };
 
   const handleEnrollClick = () => {
@@ -339,14 +1011,14 @@ const CoursePage = () => {
     <div className="course-page">
       <div className="course-hero">
         <div className="hero-content-course">
-          <h1 className='Allh1'  >Transform Your Career with Automation</h1>
+          <h1 className='Allh1'>Transform Your Career with Automation</h1>
           <p>Master the tools that are shaping the future of business processes</p>
         </div>
       </div>
 
       <div className="course-container">
         <div className="course-header">
-          <h2 className='Allh1'  >Our Automation Courses</h2>
+          <h2 className='Allh1'>Our Automation Courses</h2>
           <p className="subtitle">Browse our comprehensive curriculum designed for all skill levels</p>
 
           <div className="controls-container">
@@ -413,6 +1085,21 @@ const CoursePage = () => {
         </div>
       </div>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       {/* Course Details Modal */}
       {showCourseModal && selectedCourse && (
         <div className="course-details-modal">
@@ -442,11 +1129,6 @@ const CoursePage = () => {
                 <span>({selectedCourse.rating}/5 from {selectedCourse.students} students)</span>
               </div>
             </div>
-
-
-
-
-
 
             <div className="modal-body">
               <div className="course-overview">
@@ -480,14 +1162,36 @@ const CoursePage = () => {
 
               <div className="course-details-section">
                 <h4>Syllabus</h4>
-                <ul className="syllabus-list">
+                <div className="syllabus-accordion">
                   {selectedCourse.levelData.syllabus.map((item, index) => (
-                    <li key={index}>
-                      <i className="fas fa-check-circle"></i>
-                      <span>{item}</span>
-                    </li>
+                    <div key={index} className="syllabus-topic">
+                      <div 
+                        className="topic-header" 
+                        onClick={() => toggleTopic(index)}
+                      >
+                        <div className="topic-title">
+                          <i className={`fas fa-chevron-${expandedTopics[index] ? 'down' : 'right'}`}></i>
+                          <span>{item.topic || item}</span>
+                        </div>
+                        <div className="topic-toggle">
+                          {expandedTopics[index] ? 'Hide' : 'Show'} details
+                        </div>
+                      </div>
+                      {expandedTopics[index] && item.subtopics && (
+                        <div className="topic-content">
+                          <ul className="subtopics-list">
+                            {item.subtopics.map((subtopic, subIndex) => (
+                              <li key={subIndex}>
+                                <i className="fas fa-circle"></i>
+                                <span>{subtopic}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+                    </div>
                   ))}
-                </ul>
+                </div>
               </div>
 
               <div className="course-details-section">
@@ -545,6 +1249,27 @@ const CoursePage = () => {
           </div>
         </div>
       )}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
       {/* Enrollment Modal */}
       {showEnrollmentModal && selectedCourse && (
@@ -675,7 +1400,6 @@ const CoursePage = () => {
                 </div>
 
                 <div className="form-group">
-
                   <textarea
                     id="goals"
                     name="goals"
@@ -686,9 +1410,8 @@ const CoursePage = () => {
                   ></textarea>
                 </div>
 
-                <div className=" checkbox-group">
+                <div className="checkbox-group">
                   <input
-
                     type="checkbox"
                     id="terms"
                     name="terms"
@@ -708,12 +1431,9 @@ const CoursePage = () => {
             </div>
           </div>
         </div>
-
-      )}  <FooterSection />
-
+      )}
+      <FooterSection />
     </div>
-
-
   );
 };
 
