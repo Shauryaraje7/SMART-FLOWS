@@ -615,9 +615,9 @@ body {
 .instructor-info {
   display: flex;
   gap: 1.5rem;
-  align-items: center;
-  background: #e0f7fa;
-  padding: 1.5rem;
+  
+  
+  
   border-radius: var(--border-radius);
 }
 
@@ -1136,7 +1136,7 @@ body {
 .form-group label {
   bottom: 51px;
   position: absolute;
-  color: #94a3b8;
+  color: #00bcd4;
   transition: all 0.3s ease;
   pointer-events: none;
 }
