@@ -13,101 +13,105 @@ function RPAForm({ isOpen, onClose }) {
     processesToAutomate: '',
     budgetRange: '',
     timeline: '',
-    additionalInfo: ''
+    additionalInfo: '',
+    terms: false
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState(null);
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
+    const { name, value, type, checked } = e.target;
     setFormData(prev => ({
       ...prev,
-      [name]: value
+      [name]: type === 'checkbox' ? checked : value
     }));
   };
 
-  
-const handleSubmit = async (e) => {
-  e.preventDefault();
-  setIsSubmitting(true);
-  setSubmitError(null);
-
-  try {
-    const scriptUrl = 'https://script.google.com/macros/s/AKfycbx-80nn3Rw2JcNquQlNwJ8nZoP7GPST7_D7LqPNt3WJ_ZbcWue-mYK0zH_atXVv-xPe/exec';
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     
-    // Convert form data to URL-encoded format
-    const formDataEncoded = new URLSearchParams();
-    formDataEncoded.append('company_name', formData.companyName);
-    formDataEncoded.append('contact_person', formData.contactPerson);
-    formDataEncoded.append('email', formData.email);
-    formDataEncoded.append('phone', formData.phone);
-    formDataEncoded.append('company_size', formData.companySize);
-    formDataEncoded.append('industry', formData.industry);
-    formDataEncoded.append('current_automation_level', formData.currentAutomationLevel);
-    formDataEncoded.append('processes_to_automate', formData.processesToAutomate);
-    formDataEncoded.append('budget_range', formData.budgetRange);
-    formDataEncoded.append('timeline', formData.timeline);
-    formDataEncoded.append('additional_info', formData.additionalInfo);
-    formDataEncoded.append('status', 'new');
+    if (!formData.terms) {
+      setSubmitError('You must agree to the terms and conditions');
+      return;
+    }
+    
+    setIsSubmitting(true);
+    setSubmitError(null);
 
-    // First try without proxy
-    let response;
     try {
-      response = await fetch(scriptUrl, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: formDataEncoded,
-        mode: 'no-cors' // Important for Google Apps Script
+      const scriptUrl = 'https://script.google.com/macros/s/AKfycbx-80nn3Rw2JcNquQlNwJ8nZoP7GPST7_D7LqPNt3WJ_ZbcWue-mYK0zH_atXVv-xPe/exec';
+      
+      // Convert form data to URL-encoded format
+      const formDataEncoded = new URLSearchParams();
+      formDataEncoded.append('company_name', formData.companyName);
+      formDataEncoded.append('contact_person', formData.contactPerson);
+      formDataEncoded.append('email', formData.email);
+      formDataEncoded.append('phone', formData.phone);
+      formDataEncoded.append('company_size', formData.companySize);
+      formDataEncoded.append('industry', formData.industry);
+      formDataEncoded.append('current_automation_level', formData.currentAutomationLevel);
+      formDataEncoded.append('processes_to_automate', formData.processesToAutomate);
+      formDataEncoded.append('budget_range', formData.budgetRange);
+      formDataEncoded.append('timeline', formData.timeline);
+      formDataEncoded.append('additional_info', formData.additionalInfo);
+      formDataEncoded.append('status', 'new');
+
+      // First try without proxy
+      let response;
+      try {
+        response = await fetch(scriptUrl, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+          },
+          body: formDataEncoded,
+          mode: 'no-cors' // Important for Google Apps Script
+        });
+      } catch (error) {
+        console.log('Direct request failed, trying with proxy...');
+        const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+        response = await fetch(proxyUrl + scriptUrl, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'X-Requested-With': 'XMLHttpRequest'
+          },
+          body: formDataEncoded
+        });
+      }
+
+      // Check if the request actually succeeded
+      if (!response.ok && response.status !== 0) { // status 0 happens with no-cors
+        throw new Error('Network response was not ok');
+      }
+
+      // Reset form if submission is successful
+      setFormData({
+        companyName: '',
+        contactPerson: '',
+        email: '',
+        phone: '',
+        companySize: '',
+        industry: '',
+        currentAutomationLevel: '',
+        processesToAutomate: '',
+        budgetRange: '',
+        timeline: '',
+        additionalInfo: '',
+        terms: false
       });
+      
+      onClose();
+      alert('Thank you! Our RPA experts will contact you within 24 hours.');
+
     } catch (error) {
-      console.log('Direct request failed, trying with proxy...');
-      const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
-      response = await fetch(proxyUrl + scriptUrl, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-          'X-Requested-With': 'XMLHttpRequest'
-        },
-        body: formDataEncoded
-      });
+      console.error("Error submitting form: ", error);
+      setSubmitError('Failed to submit form. Please try again or contact us directly.');
+    } finally {
+      setIsSubmitting(false);
     }
-
-    // Check if the request actually succeeded
-    if (!response.ok && response.status !== 0) { // status 0 happens with no-cors
-      throw new Error('Network response was not ok');
-    }
-
-    // Reset form if submission is successful
-    setFormData({
-      companyName: '',
-      contactPerson: '',
-      email: '',
-      phone: '',
-      companySize: '',
-      industry: '',
-      currentAutomationLevel: '',
-      processesToAutomate: '',
-      budgetRange: '',
-      timeline: '',
-      additionalInfo: ''
-    });
-    
-    onClose();
-    alert('Thank you! Our RPA experts will contact you within 24 hours.');
-
-  } catch (error) {
-    console.error("Error submitting form: ", error);
-    setSubmitError('Failed to submit form. Please try again or contact us directly.');
-  } finally {
-    setIsSubmitting(false);
-  }
-};
-
-
-
+  };
 
   if (!isOpen) return null;
 
@@ -121,8 +125,8 @@ const handleSubmit = async (e) => {
         </button>
         
         <div className="rpa-consultation-header">
-          <h2 className='Allh1'  >RPA Consultation Request</h2>
-          <p  className='AllP'  >Complete this form to schedule a free consultation with our automation experts</p>
+          <h2 className='Allh1'>RPA Consultation Request</h2>
+          <p className='AllP'>Complete this form to schedule a free consultation with our automation experts</p>
         </div>
         
         {submitError && (
@@ -313,14 +317,29 @@ const handleSubmit = async (e) => {
           </div>
           
           <div className="rpa-form-footer">
+            <div className="checkbox-group">
+              <input
+                type="checkbox"
+                id="terms"
+                name="terms"
+                checked={formData.terms}
+                onChange={handleChange}
+                required
+                disabled={isSubmitting}
+              />
+              <label className='enroll-form-checkbox' htmlFor="terms">
+                I agree to the <a href="#">terms and conditions</a> and <a href="#">privacy policy</a>
+              </label>
+            </div>
+            
             <button 
               type="submit" 
               className="rpa-consultation-submit-btn"
               disabled={isSubmitting}
             >
               {isSubmitting ? 'Submitting...' : 'Submit'}
-            
             </button>
+            
             <p className="rpa-form-disclaimer">
               By submitting this form, you agree to our privacy policy. We'll never share your information without your permission.
             </p>
@@ -328,6 +347,7 @@ const handleSubmit = async (e) => {
         </form>
       </div>
     </div>
+    
   );
 }
 
