@@ -1,10 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, EffectCoverflow } from 'swiper/modules';
+import { Navigation, Pagination, EffectCoverflow, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/effect-coverflow';
+import 'swiper/css/autoplay';
 import '../styles/testimonials.css';
 import '../styles/Global.css';
 
@@ -127,6 +128,8 @@ const testimonials = [
 ];
 
 const TestimonialSlider = () => {
+  const swiperRef = useRef(null);
+
   useEffect(() => {
     const script1 = document.createElement('script');
     script1.type = 'module';
@@ -137,6 +140,11 @@ const TestimonialSlider = () => {
     script2.noModule = true;
     script2.src = 'https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js';
     document.body.appendChild(script2);
+
+    return () => {
+      document.body.removeChild(script1);
+      document.body.removeChild(script2);
+    };
   }, []);
 
   return (
@@ -147,13 +155,17 @@ const TestimonialSlider = () => {
           <p className="section-subtitle-testimonials headingpara  AllP ">Don't just take our word for it - here's what our partners say</p>
         </div>
 
-           <Swiper
-          modules={[EffectCoverflow, Pagination, Navigation]}
+        <Swiper
+          modules={[EffectCoverflow, Pagination, Navigation, Autoplay]}
           effect="coverflow"
           grabCursor={true}
           centeredSlides={true}
           loop={true}
           slidesPerView={'auto'}
+          autoplay={{
+            delay: 3000,
+            disableOnInteraction: false,
+          }}
           coverflowEffect={{
             rotate: 0,
             stretch: 0,
@@ -180,6 +192,9 @@ const TestimonialSlider = () => {
               slidesPerView: 3,
               spaceBetween: 40
             }
+          }}
+          onSwiper={(swiper) => {
+            swiperRef.current = swiper;
           }}
         >
           {testimonials.map((testimonial) => (
@@ -214,8 +229,6 @@ const TestimonialSlider = () => {
               </div>
             </SwiperSlide>
           ))}
-
-       
         </Swiper>
       </div>
     </section>
