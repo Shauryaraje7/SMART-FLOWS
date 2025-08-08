@@ -209,7 +209,7 @@ const TestimonialSlider = () => {
                   />
                   <div className="quote-icon">"</div>
                 </div>
-                <p className="testimonial-text">
+                <p className="testimonial-text AllP ">
                   {testimonial.text}
                 </p>
                 <div className="client-info">

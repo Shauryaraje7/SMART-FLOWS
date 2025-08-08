@@ -29,7 +29,7 @@ const Hero = () => {
     function initVanta() {
       window.VANTA.WAVES({
         el: vantaRef.current,
-        color: 0x72c5 , //  0x00bcd4, // Matches your #00bcd4 color
+        color: 0x72c5 ,
         shininess: 30,
         waveHeight: 15,
         waveSpeed: 1,
@@ -45,7 +45,7 @@ const Hero = () => {
     }
 
     return () => {
-      // Cleanup function
+
       if (window.VANTA && vantaRef.current && vantaRef.current.VANTA) {
         vantaRef.current.VANTA.destroy();
       }

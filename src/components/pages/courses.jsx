@@ -1054,8 +1054,9 @@ const CoursePage = () => {
           {filteredCourses.map((course, index) => (
             <div
               className="course-card"
+              
               key={`${course.id}-${course.level}`}
-              style={{ '--accent-color': course.accentColor }}
+              
               onClick={() => handleCourseClick(course)}
             >
               <div className="course-image">
