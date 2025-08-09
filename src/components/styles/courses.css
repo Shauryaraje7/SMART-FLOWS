@@ -1264,6 +1264,11 @@ body {
   min-height: 120px;
 }
 
+.info-label{
+  color: #00bcd4;
+}
+
+
 /* Custom Select Arrow */
 .form-group select {
   appearance: none;

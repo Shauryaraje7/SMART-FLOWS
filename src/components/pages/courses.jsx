@@ -1348,10 +1348,12 @@ const CoursePage = () => {
                       e.target.src = 'path/to/fallback-image.png';
                     }}
                   />
-                    <div className="banner-details">
-                      <p><i className="fas fa-clock"></i> {selectedCourse.levelData.duration}</p>
-                      <p><i className="fas fa-chalkboard-teacher"></i> {selectedCourse.instructor}</p>
-                    </div>
+                 <div className="banner-details">
+              <h4>{selectedCourse.name} - {selectedCourse.level}</h4>
+              <p><i className="fas fa-clock"></i> {selectedCourse.levelData.duration}</p>
+              <p><i className="fas fa-chalkboard-teacher"></i> {selectedCourse.instructor}</p>
+              <p><i className="fas fa-certificate"></i> {selectedCourse.levelData.certification}</p>
+            </div>
                   </div>
                   <div className="banner-right">
                     <div className="price-tag">
@@ -1365,6 +1367,22 @@ const CoursePage = () => {
 
               <form className="enrollment-form" onSubmit={handleEnrollmentSubmit}>
                 <h4 className="form-title">Your Information</h4>
+                    
+                       <div className="course-selection-info">
+          <div className="info-item">
+            <span className="info-label">Course:</span>
+            <span className="info-value">{selectedCourse.name}</span>
+          </div>
+          <div className="info-item">
+            <span className="info-label">Level:</span>
+            <span className="info-value">{selectedCourse.level}</span>
+          </div>
+          <div className="info-item">
+            <span className="info-label">Instructor:</span>
+            <span className="info-value">{selectedCourse.instructor}</span>
+          </div>
+        </div>
+
 
                 <div className="form-row">
                   <div className="form-group">
