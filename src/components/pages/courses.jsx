@@ -471,7 +471,7 @@ const CoursePage = () => {
         },
         Intermediate: {
           title: 'Automation Anywhere – Intermediate',
-            imageUrl: AutomationAnywher,
+          imageUrl: AutomationAnywher,
           description: 'Create metabots and handle complex automation scenarios.',
           detailedDescription: 'Develop reusable components and handle more complex automation scenarios with error handling.',
           duration: '6 weeks',
@@ -522,7 +522,7 @@ const CoursePage = () => {
         },
         Advanced: {
           title: 'Automation Anywhere – Advanced',
-            imageUrl: AutomationAnywher,
+          imageUrl: AutomationAnywher,
           description: 'Master intelligent automation with Automation Anywhere. Includes OpenAI/GPT integration and real-world bots.',
           detailedDescription: 'This hands-on course covers advanced bot building with Automation Anywhere, error handling, deployment, and integrations with AI. Build 7 real-world bots and even integrate with OpenAI GPT to create intelligent digital workers.',
           duration: '20+ hours',
@@ -596,6 +596,7 @@ const CoursePage = () => {
       levels: {
         Beginner: {
           title: 'Blue Prism – Beginner',
+          imageUrl: BluePrism,
           description: 'Learn the basics of Blue Prism, a leading enterprise RPA platform. Build your first process using its flow-charting interface.',
           detailedDescription: 'This foundational course is ideal for those new to Blue Prism. Learn how to create, manage and deploy automated processes using Blue Prism Studio, Control Room, and Object Studio. The course covers Blue Prism architecture, development stages, and exception handling.',
           duration: '20+ hours',
@@ -655,6 +656,7 @@ const CoursePage = () => {
         },
         Intermediate: {
           title: 'Blue Prism – Intermediate',
+          imageUrl: BluePrism,
           description: 'Build complex automations with exception handling.',
           detailedDescription: 'Develop robust automations with exception handling, collections, and queue management.',
           duration: '7 weeks',
@@ -705,6 +707,7 @@ const CoursePage = () => {
         },
         Advanced: {
           title: 'Blue Prism – Advanced',
+          imageUrl: BluePrism,
           description: 'Advance your Blue Prism expertise with real-world automation use cases and certification-aligned content.',
           detailedDescription: 'Designed for certified developers or experienced Blue Prism users, this course dives into advanced development strategies, exception handling, and enterprise features like work queues, scheduling, and multi-bot deployment.',
           duration: '25+ hours',
@@ -969,10 +972,12 @@ const CoursePage = () => {
         ...course,
         level: level,
         levelData: levelData,
-        imageUrl: `https://source.unsplash.com/random/300x200/?${course.name.replace(/\s+/g, '')},${level},technology`,
+        // Use the actual imported image for the course instead of random unsplash
+        imageUrl: levelData.imageUrl, // This will use the imported image
         accentColor: `hsl(${Math.floor(Math.random() * 60) + 200}, 70%, 50%)`
       }))
     );
+
 
   const handleCourseClick = (course) => {
     setSelectedCourse(course);
@@ -1058,44 +1063,59 @@ const CoursePage = () => {
           </div>
         </div>
 
-        <div className="course-grid">
-
-
-
-
-{filteredCourses.map((course, index) => (
-  <div
-    className="course-card"
-    key={`${course.id}-${course.level}`}
-    onClick={() => handleCourseClick(course)}
-  >
-    <div className="course-image">
-      <img src={course.levelData.imageUrl} alt={course.name} />
-      <div className="course-badge">{course.level}</div>
-    </div>
-    <div className="course-content">
-      <div className="course-info">
-        <h3>{course.name}</h3>
-        <div className="course-meta">
-          <span><i className="fas fa-clock"></i> {course.levelData.duration}</span>
-          <span><i className="fas fa-star"></i> {course.rating}</span>
-        </div>
-        <p className="course-description">{course.levelData.description}</p>
+<div className="course-grid">
+  {filteredCourses.length === 0 ? (
+    <div className="no-results-message">
+      <div className="no-results-content">
+        <i className="fas fa-search"></i>
+        <h3 className='Allh1 headings '  >No courses found</h3>
+        <p  className='AllP smallpara '  >We couldn't find any courses matching "{searchTerm}" at the {activeFilter} level.</p>
+        <p  className='AllP smallpara '  >Try adjusting your search or filter criteria.</p>
+        <button 
+          className="reset-search-button"
+          onClick={() => {
+            setSearchTerm('');
+            setActiveFilter('All');
+          }}
+        >
+          Reset Search
+        </button>
       </div>
-      <button
-        className="enroll-button"
-        onClick={(e) => {
-          e.stopPropagation();
-          handleCourseClick(course);
-        }}
-      >
-        View Details <i className="fas fa-arrow-right"></i>
-      </button>
     </div>
-  </div>
-))}
-          
+  ) : (
+    filteredCourses.map((course, index) => (
+      <div
+        className="course-card"
+        key={`${course.id}-${course.level}`}
+        onClick={() => handleCourseClick(course)}
+      >
+        <div className="course-image">
+          <img src={course.levelData.imageUrl} alt={course.name} />
+          <div className="course-badge">{course.level}</div>
         </div>
+        <div className="course-content">
+          <div className="course-info">
+            <h3>{course.name}</h3>
+            <div className="course-meta">
+              <span><i className="fas fa-clock"></i> {course.levelData.duration}</span>
+              <span><i className="fas fa-star"></i> {course.rating}</span>
+            </div>
+            <p className="course-description">{course.levelData.description}</p>
+          </div>
+          <button
+            className="enroll-button"
+            onClick={(e) => {
+              e.stopPropagation();
+              handleCourseClick(course);
+            }}
+          >
+            View Details <i className="fas fa-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+    ))
+  )}
+</div>
       </div>
 
 
@@ -1146,7 +1166,14 @@ const CoursePage = () => {
             <div className="modal-body">
               <div className="course-overview">
                 <div className="course-image-large">
-                  <img src={selectedCourse.imageUrl} alt={selectedCourse.name} />
+                     <img 
+                    src={selectedCourse.levelData.imageUrl} 
+                    alt={selectedCourse.name} 
+                    onError={(e) => {
+                      e.target.onerror = null; 
+                      e.target.src = 'path/to/fallback-image.png';
+                    }}
+                  />
                 </div>
                 <div className="course-highlights">
                   <div className="highlight-item">
@@ -1313,7 +1340,14 @@ const CoursePage = () => {
               <div className="course-info-banner">
                 <div className="banner-content">
                   <div className="banner-left">
-                    <img src={selectedCourse.imageUrl} alt={selectedCourse.name} />
+             <img 
+                    src={selectedCourse.levelData.imageUrl} 
+                    alt={selectedCourse.name} 
+                    onError={(e) => {
+                      e.target.onerror = null; 
+                      e.target.src = 'path/to/fallback-image.png';
+                    }}
+                  />
                     <div className="banner-details">
                       <p><i className="fas fa-clock"></i> {selectedCourse.levelData.duration}</p>
                       <p><i className="fas fa-chalkboard-teacher"></i> {selectedCourse.instructor}</p>
