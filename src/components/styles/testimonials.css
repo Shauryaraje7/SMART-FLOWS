@@ -306,14 +306,21 @@ left: 43vw;
 
 }
 
-/* Hide pagination dots on desktop (1024px and above) */
+
+
+
+
+
+
+
 @media (min-width: 1024px) {
   .swiper-pagination {
     display: none !important;
   }
 }
 
-/* Show pagination dots on mobile & tablet (below 1024px) */
+
+
 @media (max-width: 1023px) {
   .swiper-pagination {
     display: block !important;
