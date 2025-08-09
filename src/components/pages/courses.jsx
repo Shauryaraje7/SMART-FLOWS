@@ -2,7 +2,10 @@ import React, { useState } from 'react';
 import '../styles/courses.css';
 import '../styles/Global.css';
 import UipathLogo from '../../assets/UiPath-Logo.png';
-import PowerApps from '../../assets/background105.png';
+import PowerAutomateLogo from '../../assets/power-automate-logo-removebg-preview.png';
+import AgenticAiLogo from '../../assets/new-ai-logo.png';
+import AutomationAnywher from '../../assets/Automation-Anywhere.png';
+import BluePrism from '../../assets/Blue-Prism.png';
 import FooterSection from './FooterSection.jsx';
 
 const CoursePage = () => {
@@ -223,7 +226,7 @@ const CoursePage = () => {
       levels: {
         Beginner: {
           title: 'Power Automate – Beginner',
-          imageUrl: PowerApps,
+          imageUrl: PowerAutomateLogo,
           description: 'Start your journey with Microsoft Power Automate. Learn to build basic flows and automate everyday tasks using cloud and desktop flows.',
           detailedDescription: 'This beginner-friendly course introduces you to the world of Power Automate. Learn how to build automated workflows that integrate with Microsoft 365, use pre-built templates, and create triggers for tasks like sending emails or extracting data from forms.',
           duration: '15+ hours',
@@ -283,6 +286,7 @@ const CoursePage = () => {
         },
         Intermediate: {
           title: 'Power Automate – Intermediate',
+          imageUrl: PowerAutomateLogo,
           description: 'Enhance your skills to build smarter flows, automate business processes, and integrate with external systems using APIs.',
           detailedDescription: 'This course expands your Power Automate skills by covering business process flows, expressions, approval automation, and integration with AI Builder and custom connectors. Includes best practices for secure flow management and error handling.',
           duration: '22+ hours',
@@ -342,6 +346,7 @@ const CoursePage = () => {
         },
         Advanced: {
           title: 'Power Apps – Advanced',
+          imageUrl: PowerAutomateLogo,
           description: 'Implement enterprise solutions with advanced Power Platform features.',
           detailedDescription: 'Master advanced techniques including component libraries, portals, and AI Builder integration.',
           duration: '7 weeks',
@@ -406,6 +411,7 @@ const CoursePage = () => {
       levels: {
         Beginner: {
           title: 'Automation Anywhere – Beginner',
+          imageUrl: AutomationAnywher,
           description: 'Start building bots using Automation Anywhere. Learn platform essentials, bot creation, and document automation.',
           detailedDescription: 'This beginner course teaches you how to build bots with Automation Anywhere\'s Task Bots and MetaBots. Explore the Control Room, document automation, and prepare for official AA certification.',
           duration: '24h instructor-led + 24h videos + 32h projects',
@@ -465,6 +471,7 @@ const CoursePage = () => {
         },
         Intermediate: {
           title: 'Automation Anywhere – Intermediate',
+            imageUrl: AutomationAnywher,
           description: 'Create metabots and handle complex automation scenarios.',
           detailedDescription: 'Develop reusable components and handle more complex automation scenarios with error handling.',
           duration: '6 weeks',
@@ -515,6 +522,7 @@ const CoursePage = () => {
         },
         Advanced: {
           title: 'Automation Anywhere – Advanced',
+            imageUrl: AutomationAnywher,
           description: 'Master intelligent automation with Automation Anywhere. Includes OpenAI/GPT integration and real-world bots.',
           detailedDescription: 'This hands-on course covers advanced bot building with Automation Anywhere, error handling, deployment, and integrations with AI. Build 7 real-world bots and even integrate with OpenAI GPT to create intelligent digital workers.',
           duration: '20+ hours',
@@ -1051,38 +1059,42 @@ const CoursePage = () => {
         </div>
 
         <div className="course-grid">
-          {filteredCourses.map((course, index) => (
-            <div
-              className="course-card"
-              
-              key={`${course.id}-${course.level}`}
-              
-              onClick={() => handleCourseClick(course)}
-            >
-              <div className="course-image">
-                <img src={course.levelData.imageUrl} alt={course.name} />
-                <div className="course-badge">{course.level}</div>
-              </div>
-              <div className="course-info">
-                <h3>{course.name}</h3>
-                <div className="course-meta">
-                  <span><i className="fas fa-clock"></i> {course.levelData.duration}</span>
-                  <span><i className="fas fa-star"></i> {course.rating}</span>
-                </div>
-                <p className="course-description">{course.levelData.description}</p>
 
-                <button
-                  className="enroll-button"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    handleCourseClick(course);
-                  }}
-                >
-                  View Details <i className="fas fa-arrow-right"></i>
-                </button>
-              </div>
-            </div>
-          ))}
+
+
+
+{filteredCourses.map((course, index) => (
+  <div
+    className="course-card"
+    key={`${course.id}-${course.level}`}
+    onClick={() => handleCourseClick(course)}
+  >
+    <div className="course-image">
+      <img src={course.levelData.imageUrl} alt={course.name} />
+      <div className="course-badge">{course.level}</div>
+    </div>
+    <div className="course-content">
+      <div className="course-info">
+        <h3>{course.name}</h3>
+        <div className="course-meta">
+          <span><i className="fas fa-clock"></i> {course.levelData.duration}</span>
+          <span><i className="fas fa-star"></i> {course.rating}</span>
+        </div>
+        <p className="course-description">{course.levelData.description}</p>
+      </div>
+      <button
+        className="enroll-button"
+        onClick={(e) => {
+          e.stopPropagation();
+          handleCourseClick(course);
+        }}
+      >
+        View Details <i className="fas fa-arrow-right"></i>
+      </button>
+    </div>
+  </div>
+))}
+          
         </div>
       </div>
 
@@ -1166,8 +1178,8 @@ const CoursePage = () => {
                 <div className="syllabus-accordion">
                   {selectedCourse.levelData.syllabus.map((item, index) => (
                     <div key={index} className="syllabus-topic">
-                      <div 
-                        className="topic-header" 
+                      <div
+                        className="topic-header"
                         onClick={() => toggleTopic(index)}
                       >
                         <div className="topic-title">

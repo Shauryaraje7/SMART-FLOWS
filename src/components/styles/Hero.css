@@ -10,7 +10,8 @@
   overflow: hidden;
   margin: 0;
   font-family: system-ui, -apple-system, sans-serif;
-  will-change: transform;
+  background: url(../../assets/background102.png);
+ 
 }
 
 
