@@ -1,19 +1,20 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import Courses from './components/pages/courses.jsx';
+import Courses from './components/Sections/courses.jsx';
 import './App.css';
 
 // Import all sections directly
-import Hero from './components/pages/Hero.jsx';
-import ServicesSection from './components/pages/ServicesSection.jsx';
-import AboutSection from './components/pages/AboutSection.jsx';
-import WhyChooseUsSection from './components/pages/WhyChooseUsSection.jsx';
-import ClientsSection from './components/pages/ClientsSection.jsx';
-import TestimonialsSection from './components/pages/Testimonials.jsx';
-import FAQSection from './components/pages/FAQSection.jsx';
-import ContactSection from './components/pages/ContactSection.jsx';
-import FooterSection from './components/pages/FooterSection.jsx';
+import ServicesPage from './components/Pages/servicepage.jsx';
+import Hero from './components/Sections/Hero.jsx';
+import ServicesSection from './components/Sections/ServicesSection.jsx';
+import AboutSection from './components/Sections/AboutSection.jsx';
+import WhyChooseUsSection from './components/Sections/WhyChooseUsSection.jsx';
+import ClientsSection from './components/Sections/ClientsSection.jsx';
+import TestimonialsSection from './components/Sections/Testimonials.jsx';
+import FAQSection from './components/Sections/FAQSection.jsx';
+import ContactSection from './components/Sections/ContactSection.jsx';
+import FooterSection from './components/Sections/FooterSection.jsx';
 
 function HomeContent() {
   return (
@@ -21,7 +22,6 @@ function HomeContent() {
       <Hero />
       <AboutSection/>
       <ServicesSection />
-     
       <WhyChooseUsSection />
       <ClientsSection />
       <TestimonialsSection />
@@ -42,6 +42,7 @@ function App() {
             <Route path="/" element={<HomeContent />} />
             <Route path="/courses" element={<Courses />} />
             {/* Add a catch-all route for 404 pages */}
+            <Route path="/services" element={<ServicesPage />} />
             <Route path="*" element={
               <div style={{ padding: '2rem', textAlign: 'center' }}>
                 <h1>404 - Page Not Found</h1>

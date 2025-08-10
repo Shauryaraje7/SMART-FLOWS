@@ -78,18 +78,20 @@ function Navbar() {
               <span>Home</span>
             </NavLink>
 
-            <a
-              href="#services"
-              onClick={(e) => handleInPageNavigation('#services', e)}
-              className="nav-link"
+            {/* Updated Services Link - now points to /services page */}
+            <NavLink
+              to="/services"
+              onClick={closeMenu}
+              className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
             >
               <span>Services</span>
-            </a>
+            </NavLink>
 
+            {/* Keep the in-page navigation as fallback */}
             <a
               href="#testimonials"
               onClick={(e) => handleInPageNavigation('#testimonials', e)}
-              className="nav-link"
+              className="nav-link mobile-testimonial-link"
             >
               <span>Testimonials</span>
             </a>
@@ -113,7 +115,6 @@ function Navbar() {
 
             {/* This will be hidden on mobile */}
             <div className="contact-and-button">
-              
               <div className="button-container">
                 <button className="navbar-btn" onClick={handleBookAppointment}>
                   <span>Book a Demo</span>
@@ -123,22 +124,21 @@ function Navbar() {
           </div>
 
           {/* Mobile button container */}
-         
-         <div className="ham-and-demo-formobile">
-           <div className="mobile-button-container">
-            <button className="navbar-btn" onClick={handleBookAppointment}>
-              <span>Book Demo</span>
+          <div className="ham-and-demo-formobile">
+            <div className="mobile-button-container">
+              <button className="navbar-btn" onClick={handleBookAppointment}>
+                <span>Book Demo</span>
+              </button>
+            </div>
+            <button
+              className={`hamburger ${isOpen ? 'active' : ''}`}
+              onClick={toggleMenu}
+              aria-label="Menu"
+            >
+              <span className="hamburger-line"></span>
+              <span className="hamburger-line"></span>
+              <span className="hamburger-line"></span>
             </button>
-          </div>
-          <button
-            className={`hamburger ${isOpen ? 'active' : ''}`}
-            onClick={toggleMenu}
-            aria-label="Menu"
-          >
-            <span className="hamburger-line"></span>
-            <span className="hamburger-line"></span>
-            <span className="hamburger-line"></span>
-          </button>
           </div>
         </div>
       </nav>
