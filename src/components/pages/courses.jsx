@@ -3,9 +3,14 @@ import '../styles/courses.css';
 import '../styles/Global.css';
 import UipathLogo from '../../assets/UiPath-Logo.png';
 import PowerAutomateLogo from '../../assets/power-automate-logo-removebg-preview.png';
-import AgenticAiLogo from '../../assets/new-ai-logo.png';
+import customapps from '../../assets/Cutomatomationlogo.svg';
 import AutomationAnywher from '../../assets/Automation-Anywhere.png';
 import BluePrism from '../../assets/Blue-Prism.png';
+import Clock from '../../assets/clock.svg';
+import Star from '../../assets/star.svg';
+
+
+
 import FooterSection from './FooterSection.jsx';
 
 const CoursePage = () => {
@@ -781,6 +786,7 @@ const CoursePage = () => {
       levels: {
         Beginner: {
           title: 'Power Apps – Beginner',
+          imageUrl:customapps,
           description: 'Build your first custom business app without writing code. Learn to create Canvas and Model-driven apps from scratch.',
           detailedDescription: 'Learn how to use Microsoft Power Apps to rapidly build mobile-friendly, data-driven applications. This beginner course covers Canvas apps, screen design, formulas, and integrations with Excel and SharePoint.',
           duration: '20+ hours',
@@ -840,6 +846,7 @@ const CoursePage = () => {
         },
         Intermediate: {
           title: 'Custom Automation – Intermediate',
+           imageUrl:customapps,
           description: 'Develop integrated solutions with multiple technologies.',
           detailedDescription: 'Build more complex solutions by integrating RPA tools with APIs and databases.',
           duration: '8 weeks',
@@ -890,6 +897,7 @@ const CoursePage = () => {
         },
         Advanced: {
           title: 'Power Apps – Advanced',
+          imageUrl:customapps,
           description: 'Create advanced business applications using Power Apps and Dataverse. Perfect for developers and tech-savvy users.',
           detailedDescription: 'Learn to build advanced Canvas and Model-driven apps, use custom connectors, and manage app lifecycle with Datverse. Covers real-world integrations and enterprise app deployment techniques.',
           duration: '7+ hours',
@@ -1097,8 +1105,8 @@ const CoursePage = () => {
           <div className="course-info">
             <h3>{course.name}</h3>
             <div className="course-meta">
-              <span><i className="fas fa-clock"></i> {course.levelData.duration}</span>
-              <span><i className="fas fa-star"></i> {course.rating}</span>
+              <span className='card-time' ><i className="fas fa-clock "><img src={Clock} className='card-smallimg'  alt="" /></i> {course.levelData.duration}</span>
+              <span className='card-time' ><i className="fas fa-star"><img src={Star}    className='card-smallimg'  alt="" /></i> {course.rating}</span>
             </div>
             <p className="course-description">{course.levelData.description}</p>
           </div>
@@ -1329,11 +1337,7 @@ const CoursePage = () => {
             <div className="enrollment-header">
               <h3>Enroll in <span className="course-name">{selectedCourse.name}</span></h3>
               <p className="course-level">{selectedCourse.level} Level</p>
-              <div className="header-decoration">
-                <div className="decoration-circle"></div>
-                <div className="decoration-circle"></div>
-                <div className="decoration-circle"></div>
-              </div>
+             
             </div>
 
             <div className="modal-body">
@@ -1377,10 +1381,7 @@ const CoursePage = () => {
             <span className="info-label">Level:</span>
             <span className="info-value">{selectedCourse.level}</span>
           </div>
-          <div className="info-item">
-            <span className="info-label">Instructor:</span>
-            <span className="info-value">{selectedCourse.instructor}</span>
-          </div>
+         
         </div>
 
 

@@ -19,8 +19,9 @@ function HomeContent() {
   return (
     <div className="appcontainer">
       <Hero />
+      <AboutSection/>
       <ServicesSection />
-      <AboutSection />
+     
       <WhyChooseUsSection />
       <ClientsSection />
       <TestimonialsSection />

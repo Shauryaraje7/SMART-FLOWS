@@ -10,7 +10,10 @@
   overflow: hidden;
   margin: 0;
   font-family: system-ui, -apple-system, sans-serif;
-  background: url(../../assets/background102.png);
+  background: url(../../assets/background222.png);
+  background-repeat: no-repeat;
+  background-size: cover; /* or contain, or specific dimensions */
+background-position: center;
  
 }
 

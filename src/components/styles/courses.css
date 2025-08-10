@@ -234,6 +234,19 @@ body {
   height: 100%;
 }
 
+.card-time{
+  border: 2px solid #00bcd4;
+  padding-right: 6px;
+  padding-left: 6px;
+  border-radius: 4px;
+}
+.card-smallimg{
+
+  margin-top: 4px;
+  width: 20px;
+}
+
+
 .course-card:hover {
   transform: translateY(-8px);
   box-shadow: 0 15px 30px rgba(0, 188, 212, 0.2);
@@ -1525,7 +1538,10 @@ body {
 }
 
 
-
+.course-selection-info{
+ display: flex; 
+ gap: 10vw;
+}
 
 
 
