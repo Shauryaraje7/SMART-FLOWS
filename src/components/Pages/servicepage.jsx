@@ -6,6 +6,7 @@ import PowerAutomateLogo from '../../assets/power-automate-logo-removebg-preview
 import AgenticAiLogo from '../../assets/new-ai-logo.png';
 import AutomationAnywher from '../../assets/Automation-Anywhere.png';
 import BluePrism from '../../assets/Blue-Prism.png';
+import FooterSection from '../Sections/FooterSection.jsx';
 
 const ServicesPage = () => {
   const services = [
@@ -205,6 +206,7 @@ const ServicesPage = () => {
           <Link to="/contact" className="cta-button-alt">Schedule Assessment</Link>
         </div>
       </section>
+       <FooterSection />
     </div>
   );
 };

@@ -236,8 +236,8 @@ body {
 
 .card-time{
   border: 2px solid #00bcd4;
-  padding-right: 6px;
-  padding-left: 6px;
+  padding-right: 1px;
+  padding-left: 1px;
   border-radius: 4px;
 }
 .card-smallimg{

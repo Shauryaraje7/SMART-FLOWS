@@ -8,6 +8,7 @@ import AgenticAiLogo from '../../assets/new-ai-logo.png';
 import AutomationAnywher from '../../assets/Automation-Anywhere.png';
 import BluePrism from '../../assets/Blue-Prism.png';
 
+
 const ServicesSection = () => {
   const sectionRef = useRef(null);
   const serviceCardsRef = useRef([]);
