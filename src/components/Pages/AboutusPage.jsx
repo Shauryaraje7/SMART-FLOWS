@@ -44,7 +44,7 @@ const AboutPage = () => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('animate');
-          if (entry.target.classList.contains('stats-section')) {
+          if (entry.target.classList.contains('aboutup-stats-section')) {
             animateStats();
           }
         }
@@ -86,89 +86,89 @@ const AboutPage = () => {
   ];
 
   return (
-    <div className="about-page">
+    <div className="aboutup-page">
       {/* Hero Section */}
-      <section className="about-hero" ref={el => sectionRefs.current[0] = el}>
-        <div className="hero-content">
+      <section className="aboutup-hero" ref={el => sectionRefs.current[0] = el}>
+        <div className="aboutup-hero-content">
           <h1>Driving Digital Transformation Through Intelligent Automation</h1>
           <p>We empower businesses to achieve operational excellence with cutting-edge automation solutions</p>
-          <div className="hero-buttons">
-            <Link to="/services" className="btn-primary">Our Services</Link>
-            <Link to="/courses" className="btn-outline">Explore Courses</Link>
+          <div className="aboutup-hero-buttons">
+            <Link to="/services" className="aboutup-btn-primary">Our Services</Link>
+            <Link to="/courses" className="aboutup-btn-outline">Explore Courses</Link>
           </div>
         </div>
-        <div className="hero-image">
+        <div className="aboutup-hero-image">
           <img src={Robot} alt="Automation technology" loading="lazy" />
-          <div className="glow-effect"></div>
+          <div className="aboutup-glow-effect"></div>
         </div>
       </section>
 
       {/* Stats Section */}
-      <section className="stats-section" ref={el => sectionRefs.current[1] = el}>
-        <div className="stat-item">
-          <div className="stat-number">{projectsCompleted}</div>
-          <div className="stat-label">Projects Completed</div>
+      <section className="aboutup-stats-section" ref={el => sectionRefs.current[1] = el}>
+        <div className="aboutup-stat-item">
+          <div className="aboutup-stat-number">{projectsCompleted}</div>
+          <div className="aboutup-stat-label">Projects Completed</div>
         </div>
-        <div className="stat-item">
-          <div className="stat-number">{satisfactionRate}</div>
-          <div className="stat-label">Client Satisfaction</div>
+        <div className="aboutup-stat-item">
+          <div className="aboutup-stat-number">{satisfactionRate}</div>
+          <div className="aboutup-stat-label">Client Satisfaction</div>
         </div>
-        <div className="stat-item">
-          <div className="stat-number">{automationHours}</div>
-          <div className="stat-label">Hours Automated</div>
+        <div className="aboutup-stat-item">
+          <div className="aboutup-stat-number">{automationHours}</div>
+          <div className="aboutup-stat-label">Hours Automated</div>
         </div>
       </section>
 
       {/* Mission Section */}
-      <section className="mission-section" ref={el => sectionRefs.current[2] = el}>
-        <div className="mission-content">
+      <section className="aboutup-mission-section" ref={el => sectionRefs.current[2] = el}>
+        <div className="aboutup-mission-content">
           <h2>Our Mission</h2>
           <p>
             To democratize automation technology, making it accessible and valuable for businesses of all sizes. 
             We bridge the gap between technical potential and practical implementation, delivering solutions that 
             drive measurable results.
           </p>
-          <div className="mission-points">
-            <div className="point">
-              <div className="point-icon">✓</div>
+          <div className="aboutup-mission-points">
+            <div className="aboutup-point">
+              <div className="aboutup-point-icon">✓</div>
               <h3>Innovation</h3>
               <p>Pioneering new approaches to automation challenges</p>
             </div>
-            <div className="point">
-              <div className="point-icon">✓</div>
+            <div className="aboutup-point">
+              <div className="aboutup-point-icon">✓</div>
               <h3>Excellence</h3>
               <p>Reliable solutions with meticulous attention to detail</p>
             </div>
-            <div className="point">
-              <div className="point-icon">✓</div>
+            <div className="aboutup-point">
+              <div className="aboutup-point-icon">✓</div>
               <h3>Empowerment</h3>
               <p>Equipping clients with knowledge and tools for success</p>
             </div>
           </div>
         </div>
-        <div className="mission-image">
+        <div className="aboutup-mission-image">
           <img src={Robot} alt="Our mission" loading="lazy" />
         </div>
       </section>
 
       {/* Courses Section */}
-      <section className="courses-section" ref={el => sectionRefs.current[3] = el}>
-        <div className="section-header">
+      <section className="aboutup-courses-section" ref={el => sectionRefs.current[3] = el}>
+        <div className="aboutup-section-header">
           <h2>Automation Education</h2>
           <p>Comprehensive training programs to build automation expertise</p>
         </div>
-        <div className="courses-grid">
+        <div className="aboutup-courses-grid">
           {courses.map((course, index) => (
-            <div className="course-card" key={index}>
-              <div className="course-header">
+            <div className="aboutup-course-card" key={index}>
+              <div className="aboutup-course-header">
                 <h3>{course.title}</h3>
-                <div className="course-meta">
+                <div className="aboutup-course-meta">
                   <span>{course.level}</span>
                   <span>{course.duration}</span>
                 </div>
               </div>
               <p>{course.description}</p>
-              <Link to={`/courses/${course.title.toLowerCase().replace(/\s+/g, '-')}`} className="course-link">
+              <Link to={`/courses/${course.title.toLowerCase().replace(/\s+/g, '-')}`} className="aboutup-course-link">
                 Learn More →
               </Link>
             </div>
@@ -177,29 +177,29 @@ const AboutPage = () => {
       </section>
 
       {/* Capabilities Section */}
-      <section className="capabilities-section" ref={el => sectionRefs.current[4] = el}>
-        <div className="section-header">
+      <section className="aboutup-capabilities-section" ref={el => sectionRefs.current[4] = el}>
+        <div className="aboutup-section-header">
           <h2>Our Technical Capabilities</h2>
           <p>The tools and technologies we master to deliver exceptional results</p>
         </div>
-        <div className="capabilities-list">
-          <div className="capability">
-            <div className="capability-icon">RPA</div>
+        <div className="aboutup-capabilities-list">
+          <div className="aboutup-capability">
+            <div className="aboutup-capability-icon">RPA</div>
             <h3>Robotic Process Automation</h3>
             <p>UiPath, Automation Anywhere, Blue Prism, Power Automate</p>
           </div>
-          <div className="capability">
-            <div className="capability-icon">AI</div>
+          <div className="aboutup-capability">
+            <div className="aboutup-capability-icon">AI</div>
             <h3>Artificial Intelligence</h3>
             <p>Document understanding, machine learning, cognitive automation</p>
           </div>
-          <div className="capability">
-            <div className="capability-icon">API</div>
+          <div className="aboutup-capability">
+            <div className="aboutup-capability-icon">API</div>
             <h3>System Integration</h3>
             <p>REST APIs, database connectors, legacy system automation</p>
           </div>
-          <div className="capability">
-            <div className="capability-icon">BPM</div>
+          <div className="aboutup-capability">
+            <div className="aboutup-capability-icon">BPM</div>
             <h3>Process Optimization</h3>
             <p>Process mining, workflow analysis, performance benchmarking</p>
           </div>
@@ -207,12 +207,12 @@ const AboutPage = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="about-cta" ref={el => sectionRefs.current[5] = el}>
+      <section className="aboutup-cta" ref={el => sectionRefs.current[5] = el}>
         <h2>Ready to Automate Your Future?</h2>
         <p>Whether you need automation solutions or want to build expertise, we have the perfect offering for you.</p>
-        <div className="cta-buttons">
-          <Link to="/contact" className="btn-primary">Get Started</Link>
-          <Link to="/courses" className="btn-outline">Browse Courses</Link>
+        <div className="aboutup-cta-buttons">
+          <Link to="/contact" className="aboutup-btn-primary">Get Started</Link>
+          <Link to="/courses" className="aboutup-btn-outline">Browse Courses</Link>
         </div>
       </section>
     </div>

@@ -1154,7 +1154,7 @@ const CoursePage = () => {
                 <path d="M18 6L6 18" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                 <path d="M6 6L18 18" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
               </svg></i>
-            </button>
+            </button>z
 
             <div className="modal-header">
               <h3>{selectedCourse.name} - {selectedCourse.level}</h3>
