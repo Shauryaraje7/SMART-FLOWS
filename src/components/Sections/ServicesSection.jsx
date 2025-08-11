@@ -4,7 +4,7 @@ import '../styles/ServicesSection.css';
 import '../styles/Global.css';
 import UipathLogo from '../../assets/UiPath-Logo.png';
 import PowerAutomateLogo from '../../assets/power-automate-logo-removebg-preview.png';
-import AgenticAiLogo from '../../assets/new-ai-logo.png';
+import AgenticAiLogo from '../../assets/aiagents.png';
 import AutomationAnywher from '../../assets/Automation-Anywhere.png';
 import BluePrism from '../../assets/Blue-Prism.png';
 
@@ -70,7 +70,7 @@ const ServicesSection = () => {
             description: "Intelligent automation solutions for complex business processes."
           },
           {
-            icon: <img src={BluePrism} alt="Blue Prism" className="service-icon agenticailogo" width="40" height="40" loading="lazy" />,
+            icon: <img src={BluePrism} alt="Blue Prism" className="service-icon blueprism" width="40" height="40" loading="lazy" />,
             title: "Blue Prism",
             description: "Enterprise-grade RPA with digital workforce capabilities."
           },

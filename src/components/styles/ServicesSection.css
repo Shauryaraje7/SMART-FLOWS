@@ -160,11 +160,14 @@
 }
 
 .AutomationAnywher-Logo {
-  transform: scale(0.8);
+  height: 4vh;
 }
 
 .agenticailogo {
-  transform: scale(1.3);
+  height  : 18vh;
+}
+.blueprism{
+  height: 6vh;
 }
 
 .service-card h3 {
