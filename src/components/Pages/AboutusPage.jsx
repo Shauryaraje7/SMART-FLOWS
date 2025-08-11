@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/AboutusPage.css';
 import Robot from '../../assets/robot3.png';
+import FooterSection from '../Sections/FooterSection.jsx';
 
 const AboutPage = () => {
   const [projectsCompleted, setProjectsCompleted] = useState(0);
@@ -215,6 +216,9 @@ const AboutPage = () => {
           <Link to="/courses" className="aboutup-btn-outline">Browse Courses</Link>
         </div>
       </section>
+
+      {/* Footer Section */}
+      <FooterSection />
     </div>
   );
 };

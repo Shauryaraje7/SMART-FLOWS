@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/BlogsPage.css';
+import FooterSection from '../Sections/FooterSection.jsx';
 
 const BlogPage = () => {
   // Sample blog data with image placeholder
@@ -314,6 +315,9 @@ const BlogPage = () => {
           </div>
         </div>
       )}
+
+      {/* Footer Section */}
+      <FooterSection />
     </div>
   );
 };

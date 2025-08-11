@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/CareerPage.css';
+import FooterSection from '../Sections/FooterSection.jsx';
 
 const CareersPage = () => {
   const [activeTab, setActiveTab] = useState('all');
@@ -277,6 +278,8 @@ const CareersPage = () => {
           <Link to="/contact" className="cta-button">Submit Your Resume</Link>
         </div>
       </section>
+      
+      <FooterSection />
     </div>
   );
 };

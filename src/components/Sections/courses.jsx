@@ -786,7 +786,7 @@ const CoursePage = () => {
       levels: {
         Beginner: {
           title: 'Power Apps – Beginner',
-          imageUrl:customapps,
+          imageUrl: customapps,
           description: 'Build your first custom business app without writing code. Learn to create Canvas and Model-driven apps from scratch.',
           detailedDescription: 'Learn how to use Microsoft Power Apps to rapidly build mobile-friendly, data-driven applications. This beginner course covers Canvas apps, screen design, formulas, and integrations with Excel and SharePoint.',
           duration: '20+ hours',
@@ -846,7 +846,7 @@ const CoursePage = () => {
         },
         Intermediate: {
           title: 'Custom Automation – Intermediate',
-           imageUrl:customapps,
+          imageUrl: customapps,
           description: 'Develop integrated solutions with multiple technologies.',
           detailedDescription: 'Build more complex solutions by integrating RPA tools with APIs and databases.',
           duration: '8 weeks',
@@ -897,7 +897,7 @@ const CoursePage = () => {
         },
         Advanced: {
           title: 'Power Apps – Advanced',
-          imageUrl:customapps,
+          imageUrl: customapps,
           description: 'Create advanced business applications using Power Apps and Dataverse. Perfect for developers and tech-savvy users.',
           detailedDescription: 'Learn to build advanced Canvas and Model-driven apps, use custom connectors, and manage app lifecycle with Datverse. Covers real-world integrations and enterprise app deployment techniques.',
           duration: '7+ hours',
@@ -1071,59 +1071,68 @@ const CoursePage = () => {
           </div>
         </div>
 
-<div className="course-grid">
-  {filteredCourses.length === 0 ? (
-    <div className="no-results-message">
-      <div className="no-results-content">
-        <i className="fas fa-search"></i>
-        <h3 className='Allh1 headings '  >No courses found</h3>
-        <p  className='AllP smallpara '  >We couldn't find any courses matching "{searchTerm}" at the {activeFilter} level.</p>
-        <p  className='AllP smallpara '  >Try adjusting your search or filter criteria.</p>
-        <button 
-          className="reset-search-button"
-          onClick={() => {
-            setSearchTerm('');
-            setActiveFilter('All');
-          }}
-        >
-          Reset Search
-        </button>
-      </div>
-    </div>
-  ) : (
-    filteredCourses.map((course, index) => (
-      <div
-        className="course-card"
-        key={`${course.id}-${course.level}`}
-        onClick={() => handleCourseClick(course)}
-      >
-        <div className="course-image">
-          <img src={course.levelData.imageUrl} alt={course.name} />
-          <div className="course-badge">{course.level}</div>
-        </div>
-        <div className="course-content">
-          <div className="course-info">
-            <h3>{course.name}</h3>
-            <div className="course-meta">
-              <span className='card-time' ><i className="fas fa-clock "><img src={Clock} className='card-smallimg'  alt="" /></i> {course.levelData.duration}</span>
-              <span className='card-time' ><i className="fas fa-star"><img src={Star}    className='card-smallimg'  alt="" /></i> {course.rating}</span>
+        <div className="course-grid">
+          {filteredCourses.length === 0 ? (
+            <div className="no-results-message">
+              <div className="no-results-content">
+                <i className="fas fa-search"></i>
+                <h3 className='Allh1 headings '  >No courses found</h3>
+                <p className='AllP smallpara '  >We couldn't find any courses matching "{searchTerm}" at the {activeFilter} level.</p>
+                <p className='AllP smallpara '  >Try adjusting your search or filter criteria.</p>
+                <button
+                  className="reset-search-button"
+                  onClick={() => {
+                    setSearchTerm('');
+                    setActiveFilter('All');
+                  }}
+                >
+                  Reset Search
+                </button>
+              </div>
             </div>
-            <p className="course-description">{course.levelData.description}</p>
-          </div>
-          <button
-            className="enroll-button"
-            onClick={(e) => {
-              e.stopPropagation();
-              handleCourseClick(course);
-            }}
-          >
-            View Details <i className="fas fa-arrow-right"></i>
-          </button>
+          ) : (
+            filteredCourses.map((course, index) => (
+
+
+              <div
+                className="course-card"
+                key={`${course.id}-${course.level}`}
+                onClick={() => handleCourseClick(course)}
+              >
+                <div className="course-image">
+                  <img src={course.levelData.imageUrl} alt={course.name} />
+                  <div className="course-badge">{course.level}</div>
+                </div>
+                <div className="course-content">
+                  <div className="course-info">
+                    <h3>{course.name}</h3>
+                    <div className="course-meta">
+                      <span className="meta-item">
+                        <img src={Clock} className="meta-icon" alt="Duration" />
+                        <span className="meta-text">{course.levelData.duration}</span>
+                      </span>
+                      <span className="meta-item">
+                        <img src={Star} className="meta-icon" alt="Rating" />
+                        <span className="meta-text">{course.rating}</span>
+                      </span>
+                    </div>
+                    <p className="course-description">{course.levelData.description}</p>
+                  </div>
+                  <button
+                    className="enroll-button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleCourseClick(course);
+                    }}
+                  >
+                    View Details <i className="fas fa-arrow-right"></i>
+                  </button>
+                </div>
+              </div>
+
+            ))
+          )}
         </div>
-      </div>
-    ))
-  )}
-</div>
       </div>
 
 
@@ -1150,11 +1159,13 @@ const CoursePage = () => {
               className="close-modal"
               onClick={() => setShowCourseModal(false)}
             >
-              <i className="fas fa-times"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M18 6L6 18" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                <path d="M6 6L18 18" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-              </svg></i>
-            </button>z
+              <i className="fas fa-times">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M18 6L6 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M6 6L18 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </i>
+            </button>
 
             <div className="modal-header">
               <h3>{selectedCourse.name} - {selectedCourse.level}</h3>
@@ -1173,15 +1184,19 @@ const CoursePage = () => {
 
             <div className="modal-body">
               <div className="course-overview">
-                <div className="course-image-large">
-                     <img 
-                    src={selectedCourse.levelData.imageUrl} 
-                    alt={selectedCourse.name} 
-                    onError={(e) => {
-                      e.target.onerror = null; 
-                      e.target.src = 'path/to/fallback-image.png';
-                    }}
-                  />
+                <div className="course-image-container">
+                  <div className="course-image-large">
+                    <img
+                      src={selectedCourse.levelData.imageUrl}
+                      alt={selectedCourse.name}
+                      className="course-main-image"
+                      onError={(e) => {
+                        e.target.onerror = null;
+                        e.target.src = 'https://via.placeholder.com/600x400?text=Course+Image';
+                      }}
+                    />
+                    <div className="image-overlay"></div>
+                  </div>
                 </div>
                 <div className="course-highlights">
                   <div className="highlight-item">
@@ -1216,27 +1231,42 @@ const CoursePage = () => {
                       <div
                         className="topic-header"
                         onClick={() => toggleTopic(index)}
+                        aria-expanded={expandedTopics[index]}
                       >
                         <div className="topic-title">
-                          <i className={`fas fa-chevron-${expandedTopics[index] ? 'down' : 'right'}`}></i>
+                          <span className="topic-chevron">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                            </svg>
+                          </span>
                           <span>{item.topic || item}</span>
                         </div>
                         <div className="topic-toggle">
-                          {expandedTopics[index] ? 'Hide' : 'Show'} details
+                          {expandedTopics[index] ? 'Hide details' : 'Show details'}
                         </div>
                       </div>
-                      {expandedTopics[index] && item.subtopics && (
-                        <div className="topic-content">
-                          <ul className="subtopics-list">
-                            {item.subtopics.map((subtopic, subIndex) => (
-                              <li key={subIndex}>
-                                <i className="fas fa-circle"></i>
-                                <span>{subtopic}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      )}
+                      <div
+                        className="topic-content-wrapper"
+                        style={{
+                          maxHeight: expandedTopics[index] ? '1000px' : '0',
+                          transition: 'max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1)'
+                        }}
+                      >
+                        {item.subtopics && (
+                          <div className="topic-content">
+                            <ul className="subtopics-list">
+                              {item.subtopics.map((subtopic, subIndex) => (
+                                <li key={subIndex}>
+                                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="12" cy="12" r="8" fill="currentColor" />
+                                  </svg>
+                                  <span>{subtopic}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        )}
+                      </div>
                     </div>
                   ))}
                 </div>
@@ -1247,8 +1277,12 @@ const CoursePage = () => {
                 <div className="projects-grid">
                   {selectedCourse.levelData.projects.map((project, index) => (
                     <div key={index} className="project-card">
-                      <i className="fas fa-project-diagram"></i>
-                      <span>{project}</span>
+                      <div className="project-icon">
+                        <i className="fas fa-project-diagram"></i>
+                      </div>
+                      <div className="project-content">
+                        <span>{project}</span>
+                      </div>
                     </div>
                   ))}
                 </div>
@@ -1296,6 +1330,9 @@ const CoursePage = () => {
             </div>
           </div>
         </div>
+
+
+
       )}
 
 
@@ -1337,27 +1374,27 @@ const CoursePage = () => {
             <div className="enrollment-header">
               <h3>Enroll in <span className="course-name">{selectedCourse.name}</span></h3>
               <p className="course-level">{selectedCourse.level} Level</p>
-             
+
             </div>
 
             <div className="modal-body">
               <div className="course-info-banner">
                 <div className="banner-content">
                   <div className="banner-left">
-             <img 
-                    src={selectedCourse.levelData.imageUrl} 
-                    alt={selectedCourse.name} 
-                    onError={(e) => {
-                      e.target.onerror = null; 
-                      e.target.src = 'path/to/fallback-image.png';
-                    }}
-                  />
-                 <div className="banner-details">
-              <h4>{selectedCourse.name} - {selectedCourse.level}</h4>
-              <p><i className="fas fa-clock"></i> {selectedCourse.levelData.duration}</p>
-              <p><i className="fas fa-chalkboard-teacher"></i> {selectedCourse.instructor}</p>
-              <p><i className="fas fa-certificate"></i> {selectedCourse.levelData.certification}</p>
-            </div>
+                    <img
+                      src={selectedCourse.levelData.imageUrl}
+                      alt={selectedCourse.name}
+                      onError={(e) => {
+                        e.target.onerror = null;
+                        e.target.src = 'path/to/fallback-image.png';
+                      }}
+                    />
+                    <div className="banner-details">
+                      <h4>{selectedCourse.name} - {selectedCourse.level}</h4>
+                      <p><i className="fas fa-clock"></i> {selectedCourse.levelData.duration}</p>
+                      <p><i className="fas fa-chalkboard-teacher"></i> {selectedCourse.instructor}</p>
+                      <p><i className="fas fa-certificate"></i> {selectedCourse.levelData.certification}</p>
+                    </div>
                   </div>
                   <div className="banner-right">
                     <div className="price-tag">
@@ -1371,18 +1408,18 @@ const CoursePage = () => {
 
               <form className="enrollment-form" onSubmit={handleEnrollmentSubmit}>
                 <h4 className="form-title">Your Information</h4>
-                    
-                       <div className="course-selection-info">
-          <div className="info-item">
-            <span className="info-label">Course:</span>
-            <span className="info-value">{selectedCourse.name}</span>
-          </div>
-          <div className="info-item">
-            <span className="info-label">Level:</span>
-            <span className="info-value">{selectedCourse.level}</span>
-          </div>
-         
-        </div>
+
+                <div className="course-selection-info">
+                  <div className="info-item">
+                    <span className="info-label">Course:</span>
+                    <span className="info-value">{selectedCourse.name}</span>
+                  </div>
+                  <div className="info-item">
+                    <span className="info-label">Level:</span>
+                    <span className="info-value">{selectedCourse.level}</span>
+                  </div>
+
+                </div>
 
 
                 <div className="form-row">
