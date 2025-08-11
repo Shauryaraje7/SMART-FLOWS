@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import '../styles/AboutPage.css';
+import '../styles/AboutusPage.css';
 import Robot from '../../assets/robot3.png';
 
 const AboutPage = () => {

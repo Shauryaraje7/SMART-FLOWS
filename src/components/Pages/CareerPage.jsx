@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import '../styles/ServicesPage.css';
+import '../styles/CareerPage.css';
 
 const CareersPage = () => {
   const [activeTab, setActiveTab] = useState('all');

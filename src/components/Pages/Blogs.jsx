@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import '../styles/BlogPage.css';
+import '../styles/BlogsPage.css';
 
 const BlogPage = () => {
-  // Sample blog data with image placeholders
+  // Sample blog data with image placeholder
   const allBlogPosts = [
     {
       id: 1,
@@ -256,7 +256,7 @@ const BlogPage = () => {
           <div className="sidebar-widget">
             <h3>Newsletter</h3>
             <p>Stay updated with the latest automation insights</p>
-            <form className="newsletter-form">
+            <form className="newsletter-form-blogs">
               <input type="email" placeholder="Your email address" />
               <button type="submit">Subscribe</button>
             </form>

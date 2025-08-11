@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import '../styles/FooterSection.css';
 import giticon from '../../assets/github.svg';
 import twittericon from '../../assets/twitter.svg';
@@ -14,7 +15,7 @@ const FooterSection = () => {
 
   const handleSubscribe = async (e) => {
     e.preventDefault();
-    
+
     // Basic email validation
     if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       setSubscriptionStatus('invalid');
@@ -26,7 +27,7 @@ const FooterSection = () => {
 
     try {
       const scriptUrl = 'https://script.google.com/macros/s/AKfycbynjJ0uCg6ElVYtRiamLB2-bN04aa5PojtWlrTbrr2d6f4VHnsW9mcac5QpXIi68jfk/exec';
-      
+
       const response = await fetch(scriptUrl, {
         method: 'POST',
         headers: {
@@ -38,7 +39,7 @@ const FooterSection = () => {
 
       setSubscriptionStatus('success');
       setEmail('');
-      
+
       // Clear success message after 5 seconds
       setTimeout(() => setSubscriptionStatus(null), 5000);
     } catch (error) {
@@ -79,10 +80,31 @@ const FooterSection = () => {
             <div className="links-column">
               <h4 className="links-heading">Company</h4>
               <ul className="links-list">
-                <li><a href="/about">About Us</a></li>
+                <li>
+                  <NavLink
+                    to="/aboutuspage"
+
+                  >
+                    <span>About Us</span>
+                  </NavLink>
+                </li>
                 <li><a href="/team">Our Team</a></li>
-                <li><a href="/careers">Careers</a></li>
-                <li><a href="/blog">Blog</a></li>
+                <li>
+                  <NavLink
+                    to="/careerpage"
+
+                  >
+                    <span>Careers</span>
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to="/blogpage"
+
+                  >
+                    <span>Blogs</span>
+                  </NavLink>
+                </li>
                 <li><a href="/faq">FAQ</a></li>
               </ul>
             </div>
@@ -101,15 +123,15 @@ const FooterSection = () => {
               <div className="newsletter">
                 <h4>Stay updated</h4>
                 <form className="newsletter-form" onSubmit={handleSubscribe}>
-                  <input 
-                    type="email" 
+                  <input
+                    type="email"
                     value={email}
                     onChange={(e) => {
                       setEmail(e.target.value);
                       if (subscriptionStatus === 'invalid') setSubscriptionStatus(null);
                     }}
-                    placeholder="Your email" 
-                    required 
+                    placeholder="Your email"
+                    required
                   />
                   <button type="submit" disabled={isLoading}>
                     {isLoading ? (
@@ -119,7 +141,7 @@ const FooterSection = () => {
                     )}
                   </button>
                 </form>
-                
+
                 {subscriptionStatus === 'success' && (
                   <p className="subscription-message success">
                     Thank you for subscribing!
@@ -137,7 +159,7 @@ const FooterSection = () => {
                 )}
               </div>
 
-            
+
 
               <div className="social-links">
                 <a href="https://GitHub.com/smartflows-in" aria-label="GitHub" className="social-link">

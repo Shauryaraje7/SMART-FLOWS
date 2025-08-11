@@ -1,10 +1,19 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import Courses from './components/Sections/courses.jsx';
+
 import './App.css';
 
+
+// Import all thepages 
+import BlogPage from './components/Pages/Blogs.jsx';
+import CareerPage from './components/Pages/CareerPage.jsx';
+import AboutusPage from './components/Pages/AboutusPage.jsx';
+
+
+
 // Import all sections directly
+import Courses from './components/Sections/courses.jsx';
 import ServicesPage from './components/Pages/servicepage.jsx';
 import Hero from './components/Sections/Hero.jsx';
 import ServicesSection from './components/Sections/ServicesSection.jsx';
@@ -20,7 +29,7 @@ function HomeContent() {
   return (
     <div className="appcontainer">
       <Hero />
-      <AboutSection/>
+      <AboutSection />
       <ServicesSection />
       <WhyChooseUsSection />
       <ClientsSection />
@@ -41,8 +50,13 @@ function App() {
           <Routes>
             <Route path="/" element={<HomeContent />} />
             <Route path="/courses" element={<Courses />} />
-            {/* Add a catch-all route for 404 pages */}
+
             <Route path="/services" element={<ServicesPage />} />
+            <Route path="/blogpage" element={<BlogPage />} />
+            <Route path="/careerpage" element={<CareerPage />} />
+            <Route path="/aboutuspage" element={<AboutusPage />} />
+            
+            {/* Add a catch-all route for 404 pages */}
             <Route path="*" element={
               <div style={{ padding: '2rem', textAlign: 'center' }}>
                 <h1>404 - Page Not Found</h1>
