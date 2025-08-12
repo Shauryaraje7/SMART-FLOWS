@@ -333,7 +333,7 @@
 
 .servicespage-timeline-marker {
   position: absolute;
-  top: -18px;
+  top: -8px;
   left: 50%;
   transform: translateX(-50%);
   width: 40px;
@@ -398,7 +398,7 @@
 
 /* Stats Section */
 .servicespage-stats {
-  padding: 5rem 2rem;
+  padding: 2rem 2rem;
   background: linear-gradient(135deg, #00bcd4 0%, #006ad4 100%);
   color: white;
   text-align: center;

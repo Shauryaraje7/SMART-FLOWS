@@ -80,45 +80,46 @@ function Navbar() {
 
           <div className={`navbar-links ${isOpen ? 'active' : ''}`}>
             {/* About Dropdown */}
-            <div 
+            <div
               className="dropdown-container"
               onMouseEnter={() => !isOpen && setOpenDropdown('about')}
               onMouseLeave={() => !isOpen && setOpenDropdown(null)}
             >
-              <button 
+              <button
                 className={`nav-link dropdown-toggle ${openDropdown === 'about' ? 'active' : ''}`}
                 onClick={() => toggleDropdown('about')}
               >
                 <span>About</span>
-                <svg 
-                  className={`dropdown-icon ${openDropdown === 'about' ? 'open' : ''}`} 
+                <svg
+                  className={`dropdown-icon ${openDropdown === 'about' ? 'open' : ''}`}
                   viewBox="0 0 24 24"
                 >
                   <path d="M7 10l5 5 5-5z" />
                 </svg>
               </button>
               <div className={`dropdown-menu ${openDropdown === 'about' ? 'show' : ''}`}>
-                <a 
-                  href="#testimonials" 
-                  onClick={(e) => handleInPageNavigation('#testimonials', e)}
-                  className="dropdown-item"
-                >
-                  Testimonials
-                </a>
-                <NavLink 
-                  to="/careerpage" 
-                  onClick={closeMenu}
-                  className="dropdown-item"
-                >
-                  Careers
-                </NavLink>
-                  <NavLink 
-                  to="/aboutuspage  " 
+                <NavLink
+                  to="/aboutuspage  "
                   onClick={closeMenu}
                   className="dropdown-item"
                 >
                   About Us
                 </NavLink>
+                <a
+                  href="#testimonials"
+                  onClick={(e) => handleInPageNavigation('#testimonials', e)}
+                  className="dropdown-item"
+                >
+                  Testimonials
+                </a>
+                <NavLink
+                  to="/careerpage"
+                  onClick={closeMenu}
+                  className="dropdown-item"
+                >
+                  Careers
+                </NavLink>
+
               </div>
             </div>
 
@@ -132,33 +133,33 @@ function Navbar() {
             </NavLink>
 
             {/* Resources Dropdown */}
-            <div 
+            <div
               className="dropdown-container"
               onMouseEnter={() => !isOpen && setOpenDropdown('resources')}
               onMouseLeave={() => !isOpen && setOpenDropdown(null)}
             >
-              <button 
+              <button
                 className={`nav-link dropdown-toggle ${openDropdown === 'resources' ? 'active' : ''}`}
                 onClick={() => toggleDropdown('resources')}
               >
                 <span>Resources</span>
-                <svg 
-                  className={`dropdown-icon ${openDropdown === 'resources' ? 'open' : ''}`} 
+                <svg
+                  className={`dropdown-icon ${openDropdown === 'resources' ? 'open' : ''}`}
                   viewBox="0 0 24 24"
                 >
                   <path d="M7 10l5 5 5-5z" />
                 </svg>
               </button>
               <div className={`dropdown-menu ${openDropdown === 'resources' ? 'show' : ''}`}>
-                <NavLink 
-                  to="/courses" 
+                <NavLink
+                  to="/courses"
                   onClick={closeMenu}
                   className="dropdown-item"
                 >
                   Courses
                 </NavLink>
-                <NavLink 
-                  to="/blogpage" 
+                <NavLink
+                  to="/blogpage"
                   onClick={closeMenu}
                   className="dropdown-item"
                 >
