@@ -419,7 +419,7 @@ const CoursePage = () => {
           imageUrl: AutomationAnywher,
           description: 'Start building bots using Automation Anywhere. Learn platform essentials, bot creation, and document automation.',
           detailedDescription: 'This beginner course teaches you how to build bots with Automation Anywhere\'s Task Bots and MetaBots. Explore the Control Room, document automation, and prepare for official AA certification.',
-          duration: '24h instructor-led + 24h videos + 32h projects',
+          duration: '24h',
           mode: 'Blended',
           syllabus: [
             {

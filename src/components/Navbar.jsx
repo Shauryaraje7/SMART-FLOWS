@@ -8,10 +8,14 @@ function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [showForm, setShowForm] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState(null);
   const location = useLocation();
 
   const toggleMenu = () => setIsOpen(!isOpen);
-  const closeMenu = () => setIsOpen(false);
+  const closeMenu = () => {
+    setIsOpen(false);
+    setOpenDropdown(null);
+  };
 
   const handleBookAppointment = () => {
     closeMenu();
@@ -20,6 +24,14 @@ function Navbar() {
 
   const closeForm = () => {
     setShowForm(false);
+  };
+
+  const toggleDropdown = (dropdownName) => {
+    if (openDropdown === dropdownName) {
+      setOpenDropdown(null);
+    } else {
+      setOpenDropdown(dropdownName);
+    }
   };
 
   // Scroll to section if hash exists in URL
@@ -67,18 +79,43 @@ function Navbar() {
           </div>
 
           <div className={`navbar-links ${isOpen ? 'active' : ''}`}>
-            <NavLink
-              to="/"
-              onClick={() => {
-                closeMenu();
-                window.scrollTo(0, 0);
-              }}
-              className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
+            {/* About Dropdown */}
+            <div 
+              className="dropdown-container"
+              onMouseEnter={() => !isOpen && setOpenDropdown('about')}
+              onMouseLeave={() => !isOpen && setOpenDropdown(null)}
             >
-              <span>About</span>
-            </NavLink>
+              <button 
+                className={`nav-link dropdown-toggle ${openDropdown === 'about' ? 'active' : ''}`}
+                onClick={() => toggleDropdown('about')}
+              >
+                <span>About</span>
+                <svg 
+                  className={`dropdown-icon ${openDropdown === 'about' ? 'open' : ''}`} 
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M7 10l5 5 5-5z" />
+                </svg>
+              </button>
+              <div className={`dropdown-menu ${openDropdown === 'about' ? 'show' : ''}`}>
+                <a 
+                  href="#testimonials" 
+                  onClick={(e) => handleInPageNavigation('#testimonials', e)}
+                  className="dropdown-item"
+                >
+                  Testimonials
+                </a>
+                <NavLink 
+                  to="/careerpage" 
+                  onClick={closeMenu}
+                  className="dropdown-item"
+                >
+                  Careers
+                </NavLink>
+              </div>
+            </div>
 
-            {/* Updated Services Link - now points to /services page */}
+            {/* Services Link */}
             <NavLink
               to="/services"
               onClick={closeMenu}
@@ -87,16 +124,41 @@ function Navbar() {
               <span>Services</span>
             </NavLink>
 
-            {/* Keep the in-page navigation as fallback */}
-     
-
-            <NavLink
-              to="/courses"
-              onClick={closeMenu}
-              className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
+            {/* Resources Dropdown */}
+            <div 
+              className="dropdown-container"
+              onMouseEnter={() => !isOpen && setOpenDropdown('resources')}
+              onMouseLeave={() => !isOpen && setOpenDropdown(null)}
             >
-              <span>Courses</span>
-            </NavLink>
+              <button 
+                className={`nav-link dropdown-toggle ${openDropdown === 'resources' ? 'active' : ''}`}
+                onClick={() => toggleDropdown('resources')}
+              >
+                <span>Resources</span>
+                <svg 
+                  className={`dropdown-icon ${openDropdown === 'resources' ? 'open' : ''}`} 
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M7 10l5 5 5-5z" />
+                </svg>
+              </button>
+              <div className={`dropdown-menu ${openDropdown === 'resources' ? 'show' : ''}`}>
+                <NavLink 
+                  to="/courses" 
+                  onClick={closeMenu}
+                  className="dropdown-item"
+                >
+                  Courses
+                </NavLink>
+                <NavLink 
+                  to="/blogpage" 
+                  onClick={closeMenu}
+                  className="dropdown-item"
+                >
+                  Blogs
+                </NavLink>
+              </div>
+            </div>
 
             {/* Contact link in mobile menu */}
             <a
