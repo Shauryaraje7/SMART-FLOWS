@@ -100,7 +100,7 @@ const CoursePage = () => {
           description: 'Build on your UiPath fundamentals with advanced workflow logic, arguments, exception handling and deployment practices. Ideal for professionals preparing for UiPath certifications.',
           imageUrl: UipathLogo,
           detailedDescription: 'Take your UiPath automation skills to the next level with this intermediate course focused on building robust, scalable bots. Learn how to manage workflows, use data scraping, automate in Citrix environments, and deploy bots via Orchestrator.',
-          duration: '24 hours live + 13 hours self-paced',
+          duration: '24 hours ',
           mode: 'Blended',
           syllabus: [
             {
