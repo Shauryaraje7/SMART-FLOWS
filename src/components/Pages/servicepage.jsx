@@ -10,10 +10,12 @@ import AgenticAiLogo from '../../assets/new-ai-logo.png';
 import AutomationAnywher from '../../assets/Automation-Anywhere.png';
 import BluePrism from '../../assets/Blue-Prism.png';
 import FooterSection from '../Sections/FooterSection.jsx';
+import RPAForm from '../RPAForm';
 
 const ServicesPage = () => {
   const [selectedService, setSelectedService] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [showRPAForm, setShowRPAForm] = useState(false); // Added this state
 
   const services = [
     {
@@ -118,15 +120,25 @@ const ServicesPage = () => {
     document.body.style.overflow = 'auto';
   };
 
+  const openRPAForm = () => {
+    setShowRPAForm(true);
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeRPAForm = () => {
+    setShowRPAForm(false);
+    document.body.style.overflow = 'auto';
+  };
+
   return (
     <div className="servicespage">
       {/* Hero Section with Animated Waves */}
       <section className="servicespage-hero">
         <div className="servicespage-hero-content">
-          <h1  className='Allh1 headings'  >Intelligent Automation Services</h1>
-          <p className="servicespage-hero-subtitle AllP headingpara ">We design, build, and optimize automation solutions that transform businesses</p>
+          <h1 className='Allh1 headings'>Intelligent Automation Services</h1>
+          <p className="servicespage-hero-subtitle AllP headingpara">We design, build, and optimize automation solutions that transform businesses</p>
           <div className="servicespage-hero-cta">
-            <Link to="/contact" className="servicespage-cta-button">Get Custom Solution</Link>
+            <button onClick={openRPAForm} className="servicespage-cta-button">Get Custom Solution</button>
           </div>
         </div>
         <div className="servicespage-wave-divider">
@@ -141,8 +153,8 @@ const ServicesPage = () => {
       {/* Services Showcase - Diagonal Layout */}
       <section className="servicespage-showcase">
         <div className="servicespage-showcase-header">
-          <h2  className='Allh1 headings'  >Our Automation Expertise</h2>
-          <p className=" AllP headingpara " >Tailored solutions for every industry vertical</p>
+          <h2 className='Allh1 headings'>Our Automation Expertise</h2>
+          <p className="AllP headingpara">Tailored solutions for every industry vertical</p>
         </div>
         
         <div className="servicespage-diagonal">
@@ -159,8 +171,8 @@ const ServicesPage = () => {
                 <div className="servicespage-service-logo-wrapper">
                   <img src={service.logo} alt={service.title} className="servicespage-service-logo" />
                 </div>
-                <h3  className='Allh1 headings'   >{service.title}</h3>
-                <p className="servicespage-service-desc AllP headingpara  ">{service.description}</p>
+                <h3 className='Allh1 headings'>{service.title}</h3>
+                <p className="servicespage-service-desc AllP headingpara">{service.description}</p>
                 <ul className="servicespage-service-features">
                   {service.features.map((feature, i) => (
                     <li key={i}>{feature}</li>
@@ -230,10 +242,6 @@ const ServicesPage = () => {
             </div>
           </div>
         </div>
-
-        {/* Testimonial Swiper */}
-     
-        
       </section>
 
       {/* Stats Section */}
@@ -263,7 +271,7 @@ const ServicesPage = () => {
         <div className="servicespage-cta-container">
           <h2>Ready to Transform Your Business?</h2>
           <p>Our automation experts will conduct a free assessment of your processes</p>
-          <Link to="/contact" className="servicespage-cta-button">Schedule Assessment</Link>
+          <button onClick={openRPAForm} className="servicespage-cta-button">Schedule Assessment</button>
         </div>
       </section>
       
@@ -294,14 +302,17 @@ const ServicesPage = () => {
                 </ul>
               </div>
               <div className="servicespage-modal-cta">
-                <Link to="/contact" className="servicespage-modal-button" onClick={closeModal}>
+                <button onClick={openRPAForm} className="servicespage-modal-button">
                   Request Consultation
-                </Link>
+                </button>
               </div>
             </div>
           </div>
         </div>
       )}
+
+      {/* RPA Form Modal */}
+      <RPAForm isOpen={showRPAForm} onClose={closeRPAForm} />
     </div>
   );
 };
