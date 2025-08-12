@@ -1,14 +1,14 @@
 /* CareersPage.css */
 
 /* Base Styles */
-.careers-page {
+.carrespage-careers-page {
   font-family: 'Inter', 'Segoe UI', sans-serif;
   color: #333;
   line-height: 1.6;
 }
 
 /* Hero Section */
-.careers-hero {
+.carrespage-careers-hero {
   background: linear-gradient(135deg, #00bcd4 0%, #006ad4 100%);
   color: white;
   padding: 8rem 2rem;
@@ -17,7 +17,7 @@
   overflow: hidden;
 }
 
-.careers-hero::before {
+.carrespage-careers-hero::before {
   content: '';
   position: absolute;
   top: 0;
@@ -27,27 +27,27 @@
   background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjA1KSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuKSIvPjwvc3ZnPg==');
 }
 
-.hero-content {
+.carrespage-hero-content {
   max-width: 800px;
   margin: 0 auto;
   position: relative;
   z-index: 1;
 }
 
-.careers-hero h1 {
+.carrespage-careers-hero h1 {
   font-size: clamp(2rem, 5vw, 3.5rem);
   font-weight: 800;
   margin-bottom: 1.5rem;
   line-height: 1.2;
 }
 
-.careers-hero p {
+.carrespage-careers-hero p {
   font-size: clamp(1rem, 2vw, 1.5rem);
   opacity: 0.9;
   margin-bottom: 2.5rem;
 }
 
-.cta-button {
+.carrespage-cta-button {
   display: inline-block;
   padding: 1rem 2.5rem;
   background: white;
@@ -60,19 +60,19 @@
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-.cta-button:hover {
+.carrespage-cta-button:hover {
   transform: translateY(-3px);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
 /* Section Header */
-.section-header {
+.carrespage-section-header {
   text-align: center;
   margin-bottom: 3rem;
   padding: 0 1rem;
 }
 
-.section-header h2 {
+.carrespage-section-header h2 {
   font-size: clamp(1.8rem, 3vw, 2.5rem);
   margin-bottom: 1rem;
   color: #0f172a;
@@ -80,7 +80,7 @@
   display: inline-block;
 }
 
-.section-header h2::after {
+.carrespage-section-header h2::after {
   content: '';
   position: absolute;
   bottom: -10px;
@@ -92,7 +92,7 @@
   border-radius: 2px;
 }
 
-.section-header p {
+.carrespage-section-header p {
   font-size: 1.1rem;
   color: #64748b;
   max-width: 700px;
@@ -100,12 +100,12 @@
 }
 
 /* Benefits Section */
-.benefits-section {
+.carrespage-benefits-section {
   padding: 6rem 2rem;
   background: #f8fafc;
 }
 
-.benefits-grid {
+.carrespage-benefits-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 2rem;
@@ -113,7 +113,7 @@
   margin: 0 auto;
 }
 
-.benefit-card {
+.carrespage-benefit-card {
   background: white;
   border-radius: 12px;
   padding: 2rem;
@@ -122,39 +122,39 @@
   transition: transform 0.3s ease;
 }
 
-.benefit-card:hover {
+.carrespage-benefit-card:hover {
   transform: translateY(-5px);
 }
 
-.benefit-icon {
+.carrespage-benefit-icon {
   font-size: 2.5rem;
   margin-bottom: 1.5rem;
 }
 
-.benefit-card h3 {
+.carrespage-benefit-card h3 {
   font-size: 1.3rem;
   margin-bottom: 1rem;
   color: #0f172a;
 }
 
-.benefit-card p {
+.carrespage-benefit-card p {
   color: #64748b;
   font-size: 0.95rem;
 }
 
 /* Job Openings Section */
-.job-openings {
+.carrespage-job-openings {
   padding: 6rem 2rem;
   background: white;
   max-width: 1200px;
   margin: 0 auto;
 }
 
-.jobs-controls {
+.carrespage-jobs-controls {
   margin-bottom: 3rem;
 }
 
-.search-bar {
+.carrespage-search-bar {
   display: flex;
   max-width: 500px;
   margin: 0 auto 2rem;
@@ -165,7 +165,7 @@
   border: 1px solid #e2e8f0;
 }
 
-.search-bar input {
+.carrespage-search-bar input {
   flex: 1;
   padding: 1rem 1.5rem;
   border: none;
@@ -173,7 +173,7 @@
   font-size: 1rem;
 }
 
-.search-button {
+.carrespage-search-button {
   padding: 1rem 1.5rem;
   background: #00bcd4;
   color: white;
@@ -182,16 +182,16 @@
   transition: background 0.3s ease;
 }
 
-.search-button:hover {
+.carrespage-search-button:hover {
   background: #0097a7;
 }
 
-.search-button svg {
+.carrespage-search-button svg {
   width: 20px;
   height: 20px;
 }
 
-.department-tabs {
+.carrespage-department-tabs {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -199,7 +199,7 @@
   margin-bottom: 2rem;
 }
 
-.department-tabs button {
+.carrespage-department-tabs button {
   padding: 0.6rem 1.2rem;
   background: #f1f5f9;
   border: none;
@@ -209,23 +209,23 @@
   transition: all 0.3s ease;
 }
 
-.department-tabs button:hover {
+.carrespage-department-tabs button:hover {
   background: #e2e8f0;
 }
 
-.department-tabs button.active {
+.carrespage-department-tabs button.active {
   background: #00bcd4;
   color: white;
 }
 
-.jobs-list {
+.carrespage-jobs-list {
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
 
 /* Job Card */
-.job-card {
+.carrespage-job-card {
   background: white;
   border-radius: 12px;
   overflow: hidden;
@@ -234,11 +234,11 @@
   transition: all 0.3s ease;
 }
 
-.job-card.expanded {
+.carrespage-job-card.expanded {
   box-shadow: 0 10px 30px rgba(0, 188, 212, 0.1);
 }
 
-.job-header {
+.carrespage-job-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -246,13 +246,13 @@
   cursor: pointer;
 }
 
-.job-title h3 {
+.carrespage-job-title h3 {
   font-size: 1.2rem;
   margin-bottom: 0.5rem;
   color: #0f172a;
 }
 
-.job-meta {
+.carrespage-job-meta {
   display: flex;
   flex-wrap: wrap;
   gap: 0.8rem;
@@ -260,22 +260,22 @@
   color: #64748b;
 }
 
-.job-meta span {
+.carrespage-job-meta span {
   display: flex;
   align-items: center;
 }
 
-.job-meta span::before {
+.carrespage-job-meta span::before {
   content: '•';
   margin-right: 0.3rem;
   color: #00bcd4;
 }
 
-.job-meta span:first-child::before {
+.carrespage-job-meta span:first-child::before {
   display: none;
 }
 
-.expand-icon {
+.carrespage-expand-icon {
   width: 30px;
   height: 30px;
   background: #f1f5f9;
@@ -291,32 +291,32 @@
   transition: all 0.3s ease;
 }
 
-.job-card.expanded .expand-icon {
+.carrespage-job-card.expanded .carrespage-expand-icon {
   transform: rotate(45deg);
 }
 
-.job-details {
+.carrespage-job-details {
   padding: 0 1.5rem 1.5rem;
   border-top: 1px solid #e2e8f0;
 }
 
-.job-details h4 {
+.carrespage-job-details h4 {
   font-size: 1.1rem;
   margin: 1.5rem 0 1rem;
   color: #0f172a;
 }
 
-.job-details ul {
+.carrespage-job-details ul {
   padding-left: 1.2rem;
   margin-bottom: 1.5rem;
 }
 
-.job-details li {
+.carrespage-job-details li {
   margin-bottom: 0.5rem;
   color: #475569;
 }
 
-.apply-button {
+.carrespage-apply-button {
   display: inline-block;
   padding: 0.8rem 1.8rem;
   background: #00bcd4;
@@ -327,23 +327,23 @@
   transition: background 0.3s ease;
 }
 
-.apply-button:hover {
+.carrespage-apply-button:hover {
   background: #0097a7;
 }
 
-.no-jobs {
+.carrespage-no-jobs {
   text-align: center;
   padding: 3rem;
   background: #f8fafc;
   border-radius: 12px;
 }
 
-.no-jobs p {
+.carrespage-no-jobs p {
   margin-bottom: 1.5rem;
   color: #64748b;
 }
 
-.reset-filters {
+.carrespage-reset-filters {
   padding: 0.8rem 1.5rem;
   background: #00bcd4;
   color: white;
@@ -354,36 +354,36 @@
   transition: background 0.3s ease;
 }
 
-.reset-filters:hover {
+.carrespage-reset-filters:hover {
   background: #0097a7;
 }
 
 /* Culture Section */
-.culture-section {
+.carrespage-culture-section {
   padding: 6rem 2rem;
   background: linear-gradient(135deg, #f0fdfa 0%, #f8fafc 100%);
 }
 
-.culture-content {
+.carrespage-culture-content {
   max-width: 1000px;
   margin: 0 auto;
   text-align: center;
 }
 
-.culture-content h2 {
+.carrespage-culture-content h2 {
   font-size: clamp(1.8rem, 3vw, 2.5rem);
   margin-bottom: 1.5rem;
   color: #0f172a;
 }
 
-.culture-content p {
+.carrespage-culture-content p {
   font-size: 1.1rem;
   color: #475569;
   max-width: 700px;
   margin: 0 auto 3rem;
 }
 
-.culture-points {
+.carrespage-culture-points {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 2rem;
@@ -391,26 +391,26 @@
   margin: 0 auto 3rem;
 }
 
-.culture-point {
+.carrespage-culture-point {
   background: white;
   padding: 1.5rem;
   border-radius: 12px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
 }
 
-.culture-point h3 {
+.carrespage-culture-point h3 {
   font-size: 1.2rem;
   margin-bottom: 0.8rem;
   color: #00bcd4;
 }
 
-.culture-point p {
+.carrespage-culture-point p {
   font-size: 0.95rem;
   color: #64748b;
   margin-bottom: 0;
 }
 
-.outline-button {
+.carrespage-outline-button {
   display: inline-block;
   padding: 0.8rem 1.8rem;
   background: transparent;
@@ -422,30 +422,30 @@
   transition: all 0.3s ease;
 }
 
-.outline-button:hover {
+.carrespage-outline-button:hover {
   background: #00bcd4;
   color: white;
 }
 
 /* CTA Section */
-.careers-cta {
+.carrespage-careers-cta {
   padding: 6rem 2rem;
   background: linear-gradient(135deg, #00bcd4 0%, #006ad4 100%);
   color: white;
   text-align: center;
 }
 
-.cta-content {
+.carrespage-cta-content {
   max-width: 800px;
   margin: 0 auto;
 }
 
-.careers-cta h2 {
+.carrespage-careers-cta h2 {
   font-size: clamp(1.8rem, 3vw, 2.5rem);
   margin-bottom: 1.5rem;
 }
 
-.careers-cta p {
+.carrespage-careers-cta p {
   font-size: 1.1rem;
   opacity: 0.9;
   margin-bottom: 2.5rem;
@@ -456,49 +456,49 @@
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
-  .careers-hero {
+  .carrespage-careers-hero {
     padding: 6rem 1.5rem;
   }
   
-  .benefits-grid {
+  .carrespage-benefits-grid {
     grid-template-columns: 1fr;
   }
   
-  .department-tabs {
+  .carrespage-department-tabs {
     justify-content: flex-start;
   }
   
-  .job-header {
+  .carrespage-job-header {
     flex-direction: column;
     align-items: flex-start;
   }
   
-  .expand-icon {
+  .carrespage-expand-icon {
     margin-left: 0;
     margin-top: 1rem;
   }
 }
 
 @media (max-width: 480px) {
-  .careers-hero {
+  .carrespage-careers-hero {
     padding: 4rem 1rem;
   }
   
-  .search-bar {
+  .carrespage-search-bar {
     flex-direction: column;
     border-radius: 8px;
   }
   
-  .search-bar input, .search-button {
+  .carrespage-search-bar input, .carrespage-search-button {
     width: 100%;
     border-radius: 0;
   }
   
-  .search-button {
+  .carrespage-search-button {
     padding: 0.8rem;
   }
   
-  .culture-points {
+  .carrespage-culture-points {
     grid-template-columns: 1fr;
   }
 }

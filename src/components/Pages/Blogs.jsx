@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import '../styles/BlogsPage.css';
 import FooterSection from '../Sections/FooterSection.jsx';
 
-const BlogPage = () => {
+const BlogsPage = () => {
   // Sample blog data with image placeholder
   const allBlogPosts = [
     {
@@ -138,31 +138,31 @@ const BlogPage = () => {
   }, [selectedCategory, sortOption, searchQuery]);
 
   return (
-    <div className="blog-page">
+    <div className="blogsContainer">
       {/* Blog Hero Section */}
-      <section className="blog-hero">
-        <div className="hero-content">
+      <section className="blogsHero">
+        <div className="heroContent">
           <h1>Automation Insights & Trends</h1>
           <p>Expert perspectives on robotic process automation, AI integration, and digital transformation</p>
-          <div className="search-bar">
+          <div className="searchBar">
             <input 
               type="text" 
               placeholder="Search articles..." 
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
             />
-            <button className="search-button">Search</button>
+            <button className="searchButton">Search</button>
           </div>
         </div>
       </section>
 
       {/* Main Blog Content */}
-      <div className="blog-container">
+      <div className="blogsMainContainer">
         {/* Articles Section */}
-        <main className="articles-section">
-          <div className="section-header">
+        <main className="articlesSection">
+          <div className="sectionHeader">
             <h2>Latest Articles</h2>
-            <div className="filter-options">
+            <div className="filterOptions">
               <select 
                 value={selectedCategory}
                 onChange={(e) => setSelectedCategory(e.target.value)}
@@ -183,25 +183,25 @@ const BlogPage = () => {
 
           {currentPosts.length > 0 ? (
             <>
-              <div className="articles-grid">
+              <div className="articlesGrid">
                 {currentPosts.map((post) => (
                   <article 
-                    className="blog-card" 
+                    className="blogCard" 
                     key={post.id}
                     onClick={() => handlePostClick(post)}
                   >
-                    <div className="image-placeholder">
-                      <div className="placeholder-text">{post.imagePlaceholder}</div>
+                    <div className="cardImagePlaceholder">
+                      <div className="placeholderText">{post.imagePlaceholder}</div>
                     </div>
-                    <div className="card-content">
-                      <div className="post-meta">
+                    <div className="cardContent">
+                      <div className="postMeta">
                         <span className="category">{post.category}</span>
                         <span className="date">{post.date}</span>
                         <span className="read-time">{post.readTime}</span>
                       </div>
                       <h3>{post.title}</h3>
-                      <p className="excerpt">{post.excerpt}</p>
-                      <div className="read-more">Read More →</div>
+                      <p className="postExcerpt">{post.excerpt}</p>
+                      <div className="readMoreLink">Read More →</div>
                     </div>
                   </article>
                 ))}
@@ -220,14 +220,14 @@ const BlogPage = () => {
               </div>
             </>
           ) : (
-            <div className="no-results">
+            <div className="noResults">
               <p>No articles found matching your criteria.</p>
               <button 
                 onClick={() => {
                   setSelectedCategory("All Categories");
                   setSearchQuery("");
                 }}
-                className="reset-filters"
+                className="resetFilters"
               >
                 Reset Filters
               </button>
@@ -236,10 +236,10 @@ const BlogPage = () => {
         </main>
 
         {/* Sidebar */}
-        <aside className="blog-sidebar">
-          <div className="sidebar-widget">
+        <aside className="blogSidebar">
+          <div className="sidebarWidget">
             <h3>Popular Tags</h3>
-            <div className="tags-container">
+            <div className="tagsContainer">
               {["RPA", "UiPath", "Power Automate", "AI", "Process Mining", 
                 "Automation", "Digital Transformation", "Best Practices", "Case Studies"]
                 .map((tag, index) => (
@@ -254,31 +254,31 @@ const BlogPage = () => {
             </div>
           </div>
 
-          <div className="sidebar-widget">
+          <div className="sidebarWidget">
             <h3>Newsletter</h3>
             <p>Stay updated with the latest automation insights</p>
-            <form className="newsletter-form-blogs">
+            <form className="newsletterForm">
               <input type="email" placeholder="Your email address" />
               <button type="submit">Subscribe</button>
             </form>
           </div>
 
-          <div className="sidebar-widget">
+          <div className="sidebarWidget">
             <h3>Featured Posts</h3>
-            <div className="featured-posts">
+            <div className="featuredPosts">
               {allBlogPosts
                 .sort(() => 0.5 - Math.random())
                 .slice(0, 3)
                 .map(post => (
                   <div 
-                    className="featured-post" 
+                    className="featuredPost" 
                     key={post.id}
                     onClick={() => handlePostClick(post)}
                   >
-                    <div className="featured-image-placeholder"></div>
-                    <div className="featured-content">
+                    <div className="featuredImagePlaceholder"></div>
+                    <div className="featuredContent">
                       <h4>{post.title}</h4>
-                      <span className="featured-date">{post.date}</span>
+                      <span className="featuredDate">{post.date}</span>
                     </div>
                   </div>
                 ))}
@@ -289,24 +289,24 @@ const BlogPage = () => {
 
       {/* Article Modal */}
       {isModalOpen && selectedPost && (
-        <div className="modal-overlay" onClick={closeModal}>
-          <div className="modal-content" onClick={e => e.stopPropagation()}>
-            <button className="close-modal" onClick={closeModal}>×</button>
-            <div className="modal-image-placeholder">
-              <div className="placeholder-text">{selectedPost.imagePlaceholder}</div>
+        <div className="modalOverlay" onClick={closeModal}>
+          <div className="modalContent" onClick={e => e.stopPropagation()}>
+            <button className="closeModal" onClick={closeModal}>×</button>
+            <div className="modalImagePlaceholder">
+              <div className="placeholderText">{selectedPost.imagePlaceholder}</div>
             </div>
-            <div className="modal-body">
-              <div className="modal-meta">
+            <div className="modalBody">
+              <div className="modalMeta">
                 <span className="category">{selectedPost.category}</span>
                 <span className="date">{selectedPost.date}</span>
                 <span className="read-time">{selectedPost.readTime}</span>
               </div>
               <h2>{selectedPost.title}</h2>
               <div 
-                className="modal-post-content" 
+                className="modalPostContent" 
                 dangerouslySetInnerHTML={{ __html: selectedPost.content }}
               />
-              <div className="tags-container">
+              <div className="tagsContainer">
                 {selectedPost.tags.map((tag, index) => (
                   <span key={index} className="tag">{tag}</span>
                 ))}
@@ -322,4 +322,4 @@ const BlogPage = () => {
   );
 };
 
-export default BlogPage;
+export default BlogsPage;

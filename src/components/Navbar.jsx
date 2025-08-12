@@ -112,6 +112,13 @@ function Navbar() {
                 >
                   Careers
                 </NavLink>
+                  <NavLink 
+                  to="/aboutuspage  " 
+                  onClick={closeMenu}
+                  className="dropdown-item"
+                >
+                  About Us
+                </NavLink>
               </div>
             </div>
 

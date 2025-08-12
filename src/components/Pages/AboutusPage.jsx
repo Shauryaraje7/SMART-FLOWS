@@ -45,7 +45,7 @@ const AboutPage = () => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('animate');
-          if (entry.target.classList.contains('aboutup-stats-section')) {
+          if (entry.target.classList.contains('aboutuspage-stats-section')) {
             animateStats();
           }
         }
@@ -87,89 +87,89 @@ const AboutPage = () => {
   ];
 
   return (
-    <div className="aboutup-page">
+    <div className="aboutuspage-page">
       {/* Hero Section */}
-      <section className="aboutup-hero" ref={el => sectionRefs.current[0] = el}>
-        <div className="aboutup-hero-content">
+      <section className="aboutuspage-hero" ref={el => sectionRefs.current[0] = el}>
+        <div className="aboutuspage-hero-content">
           <h1>Driving Digital Transformation Through Intelligent Automation</h1>
           <p>We empower businesses to achieve operational excellence with cutting-edge automation solutions</p>
-          <div className="aboutup-hero-buttons">
-            <Link to="/services" className="aboutup-btn-primary">Our Services</Link>
-            <Link to="/courses" className="aboutup-btn-outline">Explore Courses</Link>
+          <div className="aboutuspage-hero-buttons">
+            <Link to="/services" className="aboutuspage-btn-primary">Our Services</Link>
+            <Link to="/courses" className="aboutuspage-btn-outline">Explore Courses</Link>
           </div>
         </div>
-        <div className="aboutup-hero-image">
+        <div className="aboutuspage-hero-image">
           <img src={Robot} alt="Automation technology" loading="lazy" />
-          <div className="aboutup-glow-effect"></div>
+          <div className="aboutuspage-glow-effect"></div>
         </div>
-      </section>
+      </section>  
 
       {/* Stats Section */}
-      <section className="aboutup-stats-section" ref={el => sectionRefs.current[1] = el}>
-        <div className="aboutup-stat-item">
-          <div className="aboutup-stat-number">{projectsCompleted}</div>
-          <div className="aboutup-stat-label">Projects Completed</div>
+      <section className="aboutuspage-stats-section" ref={el => sectionRefs.current[1] = el}>
+        <div className="aboutuspage-stat-item">
+          <div className="aboutuspage-stat-number">{projectsCompleted}</div>
+          <div className="aboutuspage-stat-label">Projects Completed</div>
         </div>
-        <div className="aboutup-stat-item">
-          <div className="aboutup-stat-number">{satisfactionRate}</div>
-          <div className="aboutup-stat-label">Client Satisfaction</div>
+        <div className="aboutuspage-stat-item">
+          <div className="aboutuspage-stat-number">{satisfactionRate}</div>
+          <div className="aboutuspage-stat-label">Client Satisfaction</div>
         </div>
-        <div className="aboutup-stat-item">
-          <div className="aboutup-stat-number">{automationHours}</div>
-          <div className="aboutup-stat-label">Hours Automated</div>
+        <div className="aboutuspage-stat-item">
+          <div className="aboutuspage-stat-number">{automationHours}</div>
+          <div className="aboutuspage-stat-label">Hours Automated</div>
         </div>
       </section>
 
       {/* Mission Section */}
-      <section className="aboutup-mission-section" ref={el => sectionRefs.current[2] = el}>
-        <div className="aboutup-mission-content">
+      <section className="aboutuspage-mission-section" ref={el => sectionRefs.current[2] = el}>
+        <div className="aboutuspage-mission-content">
           <h2>Our Mission</h2>
           <p>
             To democratize automation technology, making it accessible and valuable for businesses of all sizes. 
             We bridge the gap between technical potential and practical implementation, delivering solutions that 
             drive measurable results.
           </p>
-          <div className="aboutup-mission-points">
-            <div className="aboutup-point">
-              <div className="aboutup-point-icon">✓</div>
+          <div className="aboutuspage-mission-points">
+            <div className="aboutuspage-point">
+              <div className="aboutuspage-point-icon">✓</div>
               <h3>Innovation</h3>
               <p>Pioneering new approaches to automation challenges</p>
             </div>
-            <div className="aboutup-point">
-              <div className="aboutup-point-icon">✓</div>
+            <div className="aboutuspage-point">
+              <div className="aboutuspage-point-icon">✓</div>
               <h3>Excellence</h3>
               <p>Reliable solutions with meticulous attention to detail</p>
             </div>
-            <div className="aboutup-point">
-              <div className="aboutup-point-icon">✓</div>
+            <div className="aboutuspage-point">
+              <div className="aboutuspage-point-icon">✓</div>
               <h3>Empowerment</h3>
               <p>Equipping clients with knowledge and tools for success</p>
             </div>
           </div>
         </div>
-        <div className="aboutup-mission-image">
+        <div className="aboutuspage-mission-image">
           <img src={Robot} alt="Our mission" loading="lazy" />
         </div>
       </section>
 
       {/* Courses Section */}
-      <section className="aboutup-courses-section" ref={el => sectionRefs.current[3] = el}>
-        <div className="aboutup-section-header">
+      <section className="aboutuspage-courses-section" ref={el => sectionRefs.current[3] = el}>
+        <div className="aboutuspage-section-header">
           <h2>Automation Education</h2>
           <p>Comprehensive training programs to build automation expertise</p>
         </div>
-        <div className="aboutup-courses-grid">
+        <div className="aboutuspage-courses-grid">
           {courses.map((course, index) => (
-            <div className="aboutup-course-card" key={index}>
-              <div className="aboutup-course-header">
+            <div className="aboutuspage-course-card" key={index}>
+              <div className="aboutuspage-course-header">
                 <h3>{course.title}</h3>
-                <div className="aboutup-course-meta">
+                <div className="aboutuspage-course-meta">
                   <span>{course.level}</span>
                   <span>{course.duration}</span>
                 </div>
               </div>
               <p>{course.description}</p>
-              <Link to={`/courses/${course.title.toLowerCase().replace(/\s+/g, '-')}`} className="aboutup-course-link">
+              <Link to={`/courses/${course.title.toLowerCase().replace(/\s+/g, '-')}`} className="aboutuspage-course-link">
                 Learn More →
               </Link>
             </div>
@@ -178,29 +178,29 @@ const AboutPage = () => {
       </section>
 
       {/* Capabilities Section */}
-      <section className="aboutup-capabilities-section" ref={el => sectionRefs.current[4] = el}>
-        <div className="aboutup-section-header">
+      <section className="aboutuspage-capabilities-section" ref={el => sectionRefs.current[4] = el}>
+        <div className="aboutuspage-section-header">
           <h2>Our Technical Capabilities</h2>
           <p>The tools and technologies we master to deliver exceptional results</p>
         </div>
-        <div className="aboutup-capabilities-list">
-          <div className="aboutup-capability">
-            <div className="aboutup-capability-icon">RPA</div>
+        <div className="aboutuspage-capabilities-list">
+          <div className="aboutuspage-capability">
+            <div className="aboutuspage-capability-icon">RPA</div>
             <h3>Robotic Process Automation</h3>
             <p>UiPath, Automation Anywhere, Blue Prism, Power Automate</p>
           </div>
-          <div className="aboutup-capability">
-            <div className="aboutup-capability-icon">AI</div>
+          <div className="aboutuspage-capability">
+            <div className="aboutuspage-capability-icon">AI</div>
             <h3>Artificial Intelligence</h3>
             <p>Document understanding, machine learning, cognitive automation</p>
           </div>
-          <div className="aboutup-capability">
-            <div className="aboutup-capability-icon">API</div>
+          <div className="aboutuspage-capability">
+            <div className="aboutuspage-capability-icon">API</div>
             <h3>System Integration</h3>
             <p>REST APIs, database connectors, legacy system automation</p>
           </div>
-          <div className="aboutup-capability">
-            <div className="aboutup-capability-icon">BPM</div>
+          <div className="aboutuspage-capability">
+            <div className="aboutuspage-capability-icon">BPM</div>
             <h3>Process Optimization</h3>
             <p>Process mining, workflow analysis, performance benchmarking</p>
           </div>
@@ -208,12 +208,12 @@ const AboutPage = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="aboutup-cta" ref={el => sectionRefs.current[5] = el}>
+      <section className="aboutuspage-cta" ref={el => sectionRefs.current[5] = el}>
         <h2>Ready to Automate Your Future?</h2>
         <p>Whether you need automation solutions or want to build expertise, we have the perfect offering for you.</p>
-        <div className="aboutup-cta-buttons">
-          <Link to="/contact" className="aboutup-btn-primary">Get Started</Link>
-          <Link to="/courses" className="aboutup-btn-outline">Browse Courses</Link>
+        <div className="aboutuspage-cta-buttons">
+          <Link to="/contact" className="aboutuspage-btn-primary">Get Started</Link>
+          <Link to="/courses" className="aboutuspage-btn-outline">Browse Courses</Link>
         </div>
       </section>
 

@@ -143,40 +143,40 @@ const CareersPage = () => {
   const departments = [...new Set(jobOpenings.map(job => job.department))];
 
   return (
-    <div className="careers-page">
+    <div className="carrespage-careers-page">
       {/* Hero Section */}
-      <section className="careers-hero">
-        <div className="hero-content">
+      <section className="carrespage-careers-hero">
+        <div className="carrespage-hero-content">
           <h1>Build the Future of Automation</h1>
           <p>Join our team of innovators creating intelligent automation solutions that transform businesses</p>
-          <Link to="#open-positions" className="cta-button">View Open Positions</Link>
+          <Link to="#open-positions" className="carrespage-cta-button">View Open Positions</Link>
         </div>
       </section>
 
       {/* Benefits Section */}
-      <section className="benefits-section">
-        <div className="section-header">
+      <section className="carrespage-benefits-section">
+        <div className="carrespage-section-header">
           <h2>Why Join SmartFlows?</h2>
           <p>We're building more than automation solutions - we're building an exceptional workplace</p>
         </div>
-        <div className="benefits-grid">
-          <div className="benefit-card">
-            <div className="benefit-icon">💡</div>
+        <div className="carrespage-benefits-grid">
+          <div className="carrespage-benefit-card">
+            <div className="carrespage-benefit-icon">💡</div>
             <h3>Innovation Culture</h3>
             <p>Work with cutting-edge technologies in AI and automation</p>
           </div>
-          <div className="benefit-card">
-            <div className="benefit-icon">🌍</div>
+          <div className="carrespage-benefit-card">
+            <div className="carrespage-benefit-icon">🌍</div>
             <h3>Flexible Work</h3>
             <p>Remote and hybrid options for most positions</p>
           </div>
-          <div className="benefit-card">
-            <div className="benefit-icon">📈</div>
+          <div className="carrespage-benefit-card">
+            <div className="carrespage-benefit-icon">📈</div>
             <h3>Career Growth</h3>
             <p>Continuous learning and advancement opportunities</p>
           </div>
-          <div className="benefit-card">
-            <div className="benefit-icon">🤝</div>
+          <div className="carrespage-benefit-card">
+            <div className="carrespage-benefit-icon">🤝</div>
             <h3>Great Team</h3>
             <p>Collaborate with talented, passionate professionals</p>
           </div>
@@ -184,21 +184,21 @@ const CareersPage = () => {
       </section>
 
       {/* Job Openings Section */}
-      <section className="job-openings" id="open-positions">
-        <div className="section-header">
+      <section className="carrespage-job-openings" id="open-positions">
+        <div className="carrespage-section-header">
           <h2>Current Openings</h2>
           <p>Find your perfect role in our growing team</p>
         </div>
 
-        <div className="jobs-controls">
-          <div className="search-bar">
+        <div className="carrespage-jobs-controls">
+          <div className="carrespage-search-bar">
             <input 
               type="text" 
               placeholder="Search jobs..." 
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />
-            <button className="search-button">
+            <button className="carrespage-search-button">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <circle cx="11" cy="11" r="8"></circle>
                 <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
@@ -206,7 +206,7 @@ const CareersPage = () => {
             </button>
           </div>
 
-          <div className="department-tabs">
+          <div className="carrespage-department-tabs">
             <button 
               className={activeTab === 'all' ? 'active' : ''}
               onClick={() => setActiveTab('all')}
@@ -225,20 +225,20 @@ const CareersPage = () => {
           </div>
         </div>
 
-        <div className="jobs-list">
+        <div className="carrespage-jobs-list">
           {filteredJobs.length > 0 ? (
             filteredJobs.map(job => (
               <JobCard key={job.id} job={job} />
             ))
           ) : (
-            <div className="no-jobs">
+            <div className="carrespage-no-jobs">
               <p>No current openings match your criteria.</p>
               <button 
                 onClick={() => {
                   setActiveTab('all');
                   setSearchTerm('');
                 }}
-                className="reset-filters"
+                className="carrespage-reset-filters"
               >
                 Reset Filters
               </button>
@@ -248,34 +248,34 @@ const CareersPage = () => {
       </section>
 
       {/* Culture Section */}
-      <section className="culture-section">
-        <div className="culture-content">
+      <section className="carrespage-culture-section">
+        <div className="carrespage-culture-content">
           <h2>Our Culture</h2>
           <p>At SmartFlows, we believe that great automation starts with great people. We foster a culture of collaboration, innovation, and continuous learning where every team member can thrive.</p>
-          <div className="culture-points">
-            <div className="culture-point">
+          <div className="carrespage-culture-points">
+            <div className="carrespage-culture-point">
               <h3>Ownership</h3>
               <p>We trust our team to take initiative and deliver results</p>
             </div>
-            <div className="culture-point">
+            <div className="carrespage-culture-point">
               <h3>Learning</h3>
               <p>Continuous growth is at the heart of what we do</p>
             </div>
-            <div className="culture-point">
+            <div className="carrespage-culture-point">
               <h3>Impact</h3>
               <p>See the direct results of your work with clients</p>
             </div>
           </div>
-          <Link to="/about" className="outline-button">Learn More About Us</Link>
+          <Link to="/about" className="carrespage-outline-button">Learn More About Us</Link>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="careers-cta">
-        <div className="cta-content">
+      <section className="carrespage-careers-cta">
+        <div className="carrespage-cta-content">
           <h2>Don't See Your Dream Role?</h2>
           <p>We're always looking for talented individuals. Send us your resume and we'll contact you when a matching position opens.</p>
-          <Link to="/contact" className="cta-button">Submit Your Resume</Link>
+          <Link to="/contact" className="carrespage-cta-button">Submit Your Resume</Link>
         </div>
       </section>
       
@@ -289,23 +289,23 @@ const JobCard = ({ job }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
-    <div className={`job-card ${isExpanded ? 'expanded' : ''}`}>
-      <div className="job-header" onClick={() => setIsExpanded(!isExpanded)}>
-        <div className="job-title">
+    <div className={`carrespage-job-card ${isExpanded ? 'expanded' : ''}`}>
+      <div className="carrespage-job-header" onClick={() => setIsExpanded(!isExpanded)}>
+        <div className="carrespage-job-title">
           <h3>{job.title}</h3>
-          <div className="job-meta">
+          <div className="carrespage-job-meta">
             <span>{job.type}</span>
             <span>{job.location}</span>
             <span>{job.department}</span>
           </div>
         </div>
-        <div className="expand-icon">
+        <div className="carrespage-expand-icon">
           {isExpanded ? '−' : '+'}
         </div>
       </div>
       
       {isExpanded && (
-        <div className="job-details">
+        <div className="carrespage-job-details">
           <div className="job-description">
             <h4>About This Role</h4>
             <p>{job.description}</p>
@@ -326,7 +326,7 @@ const JobCard = ({ job }) => {
               ))}
             </ul>
           </div>
-          <Link to={`/apply/${job.id}`} className="apply-button">Apply Now</Link>
+          <Link to={`/apply/${job.id}`} className="carrespage-apply-button">Apply Now</Link>
         </div>
       )}
     </div>
