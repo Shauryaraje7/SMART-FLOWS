@@ -1472,6 +1472,8 @@ body {
     height: auto;
     max-height: 120px;
   }
+
+
 }
 
 /* Responsive */
@@ -1560,12 +1562,17 @@ body {
   }
 }
 
-
-.course-selection-info{
- display: flex; 
- gap: 180px;
+.course-selection-info {
+  display: flex; 
+  gap: 180px;
 }
 
+@media (max-width: 480px) {
+  .course-selection-info {
+    flex-direction: column;
+    gap: 2px;
+  }
+}
 
 
 

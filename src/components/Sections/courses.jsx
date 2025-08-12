@@ -967,25 +967,35 @@ const CoursePage = () => {
     }
   ];
 
+
   const levels = ['All', 'Beginner', 'Intermediate', 'Advanced'];
 
   const filteredCourses = courses
-    .filter(course =>
-      (course.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        Object.keys(course.levels).some(level => level.toLowerCase().includes(searchTerm.toLowerCase()))) &&
-      (activeFilter === 'All' || activeFilter in course.levels)
-    )
+    .filter(course => {
+      // Search term filtering (name or level)
+      const matchesSearch = course.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
+        Object.keys(course.levels).some(level => level.toLowerCase().includes(searchTerm.toLowerCase()));
+      
+      // Level filtering
+      const matchesLevel = activeFilter === 'All' || course.levels[activeFilter] !== undefined;
+      
+      return matchesSearch && matchesLevel;
+    })
     .flatMap(course =>
-      Object.entries(course.levels).map(([level, levelData]) => ({
-        ...course,
-        level: level,
-        levelData: levelData,
-        // Use the actual imported image for the course instead of random unsplash
-        imageUrl: levelData.imageUrl, // This will use the imported image
-        accentColor: `hsl(${Math.floor(Math.random() * 60) + 200}, 70%, 50%)`
-      }))
+      Object.entries(course.levels).map(([level, levelData]) => {
+        // Only include the level if it matches the active filter or if filter is 'All'
+        if (activeFilter === 'All' || level === activeFilter) {
+          return {
+            ...course,
+            level: level,
+            levelData: levelData,
+            imageUrl: levelData.imageUrl,
+            accentColor: `hsl(${Math.floor(Math.random() * 60) + 200}, 70%, 50%)`
+          };
+        }
+        return null;
+      }).filter(item => item !== null) // Remove null entries from flatMap
     );
-
 
   const handleCourseClick = (course) => {
     setSelectedCourse(course);
@@ -1076,9 +1086,9 @@ const CoursePage = () => {
             <div className="no-results-message">
               <div className="no-results-content">
                 <i className="fas fa-search"></i>
-                <h3 className='Allh1 headings '  >No courses found</h3>
-                <p className='AllP smallpara '  >We couldn't find any courses matching "{searchTerm}" at the {activeFilter} level.</p>
-                <p className='AllP smallpara '  >Try adjusting your search or filter criteria.</p>
+                <h3 className='Allh1 headings'>No courses found</h3>
+                <p className='AllP smallpara'>We couldn't find any courses matching "{searchTerm}" at the {activeFilter} level.</p>
+                <p className='AllP smallpara'>Try adjusting your search or filter criteria.</p>
                 <button
                   className="reset-search-button"
                   onClick={() => {
@@ -1092,8 +1102,6 @@ const CoursePage = () => {
             </div>
           ) : (
             filteredCourses.map((course, index) => (
-
-
               <div
                 className="course-card"
                 key={`${course.id}-${course.level}`}
@@ -1129,26 +1137,10 @@ const CoursePage = () => {
                   </button>
                 </div>
               </div>
-
             ))
           )}
         </div>
       </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
       {/* Course Details Modal */}
       {showCourseModal && selectedCourse && (
@@ -1330,31 +1322,7 @@ const CoursePage = () => {
             </div>
           </div>
         </div>
-
-
-
       )}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
       {/* Enrollment Modal */}
       {showEnrollmentModal && selectedCourse && (
@@ -1366,15 +1334,14 @@ const CoursePage = () => {
               onClick={() => setShowEnrollmentModal(false)}
             >
               <i className="fas fa-times"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M18 6L6 18" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                <path d="M6 6L18 18" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M18 6L6 18" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M6 6L18 18" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg></i>
             </button>
 
             <div className="enrollment-header">
               <h3>Enroll in <span className="course-name">{selectedCourse.name}</span></h3>
               <p className="course-level">{selectedCourse.level} Level</p>
-
             </div>
 
             <div className="modal-body">
@@ -1418,9 +1385,7 @@ const CoursePage = () => {
                     <span className="info-label">Level:</span>
                     <span className="info-value">{selectedCourse.level}</span>
                   </div>
-
                 </div>
-
 
                 <div className="form-row">
                   <div className="form-group">
