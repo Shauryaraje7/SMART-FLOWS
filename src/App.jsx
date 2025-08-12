@@ -3,12 +3,12 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Courses from './components/Sections/courses.jsx';
 import './App.css';
+import ScrollToTop from './components/ScrollToTop'; // Add this import
 
-// Import all thepages 
+// Import all the pages 
 import BlogPage from './components/Pages/Blogs.jsx';
 import CareerPage from './components/Pages/CareerPage.jsx';
 import AboutusPage from './components/Pages/AboutusPage.jsx';
-
 
 // Import all sections directly
 import ServicesPage from './components/Pages/servicepage.jsx';
@@ -41,18 +41,16 @@ function HomeContent() {
 function App() {
   return (
     <Router>
+      <ScrollToTop /> {/* Add this component */}
       <div className="app-container">
         <Navbar />
         <main className="main-content">
           <Routes>
             <Route path="/" element={<HomeContent />} />
             <Route path="/courses" element={<Courses />} />
-            {/* Add a catch-all route for 404 pages */}
             <Route path="/blogpage" element={<BlogPage />} />
             <Route path="/careerpage" element={<CareerPage />} />
             <Route path="/aboutuspage" element={<AboutusPage />} />
-
-
             <Route path="/services" element={<ServicesPage />} />
             <Route path="*" element={
               <div style={{ padding: '2rem', textAlign: 'center' }}>
