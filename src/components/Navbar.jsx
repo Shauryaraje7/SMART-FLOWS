@@ -75,7 +75,7 @@ function Navbar() {
               }}
               className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
             >
-              <span>Home</span>
+              <span>About</span>
             </NavLink>
 
             {/* Updated Services Link - now points to /services page */}
@@ -88,13 +88,7 @@ function Navbar() {
             </NavLink>
 
             {/* Keep the in-page navigation as fallback */}
-            <a
-              href="#testimonials"
-              onClick={(e) => handleInPageNavigation('#testimonials', e)}
-              className="nav-link mobile-testimonial-link"
-            >
-              <span>Testimonials</span>
-            </a>
+     
 
             <NavLink
               to="/courses"

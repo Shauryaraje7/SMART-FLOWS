@@ -8,10 +8,12 @@
   width: calc(100% - 40px);
   max-width: 1400px;
   padding: 12px 24px;
-  background: white;
+  background: rgba(255, 255, 255, 0.85); /* White with transparency */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border-radius: 50px;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   z-index: 1000;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -26,6 +28,11 @@
   border-top: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  
+  background: rgba(255, 255, 255, 0.95); /* More opaque when scrolled */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+
+
 }
 
 .navbar-container {

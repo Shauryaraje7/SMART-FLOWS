@@ -10,10 +10,11 @@
   overflow: hidden;
   margin: 0;
   font-family: system-ui, -apple-system, sans-serif;
-  background: url(../../assets/background222.png);
+  background: url(../../assets/vecteezy_abstract-wave-line-pattern-on-dark-blue-background_49925799.jpg);
   background-repeat: no-repeat;
   background-size: cover; /* or contain, or specific dimensions */
 background-position: center;
+
  
 }
 
@@ -41,7 +42,7 @@ background-position: center;
   font-weight: 800;
   line-height: 1.15;
   letter-spacing: -0.03em;
-  background: linear-gradient(90deg, #0f172a 0%, #00bcd4 50%);
+  background: linear-gradient(90deg, #f9f9f9 0%, #00bcd4 50%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
