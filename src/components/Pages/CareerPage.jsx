@@ -6,9 +6,27 @@ import FooterSection from '../Sections/FooterSection.jsx';
 const CareersPage = () => {
   const [activeTab, setActiveTab] = useState('all');
   const [searchTerm, setSearchTerm] = useState('');
+  const [showApplicationForm, setShowApplicationForm] = useState(false);
+  const [selectedJob, setSelectedJob] = useState(null);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    resume: null,
+    coverLetter: '',
+    linkedIn: '',
+    portfolio: '',
+    salaryExpectations: '',
+    noticePeriod: '',
+    relocation: 'no',
+    diversity: ''
+  });
+  const [formErrors, setFormErrors] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitSuccess, setSubmitSuccess] = useState(false);
 
   // Sample job data
-  const jobOpenings = [
+   const jobOpenings = [
     {
       id: 1,
       title: "RPA Developer (UiPath)",
@@ -142,6 +160,94 @@ const CareersPage = () => {
   // Get unique departments for tabs
   const departments = [...new Set(jobOpenings.map(job => job.department))];
 
+  // Handle apply now click
+  const handleApplyClick = (job) => {
+    setSelectedJob(job);
+    setShowApplicationForm(true);
+    setFormData({
+      ...formData,
+      applyingFor: job.title
+    });
+    document.body.style.overflow = 'hidden'; // Prevent scrolling when form is open
+  };
+
+  // Close application form
+  const closeApplicationForm = () => {
+    setShowApplicationForm(false);
+    setSelectedJob(null);
+    setFormErrors({});
+    document.body.style.overflow = 'auto';
+  };
+
+  // Handle form input changes
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value
+    });
+  };
+
+  // Handle file input
+  const handleFileChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.files[0]
+    });
+  };
+
+  // Validate form
+  const validateForm = () => {
+    const errors = {};
+    if (!formData.name.trim()) errors.name = 'Name is required';
+    if (!formData.email.trim()) {
+      errors.email = 'Email is required';
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      errors.email = 'Please enter a valid email';
+    }
+    if (!formData.phone.trim()) errors.phone = 'Phone number is required';
+    if (!formData.resume) errors.resume = 'Resume is required';
+    return errors;
+  };
+
+  // Handle form submission
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const errors = validateForm();
+    
+    if (Object.keys(errors).length === 0) {
+      setIsSubmitting(true);
+      
+      // Simulate API call
+      setTimeout(() => {
+        console.log('Form submitted:', formData);
+        setIsSubmitting(false);
+        setSubmitSuccess(true);
+        
+        // Reset form after successful submission
+        setTimeout(() => {
+          setSubmitSuccess(false);
+          closeApplicationForm();
+          setFormData({
+            name: '',
+            email: '',
+            phone: '',
+            resume: null,
+            coverLetter: '',
+            linkedIn: '',
+            portfolio: '',
+            salaryExpectations: '',
+            noticePeriod: '',
+            relocation: 'no',
+            diversity: ''
+          });
+        }, 3000);
+      }, 1500);
+    } else {
+      setFormErrors(errors);
+    }
+  };
+
   return (
     <div className="carrespage-careers-page">
       {/* Hero Section */}
@@ -228,7 +334,7 @@ const CareersPage = () => {
         <div className="carrespage-jobs-list">
           {filteredJobs.length > 0 ? (
             filteredJobs.map(job => (
-              <JobCard key={job.id} job={job} />
+              <JobCard key={job.id} job={job} onApplyClick={handleApplyClick} />
             ))
           ) : (
             <div className="carrespage-no-jobs">
@@ -275,9 +381,206 @@ const CareersPage = () => {
         <div className="carrespage-cta-content">
           <h2>Don't See Your Dream Role?</h2>
           <p>We're always looking for talented individuals. Send us your resume and we'll contact you when a matching position opens.</p>
-          <Link to="/contact" className="carrespage-cta-button">Submit Your Resume</Link>
+          <button onClick={() => handleApplyClick({ title: "General Application" })} className="carrespage-cta-button">Submit Your Resume</button>
         </div>
       </section>
+      
+      {/* Application Form Modal */}
+      {showApplicationForm && (
+        <div className="carrespage-application-modal">
+          <div className="carrespage-modal-overlay" onClick={closeApplicationForm}></div>
+          <div className="carrespage-modal-content">
+            <button className="carrespage-close-modal" onClick={closeApplicationForm}>
+              &times;
+            </button>
+            
+            {submitSuccess ? (
+              <div className="carrespage-submission-success">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                  <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+                <h3>Application Submitted Successfully!</h3>
+                <p>Thank you for applying to {selectedJob.title}. We'll review your application and get back to you soon.</p>
+              </div>
+            ) : (
+              <>
+                <h2>Apply for {selectedJob.title}</h2>
+                <form onSubmit={handleSubmit} className="carrespage-application-form">
+                  <div className="carrespage-form-group">
+                    <label htmlFor="name">Full Name*</label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      placeholder="John Doe"
+                      className={formErrors.name ? 'error' : ''}
+                    />
+                    {formErrors.name && <span className="carrespage-error-message">{formErrors.name}</span>}
+                  </div>
+                  
+                  <div className="carrespage-form-row">
+                    <div className="carrespage-form-group">
+                      <label htmlFor="email">Email*</label>
+                      <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleInputChange}
+                        placeholder="john@example.com"
+                        className={formErrors.email ? 'error' : ''}
+                      />
+                      {formErrors.email && <span className="carrespage-error-message">{formErrors.email}</span>}
+                    </div>
+                    
+                    <div className="carrespage-form-group">
+                      <label htmlFor="phone">Phone*</label>
+                      <input
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        value={formData.phone}
+                        onChange={handleInputChange}
+                        placeholder="+1 (555) 123-4567"
+                        className={formErrors.phone ? 'error' : ''}
+                      />
+                      {formErrors.phone && <span className="carrespage-error-message">{formErrors.phone}</span>}
+                    </div>
+                  </div>
+                  
+                  <div className="carrespage-form-group">
+                    <label htmlFor="resume">Resume/CV* (PDF, DOC, DOCX)</label>
+                    <div className="carrespage-file-upload">
+                      <input
+                        type="file"
+                        id="resume"
+                        name="resume"
+                        onChange={handleFileChange}
+                        accept=".pdf,.doc,.docx"
+                        className={formErrors.resume ? 'error' : ''}
+                      />
+                      <label htmlFor="resume" className="carrespage-file-label">
+                        {formData.resume ? formData.resume.name : 'Choose File'}
+                      </label>
+                    </div>
+                    {formErrors.resume && <span className="carrespage-error-message">{formErrors.resume}</span>}
+                  </div>
+                  
+                  <div className="carrespage-form-group">
+                    <label htmlFor="coverLetter">Cover Letter (Optional)</label>
+                    <textarea
+                      id="coverLetter"
+                      name="coverLetter"
+                      value={formData.coverLetter}
+                      onChange={handleInputChange}
+                      placeholder="Tell us why you're a great fit for this position..."
+                      rows="4"
+                    ></textarea>
+                  </div>
+                  
+                  <div className="carrespage-form-row">
+                    <div className="carrespage-form-group">
+                      <label htmlFor="linkedIn">LinkedIn Profile (Optional)</label>
+                      <input
+                        type="url"
+                        id="linkedIn"
+                        name="linkedIn"
+                        value={formData.linkedIn}
+                        onChange={handleInputChange}
+                        placeholder="https://linkedin.com/in/yourprofile"
+                      />
+                    </div>
+                    
+                    <div className="carrespage-form-group">
+                      <label htmlFor="portfolio">Portfolio/Website (Optional)</label>
+                      <input
+                        type="url"
+                        id="portfolio"
+                        name="portfolio"
+                        value={formData.portfolio}
+                        onChange={handleInputChange}
+                        placeholder="https://yourportfolio.com"
+                      />
+                    </div>
+                  </div>
+                  
+                  <div className="carrespage-form-row">
+                    <div className="carrespage-form-group">
+                      <label htmlFor="salaryExpectations">Salary Expectations (Optional)</label>
+                      <input
+                        type="text"
+                        id="salaryExpectations"
+                        name="salaryExpectations"
+                        value={formData.salaryExpectations}
+                        onChange={handleInputChange}
+                        placeholder="$XX,XXX - $XX,XXX"
+                      />
+                    </div>
+                    
+                    <div className="carrespage-form-group">
+                      <label htmlFor="noticePeriod">Notice Period (Optional)</label>
+                      <input
+                        type="text"
+                        id="noticePeriod"
+                        name="noticePeriod"
+                        value={formData.noticePeriod}
+                        onChange={handleInputChange}
+                        placeholder="e.g., 2 weeks, 1 month"
+                      />
+                    </div>
+                  </div>
+                  
+                  <div className="carrespage-form-row">
+                    <div className="carrespage-form-group">
+                      <label htmlFor="relocation">Willing to Relocate?</label>
+                      <select
+                        id="relocation"
+                        name="relocation"
+                        value={formData.relocation}
+                        onChange={handleInputChange}
+                      >
+                        <option value="no">No</option>
+                        <option value="yes">Yes</option>
+                        <option value="maybe">Maybe, for the right opportunity</option>
+                      </select>
+                    </div>
+                    
+                    <div className="carrespage-form-group">
+                      <label htmlFor="diversity">Diversity Information (Optional)</label>
+                      <select
+                        id="diversity"
+                        name="diversity"
+                        value={formData.diversity}
+                        onChange={handleInputChange}
+                      >
+                        <option value="">Prefer not to say</option>
+                        <option value="female">Female</option>
+                        <option value="veteran">Veteran</option>
+                        <option value="lgbtq">LGBTQ+</option>
+                        <option value="disabled">Person with Disability</option>
+                        <option value="minority">Race/Ethnic Minority</option>
+                        <option value="other">Other</option>
+                      </select>
+                    </div>
+                  </div>
+                  
+                  <div className="carrespage-form-footer">
+                    <p className="carrespage-form-note">
+                      * Required fields. We value your privacy and will only use your information for recruitment purposes.
+                    </p>
+                    <button type="submit" className="carrespage-submit-button" disabled={isSubmitting}>
+                      {isSubmitting ? 'Submitting...' : 'Submit Application'}
+                    </button>
+                  </div>
+                </form>
+              </>
+            )}
+          </div>
+        </div>
+      )}
       
       <FooterSection />
     </div>
@@ -285,7 +588,7 @@ const CareersPage = () => {
 };
 
 // Job Card Component
-const JobCard = ({ job }) => {
+const JobCard = ({ job, onApplyClick }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
@@ -326,7 +629,7 @@ const JobCard = ({ job }) => {
               ))}
             </ul>
           </div>
-          <Link to={`/apply/${job.id}`} className="carrespage-apply-button">Apply Now</Link>
+          <button onClick={() => onApplyClick(job)} className="carrespage-apply-button">Apply Now</button>
         </div>
       )}
     </div>

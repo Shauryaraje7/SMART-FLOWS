@@ -1566,7 +1566,7 @@ body {
 
 .course-selection-info {
   display: flex; 
-  gap: 180px;
+  gap: 109px;
 }
 
 @media (max-width: 480px) {

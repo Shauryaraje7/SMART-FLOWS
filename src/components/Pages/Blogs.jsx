@@ -36,7 +36,6 @@ const BlogsPage = () => {
       imagePlaceholder: "uipath-vs-powerautomate",
       tags: ["UiPath", "Power Automate", "Comparison"]
     },
-    // Add 4 more sample posts with similar structure
     {
       id: 3,
       title: "Implementing AI Agents in Your Automation Strategy",
@@ -90,17 +89,22 @@ const BlogsPage = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedPost, setSelectedPost] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [activeTag, setActiveTag] = useState(null);
   const postsPerPage = 4;
 
   // Get unique categories
   const categories = ["All Categories", ...new Set(allBlogPosts.map(post => post.category))];
+
+  // Get all unique tags from all posts
+  const allTags = ["All", ...new Set(allBlogPosts.flatMap(post => post.tags))];
 
   // Filter and sort posts
   const filteredPosts = allBlogPosts.filter(post => {
     const matchesCategory = selectedCategory === "All Categories" || post.category === selectedCategory;
     const matchesSearch = post.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
                          post.excerpt.toLowerCase().includes(searchQuery.toLowerCase());
-    return matchesCategory && matchesSearch;
+    const matchesTag = !activeTag || activeTag === "All" || post.tags.includes(activeTag);
+    return matchesCategory && matchesSearch && matchesTag;
   }).sort((a, b) => {
     if (sortOption === "Newest First") {
       return new Date(b.date) - new Date(a.date);
@@ -132,10 +136,23 @@ const BlogsPage = () => {
     document.body.style.overflow = 'auto'; // Re-enable scrolling
   };
 
+  // Handle tag click
+  const handleTagClick = (tag) => {
+    setActiveTag(tag === activeTag ? null : tag);
+    setCurrentPage(1);
+  };
+
   // Reset to first page when filters change
   useEffect(() => {
     setCurrentPage(1);
-  }, [selectedCategory, sortOption, searchQuery]);
+  }, [selectedCategory, sortOption, searchQuery, activeTag]);
+
+  // Reset all filters
+  const resetAllFilters = () => {
+    setSelectedCategory("All Categories");
+    setSearchQuery("");
+    setActiveTag(null);
+  };
 
   return (
     <div className="blogsContainer">
@@ -181,6 +198,34 @@ const BlogsPage = () => {
             </div>
           </div>
 
+          {/* Active filters display */}
+          {(selectedCategory !== "All Categories" || searchQuery || activeTag) && (
+            <div className="activeFilters">
+              <p>Active filters: </p>
+              {selectedCategory !== "All Categories" && (
+                <span className="activeFilter">
+                  Category: {selectedCategory}
+                  <button onClick={() => setSelectedCategory("All Categories")}>×</button>
+                </span>
+              )}
+              {searchQuery && (
+                <span className="activeFilter">
+                  Search: "{searchQuery}"
+                  <button onClick={() => setSearchQuery("")}>×</button>
+                </span>
+              )}
+              {activeTag && (
+                <span className="activeFilter">
+                  Tag: {activeTag}
+                  <button onClick={() => setActiveTag(null)}>×</button>
+                </span>
+              )}
+              <button className="resetAllFilters" onClick={resetAllFilters}>
+                Reset All
+              </button>
+            </div>
+          )}
+
           {currentPosts.length > 0 ? (
             <>
               <div className="articlesGrid">
@@ -201,6 +246,16 @@ const BlogsPage = () => {
                       </div>
                       <h3>{post.title}</h3>
                       <p className="postExcerpt">{post.excerpt}</p>
+                      <div className="postTags">
+                        {post.tags.map((tag, index) => (
+                          <span key={index} className="tag" onClick={(e) => {
+                            e.stopPropagation();
+                            handleTagClick(tag);
+                          }}>
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
                       <div className="readMoreLink">Read More →</div>
                     </div>
                   </article>
@@ -223,10 +278,7 @@ const BlogsPage = () => {
             <div className="noResults">
               <p>No articles found matching your criteria.</p>
               <button 
-                onClick={() => {
-                  setSelectedCategory("All Categories");
-                  setSearchQuery("");
-                }}
+                onClick={resetAllFilters}
                 className="resetFilters"
               >
                 Reset Filters
@@ -240,17 +292,15 @@ const BlogsPage = () => {
           <div className="sidebarWidget">
             <h3>Popular Tags</h3>
             <div className="tagsContainer">
-              {["RPA", "UiPath", "Power Automate", "AI", "Process Mining", 
-                "Automation", "Digital Transformation", "Best Practices", "Case Studies"]
-                .map((tag, index) => (
-                  <span 
-                    key={index} 
-                    className="tag"
-                    onClick={() => setSearchQuery(tag)}
-                  >
-                    {tag}
-                  </span>
-                ))}
+              {allTags.map((tag, index) => (
+                <span 
+                  key={index} 
+                  className={`tag ${activeTag === tag ? 'active' : ''}`}
+                  onClick={() => handleTagClick(tag)}
+                >
+                  {tag}
+                </span>
+              ))}
             </div>
           </div>
 
@@ -308,7 +358,13 @@ const BlogsPage = () => {
               />
               <div className="tagsContainer">
                 {selectedPost.tags.map((tag, index) => (
-                  <span key={index} className="tag">{tag}</span>
+                  <span 
+                    key={index} 
+                    className="tag"
+                    onClick={() => handleTagClick(tag)}
+                  >
+                    {tag}
+                  </span>
                 ))}
               </div>
             </div>

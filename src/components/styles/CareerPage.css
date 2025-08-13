@@ -502,3 +502,301 @@
     grid-template-columns: 1fr;
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Application Form Modal */
+.carrespage-application-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.carrespage-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+}
+
+.carrespage-modal-content {
+  position: relative;
+  background: white;
+  border-radius: 12px;
+  padding: 2.5rem;
+  max-width: 800px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  animation: modalFadeIn 0.3s ease;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.carrespage-close-modal {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: #64748b;
+  transition: color 0.3s ease;
+}
+
+.carrespage-close-modal:hover {
+  color: #0f172a;
+}
+
+.carrespage-modal-content h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  color: #0f172a;
+}
+
+/* Application Form */
+.carrespage-application-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.carrespage-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.carrespage-form-group label {
+  font-weight: 600;
+  color: #334155;
+  font-size: 0.95rem;
+}
+
+.carrespage-form-group input,
+.carrespage-form-group select,
+.carrespage-form-group textarea {
+  padding: 0.8rem 1rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.carrespage-form-group input:focus,
+.carrespage-form-group select:focus,
+.carrespage-form-group textarea:focus {
+  outline: none;
+  border-color: #00bcd4;
+  box-shadow: 0 0 0 3px rgba(0, 188, 212, 0.1);
+}
+
+.carrespage-form-group textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.carrespage-form-row {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.carrespage-form-row .carrespage-form-group {
+  flex: 1;
+}
+
+.carrespage-file-upload {
+  position: relative;
+}
+
+.carrespage-file-upload input[type="file"] {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.carrespage-file-label {
+  display: block;
+  padding: 0.8rem 1rem;
+  border: 1px dashed #e2e8f0;
+  border-radius: 6px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.carrespage-file-label:hover {
+  border-color: #00bcd4;
+  background: #f0fdfa;
+}
+
+.carrespage-error-message {
+  color: #ef4444;
+  font-size: 0.85rem;
+  margin-top: 0.2rem;
+}
+
+.carrespage-form-group input.error,
+.carrespage-form-group select.error,
+.carrespage-file-upload.error + .carrespage-file-label {
+  border-color: #ef4444;
+}
+
+.carrespage-form-footer {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.carrespage-form-note {
+  font-size: 0.85rem;
+  color: #64748b;
+  text-align: center;
+}
+
+.carrespage-submit-button {
+  padding: 1rem 1.5rem;
+  background: #00bcd4;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.carrespage-submit-button:hover:not(:disabled) {
+  background: #0097a7;
+}
+
+.carrespage-submit-button:disabled {
+  background: #94a3b8;
+  cursor: not-allowed;
+}
+
+/* Success Message */
+.carrespage-submission-success {
+  text-align: center;
+  padding: 2rem;
+}
+
+.carrespage-submission-success svg {
+  width: 60px;
+  height: 60px;
+  color: #10b981;
+  margin-bottom: 1.5rem;
+}
+
+.carrespage-submission-success h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #0f172a;
+}
+
+.carrespage-submission-success p {
+  color: #64748b;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .carrespage-modal-content {
+    padding: 1.5rem;
+  }
+  
+  .carrespage-form-row {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .carrespage-modal-content {
+    padding: 1.5rem 1rem;
+  }
+}
