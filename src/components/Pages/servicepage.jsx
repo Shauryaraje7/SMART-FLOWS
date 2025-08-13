@@ -188,7 +188,7 @@ const ServicesPage = () => {
       {/* Process Timeline - Updated to Horizontal */}
       <section className="servicespage-timeline">
         <h2 className='Allh1 subheading '  >Our Automation Journey</h2>
-        <p>From discovery to continuous improvement</p>
+        <p  className='headingpara'  >From discovery to continuous improvement</p>
         
         <div className="servicespage-horizontal-timeline">
           <div className="servicespage-timeline-path">
@@ -270,7 +270,7 @@ const ServicesPage = () => {
       <section className="servicespage-cta">
         <div className="servicespage-cta-container">
           <h2 className='subheadings Allh1' >Ready to Transform Your Business?</h2>
-          <p className='subheadings AllP  '  >Our automation experts will conduct a free assessment of your processes</p>
+          <p className='headingpara AllP   '  >Our automation experts will conduct a free assessment of your processes</p>
           <button onClick={openRPAForm} className="servicespage-cta-button">Schedule Assessment</button>
         </div>
       </section>
