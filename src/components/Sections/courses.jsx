@@ -1089,8 +1089,8 @@ const CoursePage = () => {
     <div className="course-page">
       <div className="course-hero">
         <div className="hero-content-course">
-          <h1 className='Allh1'>Transform Your Career with Automation</h1>
-          <p>Master the tools that are shaping the future of business processes</p>
+          <h1 className='Allh1 headings'>Transform Your Career with Automation</h1>
+          <p className='AllP headingpara '   >Master the tools that are shaping the future of business processes</p>
         </div>
       </div>
 
