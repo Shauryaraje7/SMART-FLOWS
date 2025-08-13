@@ -187,7 +187,7 @@ const ServicesPage = () => {
 
       {/* Process Timeline - Updated to Horizontal */}
       <section className="servicespage-timeline">
-        <h2>Our Automation Journey</h2>
+        <h2 className='Allh1 smallheading '  >Our Automation Journey</h2>
         <p>From discovery to continuous improvement</p>
         
         <div className="servicespage-horizontal-timeline">
