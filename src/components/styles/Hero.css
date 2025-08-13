@@ -145,9 +145,6 @@
   }
 }
 
-.hero-content {
-  animation: float 6s ease-in-out infinite;
-}
 
 /* Mobile optimizations */
 @media (max-width: 768px) {

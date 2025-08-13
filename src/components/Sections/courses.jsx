@@ -8,9 +8,6 @@ import AutomationAnywher from '../../assets/Automation-Anywhere.png';
 import BluePrism from '../../assets/Blue-Prism.png';
 import Clock from '../../assets/clock.svg';
 import Star from '../../assets/star.svg';
-
-
-
 import FooterSection from './FooterSection.jsx';
 
 const CoursePage = () => {
@@ -20,6 +17,7 @@ const CoursePage = () => {
   const [showEnrollmentModal, setShowEnrollmentModal] = useState(false);
   const [selectedCourse, setSelectedCourse] = useState(null);
   const [expandedTopics, setExpandedTopics] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -30,7 +28,7 @@ const CoursePage = () => {
     terms: false
   });
 
-  const courses = [
+ const courses = [
     {
       id: 1,
       name: 'UiPath Automation',
@@ -960,7 +958,7 @@ const CoursePage = () => {
       instructorBio: 'Automation architect specializing in custom enterprise solutions.',
       rating: 4.5,
       students: 750,
-      reviews: [
+      reviews: [    
         { name: 'Noah W.', rating: 4, comment: 'Lots of practical knowledge' },
         { name: 'Isabella M.', rating: 5, comment: 'Perfect for my needs' }
       ]
@@ -968,22 +966,18 @@ const CoursePage = () => {
   ];
 
 
+
   const levels = ['All', 'Beginner', 'Intermediate', 'Advanced'];
 
   const filteredCourses = courses
     .filter(course => {
-      // Search term filtering (name or level)
-      const matchesSearch = course.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
+      const matchesSearch = course.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
         Object.keys(course.levels).some(level => level.toLowerCase().includes(searchTerm.toLowerCase()));
-      
-      // Level filtering
       const matchesLevel = activeFilter === 'All' || course.levels[activeFilter] !== undefined;
-      
       return matchesSearch && matchesLevel;
     })
     .flatMap(course =>
       Object.entries(course.levels).map(([level, levelData]) => {
-        // Only include the level if it matches the active filter or if filter is 'All'
         if (activeFilter === 'All' || level === activeFilter) {
           return {
             ...course,
@@ -994,12 +988,12 @@ const CoursePage = () => {
           };
         }
         return null;
-      }).filter(item => item !== null) // Remove null entries from flatMap
+      }).filter(item => item !== null)
     );
 
   const handleCourseClick = (course) => {
     setSelectedCourse(course);
-    setExpandedTopics({}); // Reset expanded topics when opening a new course
+    setExpandedTopics({});
     setShowCourseModal(true);
   };
 
@@ -1023,19 +1017,72 @@ const CoursePage = () => {
     }));
   };
 
-  const handleEnrollmentSubmit = (e) => {
+  const handleEnrollmentSubmit = async (e) => {
     e.preventDefault();
-    alert(`Enrollment submitted successfully for ${selectedCourse.name}!\nWe'll contact you shortly at ${formData.email}`);
-    setShowEnrollmentModal(false);
-    setFormData({
-      firstName: '',
-      lastName: '',
-      email: '',
-      phone: '',
-      experience: '',
-      goals: '',
-      terms: false
-    });
+    
+    if (!formData.terms) {
+      alert('You must agree to the terms and conditions');
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      const scriptUrl = 'https://script.google.com/macros/s/AKfycbx50H2dXLIsxnU9td91Zwz28XylXhayoehYqBv5-WaxB6lGyHgYwPg-XA0_iTTz44I/exec';
+
+      const formDataEncoded = new URLSearchParams();
+      formDataEncoded.append('firstName', formData.firstName);
+      formDataEncoded.append('lastName', formData.lastName);
+      formDataEncoded.append('email', formData.email);
+      formDataEncoded.append('phone', formData.phone);
+      formDataEncoded.append('experience', formData.experience);
+      formDataEncoded.append('goals', formData.goals);
+      formDataEncoded.append('courseName', selectedCourse.name);
+      formDataEncoded.append('courseLevel', selectedCourse.level);
+      formDataEncoded.append('status', 'new');
+
+      let response;
+      try {
+        response = await fetch(scriptUrl, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+          },
+          body: formDataEncoded,
+          mode: 'no-cors'
+        });
+      } catch (error) {
+        console.log('Direct request failed, trying with proxy...');
+        const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+        response = await fetch(proxyUrl + scriptUrl, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'X-Requested-With': 'XMLHttpRequest'
+          },
+          body: formDataEncoded
+        });
+      }
+
+      setFormData({
+        firstName: '',
+        lastName: '',
+        email: '',
+        phone: '',
+        experience: '',
+        goals: '',
+        terms: false
+      });
+      
+      setShowEnrollmentModal(false);
+      alert(`Enrollment submitted successfully for ${selectedCourse.name}!\nWe'll contact you shortly at ${formData.email}`);
+
+    } catch (error) {
+      console.error("Error submitting form: ", error);
+      alert('Failed to submit form. Please try again or contact us directly.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -1142,7 +1189,6 @@ const CoursePage = () => {
         </div>
       </div>
 
-      {/* Course Details Modal */}
       {showCourseModal && selectedCourse && (
         <div className="course-details-modal">
           <div className="modal-overlay" onClick={() => setShowCourseModal(false)}></div>
@@ -1324,19 +1370,19 @@ const CoursePage = () => {
         </div>
       )}
 
-      {/* Enrollment Modal */}
       {showEnrollmentModal && selectedCourse && (
         <div className="enrollment-modal">
-          <div className="modal-overlay" onClick={() => setShowEnrollmentModal(false)}></div>
+          <div className="modal-overlay" onClick={() => !isSubmitting && setShowEnrollmentModal(false)}></div>
           <div className="modal-content">
             <button
               className="close-modal"
-              onClick={() => setShowEnrollmentModal(false)}
+              onClick={() => !isSubmitting && setShowEnrollmentModal(false)}
+              disabled={isSubmitting}
             >
-              <i className="fas fa-times"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M18 6L6 18" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 <path d="M6 6L18 18" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-              </svg></i>
+              </svg>
             </button>
 
             <div className="enrollment-header">
@@ -1353,7 +1399,7 @@ const CoursePage = () => {
                       alt={selectedCourse.name}
                       onError={(e) => {
                         e.target.onerror = null;
-                        e.target.src = 'path/to/fallback-image.png';
+                        e.target.src = 'https://via.placeholder.com/400x225?text=Course+Image';
                       }}
                     />
                     <div className="banner-details">
@@ -1376,17 +1422,6 @@ const CoursePage = () => {
               <form className="enrollment-form" onSubmit={handleEnrollmentSubmit}>
                 <h4 className="form-title">Your Information</h4>
 
-                <div className="course-selection-info">
-                  <div className="info-item">
-                    <span className="info-label">Course:</span>
-                    <span className="info-value">{selectedCourse.name}</span>
-                  </div>
-                  <div className="info-item">
-                    <span className="info-label">Level:</span>
-                    <span className="info-value">{selectedCourse.level}</span>
-                  </div>
-                </div>
-
                 <div className="form-row">
                   <div className="form-group">
                     <label htmlFor="firstName">
@@ -1400,6 +1435,7 @@ const CoursePage = () => {
                       value={formData.firstName}
                       onChange={handleInputChange}
                       required
+                      disabled={isSubmitting}
                     />
                   </div>
                   <div className="form-group">
@@ -1414,6 +1450,7 @@ const CoursePage = () => {
                       value={formData.lastName}
                       onChange={handleInputChange}
                       required
+                      disabled={isSubmitting}
                     />
                   </div>
                 </div>
@@ -1431,6 +1468,7 @@ const CoursePage = () => {
                       value={formData.email}
                       onChange={handleInputChange}
                       required
+                      disabled={isSubmitting}
                     />
                   </div>
                   <div className="form-group">
@@ -1445,6 +1483,7 @@ const CoursePage = () => {
                       value={formData.phone}
                       onChange={handleInputChange}
                       required
+                      disabled={isSubmitting}
                     />
                   </div>
                 </div>
@@ -1459,6 +1498,7 @@ const CoursePage = () => {
                     value={formData.experience}
                     onChange={handleInputChange}
                     required
+                    disabled={isSubmitting}
                   >
                     <option value="">Select your experience</option>
                     <option value="beginner">Beginner (0-1 years)</option>
@@ -1475,6 +1515,7 @@ const CoursePage = () => {
                     rows="3"
                     value={formData.goals}
                     onChange={handleInputChange}
+                    disabled={isSubmitting}
                   ></textarea>
                 </div>
 
@@ -1486,14 +1527,23 @@ const CoursePage = () => {
                     checked={formData.terms}
                     onChange={handleInputChange}
                     required
+                    disabled={isSubmitting}
                   />
                   <label className='enroll-form-checkbox' htmlFor="terms">
                     I agree to the <a href="#">terms and conditions</a> and <a href="#">privacy policy</a>
                   </label>
                 </div>
 
-                <button type="submit" className="submit-enrollment">
-                  Complete Enrollment <i className="fas fa-check"></i>
+                <button 
+                  type="submit" 
+                  className="submit-enrollment"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? (
+                    <span>Submitting... <i className="fas fa-spinner fa-spin"></i></span>
+                  ) : (
+                    <span>Complete Enrollment <i className="fas fa-check"></i></span>
+                  )}
                 </button>
               </form>
             </div>
