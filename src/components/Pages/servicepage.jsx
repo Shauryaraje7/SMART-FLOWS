@@ -171,8 +171,8 @@ const ServicesPage = () => {
                 <div className="servicespage-service-logo-wrapper">
                   <img src={service.logo} alt={service.title} className="servicespage-service-logo" />
                 </div>
-                <h3 className='Allh1 headings'>{service.title}</h3>
-                <p className="servicespage-service-desc AllP headingpara">{service.description}</p>
+                <h3 className='Allh1 smallheading'>{service.title}</h3>
+                <p className="servicespage-service-desc AllP smallpara">{service.description}</p>
                 <ul className="servicespage-service-features">
                   {service.features.map((feature, i) => (
                     <li key={i}>{feature}</li>
