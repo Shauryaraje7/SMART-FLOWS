@@ -153,7 +153,7 @@ const ServicesPage = () => {
       {/* Services Showcase - Diagonal Layout */}
       <section className="servicespage-showcase">
         <div className="servicespage-showcase-header">
-          <h2 className='Allh1 headings'>Our Automation Expertise</h2>
+          <h2 className='Allh1 subheadings'>Our Automation Expertise</h2>
           <p className="AllP headingpara">Tailored solutions for every industry vertical</p>
         </div>
         
@@ -269,8 +269,8 @@ const ServicesPage = () => {
       {/* CTA Section */}
       <section className="servicespage-cta">
         <div className="servicespage-cta-container">
-          <h2>Ready to Transform Your Business?</h2>
-          <p>Our automation experts will conduct a free assessment of your processes</p>
+          <h2 className='subheadings Allh1' >Ready to Transform Your Business?</h2>
+          <p className='subheadings AllP  '  >Our automation experts will conduct a free assessment of your processes</p>
           <button onClick={openRPAForm} className="servicespage-cta-button">Schedule Assessment</button>
         </div>
       </section>
