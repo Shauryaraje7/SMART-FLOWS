@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: http://smartflows.in/sitemap.xml
