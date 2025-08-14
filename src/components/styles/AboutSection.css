@@ -1,7 +1,7 @@
 /* About Section */
 .about-section {
   padding: clamp(60px, 8vw, 120px) 20px;
-  background: linear-gradient(135deg, #f8fafc 0%, #f0fdfa 100%);
+    background: linear-gradient(135deg, #f8fafc 0%, #f0fdfa 100%);
   position: relative;
   overflow: hidden;
   z-index: 6;
