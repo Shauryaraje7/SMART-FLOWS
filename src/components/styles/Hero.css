@@ -149,7 +149,7 @@
 /* Mobile optimizations */
 @media (max-width: 768px) {
   .hero-container {
-    min-height: 90vh;
+    min-height: 80vh;
     text-align: center;
   }
   
