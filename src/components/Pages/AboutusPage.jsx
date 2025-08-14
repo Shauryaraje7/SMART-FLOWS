@@ -240,7 +240,7 @@ const AboutPage = () => {
               <div className="aboutpage-team-stat-label">Industries Served</div>
             </div>
           </div>
-          <Link to="/team" className="aboutpage-btn-outline">Meet Our Team</Link>
+
         </div>
       </section>
 

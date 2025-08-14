@@ -160,7 +160,7 @@
   max-width: 500px;
   margin: 0 auto 2rem;
   background: white;
-  border-radius: 50px;
+  border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
   border: 1px solid #e2e8f0;
@@ -204,7 +204,7 @@
   padding: 0.6rem 1.2rem;
   background: #f1f5f9;
   border: none;
-  border-radius: 50px;
+  border-radius: 10px;
   font-size: 0.9rem;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -372,13 +372,13 @@
 }
 
 .carrespage-culture-content h2 {
-  font-size: clamp(1.8rem, 3vw, 2.5rem);
+
   margin-bottom: 1.5rem;
   color: #0f172a;
 }
 
 .carrespage-culture-content p {
-  font-size: 1.1rem;
+  
   color: #475569;
   max-width: 700px;
   margin: 0 auto 3rem;
@@ -400,13 +400,13 @@
 }
 
 .carrespage-culture-point h3 {
-  font-size: 1.2rem;
+
   margin-bottom: 0.8rem;
   color: #00bcd4;
 }
 
 .carrespage-culture-point p {
-  font-size: 0.95rem;
+
   color: #64748b;
   margin-bottom: 0;
 }
@@ -442,12 +442,12 @@
 }
 
 .carrespage-careers-cta h2 {
-  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  
   margin-bottom: 1.5rem;
 }
 
 .carrespage-careers-cta p {
-  font-size: 1.1rem;
+
   opacity: 0.9;
   margin-bottom: 2.5rem;
   max-width: 600px;

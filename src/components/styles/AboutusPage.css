@@ -75,7 +75,7 @@
 
 .aboutpage-btn-outline {
   background: transparent;
-  color: #00bcd4;
+  color: white;
   border: 2px solid #00bcd4;
 }
 
@@ -86,7 +86,7 @@
 }
 
 .aboutpage-btn-outline:hover {
-  background: rgba(0, 188, 212, 0.05);
+  background:white;
   transform: translateY(-3px);
   color: #008ba3;
   border-color: #008ba3;
@@ -110,7 +110,7 @@
   filter: drop-shadow(0 0 20px rgba(0, 188, 212, 0.4));
   position: relative;
   z-index: 2;
-  animation: float 6s ease-in-out infinite;
+
 }
 
 @keyframes float {
@@ -136,7 +136,7 @@
   background: linear-gradient(135deg, #00bcd4 0%, #006064 100%);
   color: white;
   text-align: center;
-  padding: 6rem 2rem;
+  padding: 3rem 2rem;
 }
 
 .aboutpage-stats-container {
@@ -420,6 +420,7 @@
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
   margin-top: 3rem;
+  padding: 3rem 5rem;
 }
 
 .aboutpage-course-card {
@@ -647,7 +648,7 @@
   background: linear-gradient(135deg, #00bcd4 0%, #006064 100%);
   color: white;
   text-align: center;
-  padding: 6rem 2rem;
+  padding: 4rem 2rem;
 }
 
 .aboutpage-cta-content {

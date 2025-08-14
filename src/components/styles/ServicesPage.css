@@ -199,9 +199,9 @@
 }
 
 .servicespage-service-logo {
-  width: 60px;
-  height: 60px;
-  object-fit: contain;
+    width: 74px;
+    height: 85px;
+    object-fit: contain;
 }
 
 .servicespage-service-block h3 {
@@ -686,7 +686,9 @@
   .servicespage-hero {
     padding: 6rem 1rem 10rem;
   }
-  
+  .servicespage-service-logo {
+    width: 65px;
+  }
 
   
   .servicespage-service-features {

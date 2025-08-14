@@ -159,8 +159,8 @@ const BlogsPage = () => {
       {/* Blog Hero Section */}
       <section className="blogsHero">
         <div className="heroContent">
-          <h1>Automation Insights & Trends</h1>
-          <p>Expert perspectives on robotic process automation, AI integration, and digital transformation</p>
+          <h1 className='Allh1 headings'  >Automation Insights & Trends</h1>
+          <p className='AllP headingpara'   >Expert perspectives on robotic process automation, AI integration, and digital transformation</p>
           <div className="searchBar">
             <input 
               type="text" 

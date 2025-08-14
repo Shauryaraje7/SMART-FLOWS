@@ -292,7 +292,7 @@ const CareersPage = () => {
       {/* Job Openings Section */}
       <section className="carrespage-job-openings" id="open-positions">
         <div className="carrespage-section-header">
-          <h2>Current Openings</h2>
+          <h2 className='Alh1 subheadings'  >Current Openings</h2>
           <p>Find your perfect role in our growing team</p>
         </div>
 
@@ -356,20 +356,20 @@ const CareersPage = () => {
       {/* Culture Section */}
       <section className="carrespage-culture-section">
         <div className="carrespage-culture-content">
-          <h2>Our Culture</h2>
-          <p>At SmartFlows, we believe that great automation starts with great people. We foster a culture of collaboration, innovation, and continuous learning where every team member can thrive.</p>
+          <h2 className='Allh1 subheadings'  >Our Culture</h2>
+          <p className='AllP subheadingpara'  >At SmartFlows, we believe that great automation starts with great people. We foster a culture of collaboration, innovation, and continuous learning where every team member can thrive.</p>
           <div className="carrespage-culture-points">
             <div className="carrespage-culture-point">
-              <h3>Ownership</h3>
-              <p>We trust our team to take initiative and deliver results</p>
+              <h3 className='Allh1 smallheading'  >Ownership</h3>
+              <p className='AllP smallpara'  >We trust our team to take initiative and deliver results</p>
             </div>
             <div className="carrespage-culture-point">
-              <h3>Learning</h3>
-              <p>Continuous growth is at the heart of what we do</p>
+              <h3 className='Allh1 smallheading'   >Learning</h3>
+              <p  className='AllP smallpara'  >Continuous growth is at the heart of what we do</p>
             </div>
             <div className="carrespage-culture-point">
-              <h3>Impact</h3>
-              <p>See the direct results of your work with clients</p>
+              <h3 className='Allh1 smallheading'  >Impact</h3>
+              <p className='AllP smallpara'  >See the direct results of your work with clients</p>
             </div>
           </div>
           <Link to="/about" className="carrespage-outline-button">Learn More About Us</Link>
@@ -379,8 +379,8 @@ const CareersPage = () => {
       {/* CTA Section */}
       <section className="carrespage-careers-cta">
         <div className="carrespage-cta-content">
-          <h2>Don't See Your Dream Role?</h2>
-          <p>We're always looking for talented individuals. Send us your resume and we'll contact you when a matching position opens.</p>
+          <h2 className='subheadings Allh1'  >Don't See Your Dream Role?</h2>
+          <p className='AllP subheadingpara'   >We're always looking for talented individuals. Send us your resume and we'll contact you when a matching position opens.</p>
           <button onClick={() => handleApplyClick({ title: "General Application" })} className="carrespage-cta-button">Submit Your Resume</button>
         </div>
       </section>

@@ -6,7 +6,7 @@ import 'swiper/css';
 import '../styles/ServicesPage.css';
 import UipathLogo from '../../assets/UiPath-Logo.png';
 import PowerAutomateLogo from '../../assets/power-automate-logo-removebg-preview.png';
-import AgenticAiLogo from '../../assets/aiagents.png';
+import AgenticAiLogo from '../../assets/newaiimg.png';
 import AutomationAnywher from '../../assets/Automation-Anywhere.png';
 import BluePrism from '../../assets/Blue-Prism.png';
 import FooterSection from '../Sections/FooterSection.jsx';
