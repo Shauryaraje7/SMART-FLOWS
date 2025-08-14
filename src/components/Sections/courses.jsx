@@ -1096,8 +1096,8 @@ const CoursePage = () => {
 
       <div className="course-container">
         <div className="course-header">
-          <h2 className='Allh1'>Our Automation Courses</h2>
-          <p className="subtitle">Browse our comprehensive curriculum designed for all skill levels</p>
+          <h2 className='Allh1 subheadings '>Our Automation Courses</h2>
+          <p className="subtitle subheadingpara ">Browse our comprehensive curriculum designed for all skill levels</p>
 
           <div className="controls-container">
             <div className="search-filter-container">

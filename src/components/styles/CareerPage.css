@@ -35,25 +35,26 @@
 }
 
 .carrespage-careers-hero h1 {
-  font-size: clamp(2rem, 5vw, 3.5rem);
+
   font-weight: 800;
   margin-bottom: 1.5rem;
   line-height: 1.2;
 }
 
 .carrespage-careers-hero p {
-  font-size: clamp(1rem, 2vw, 1.5rem);
+
   opacity: 0.9;
   margin-bottom: 2.5rem;
 }
 
 .carrespage-cta-button {
+  border: 2px solid white;
   display: inline-block;
   padding: 1rem 2.5rem;
   background: white;
   color: #00bcd4;
   font-weight: 600;
-  border-radius: 50px;
+  border-radius: 10px;
   text-decoration: none;
   font-size: 1.1rem;
   transition: all 0.3s ease;
@@ -73,7 +74,7 @@
 }
 
 .carrespage-section-header h2 {
-  font-size: clamp(1.8rem, 3vw, 2.5rem);
+
   margin-bottom: 1rem;
   color: #0f172a;
   position: relative;
@@ -93,7 +94,7 @@
 }
 
 .carrespage-section-header p {
-  font-size: 1.1rem;
+
   color: #64748b;
   max-width: 700px;
   margin: 0 auto;
@@ -132,14 +133,14 @@
 }
 
 .carrespage-benefit-card h3 {
-  font-size: 1.3rem;
+  
   margin-bottom: 1rem;
   color: #0f172a;
 }
 
 .carrespage-benefit-card p {
   color: #64748b;
-  font-size: 0.95rem;
+ 
 }
 
 /* Job Openings Section */
@@ -459,20 +460,20 @@
   .carrespage-careers-hero {
     padding: 6rem 1.5rem;
   }
-  
+
   .carrespage-benefits-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .carrespage-department-tabs {
     justify-content: flex-start;
   }
-  
+
   .carrespage-job-header {
     flex-direction: column;
     align-items: flex-start;
   }
-  
+
   .carrespage-expand-icon {
     margin-left: 0;
     margin-top: 1rem;
@@ -483,21 +484,22 @@
   .carrespage-careers-hero {
     padding: 4rem 1rem;
   }
-  
+
   .carrespage-search-bar {
     flex-direction: column;
     border-radius: 8px;
   }
-  
-  .carrespage-search-bar input, .carrespage-search-button {
+
+  .carrespage-search-bar input,
+  .carrespage-search-button {
     width: 100%;
     border-radius: 0;
   }
-  
+
   .carrespage-search-button {
     padding: 0.8rem;
   }
-  
+
   .carrespage-culture-points {
     grid-template-columns: 1fr;
   }
@@ -604,6 +606,7 @@
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -720,7 +723,7 @@
 
 .carrespage-form-group input.error,
 .carrespage-form-group select.error,
-.carrespage-file-upload.error + .carrespage-file-label {
+.carrespage-file-upload.error+.carrespage-file-label {
   border-color: #ef4444;
 }
 
@@ -788,7 +791,7 @@
   .carrespage-modal-content {
     padding: 1.5rem;
   }
-  
+
   .carrespage-form-row {
     flex-direction: column;
     gap: 1.5rem;

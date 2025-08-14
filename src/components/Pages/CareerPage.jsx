@@ -253,8 +253,8 @@ const CareersPage = () => {
       {/* Hero Section */}
       <section className="carrespage-careers-hero">
         <div className="carrespage-hero-content">
-          <h1>Build the Future of Automation</h1>
-          <p>Join our team of innovators creating intelligent automation solutions that transform businesses</p>
+          <h1  className='Allh1 headings'  >Build the Future of Automation</h1>
+          <p  className='AlllP headingpara'   >Join our team of innovators creating intelligent automation solutions that transform businesses</p>
           <Link to="#open-positions" className="carrespage-cta-button">View Open Positions</Link>
         </div>
       </section>
@@ -262,29 +262,29 @@ const CareersPage = () => {
       {/* Benefits Section */}
       <section className="carrespage-benefits-section">
         <div className="carrespage-section-header">
-          <h2>Why Join SmartFlows?</h2>
-          <p>We're building more than automation solutions - we're building an exceptional workplace</p>
+          <h2 className='subheadings Allh1'   >Why Join SmartFlows?</h2>
+          <p  className='subheadingpara'   >We're building more than automation solutions - we're building an exceptional workplace</p>
         </div>
         <div className="carrespage-benefits-grid">
           <div className="carrespage-benefit-card">
             <div className="carrespage-benefit-icon">💡</div>
-            <h3>Innovation Culture</h3>
-            <p>Work with cutting-edge technologies in AI and automation</p>
+            <h3 className='smallheading Allh1'    >Innovation Culture</h3>
+            <p className='smallpara AllP'  >Work with cutting-edge technologies in AI and automation</p>
           </div>
           <div className="carrespage-benefit-card">
             <div className="carrespage-benefit-icon">🌍</div>
-            <h3>Flexible Work</h3>
-            <p>Remote and hybrid options for most positions</p>
+            <h3 className='smallheading Allh1'  >Flexible Work</h3>
+            <p className='smallpara AllP'  >Remote and hybrid options for most positions</p>
           </div>
           <div className="carrespage-benefit-card">
             <div className="carrespage-benefit-icon">📈</div>
-            <h3>Career Growth</h3>
-            <p>Continuous learning and advancement opportunities</p>
+            <h3 className='smallheading Allh1'  >Career Growth</h3>
+            <p className='smallpara AllP'   >Continuous learning and advancement opportunities</p>
           </div>
           <div className="carrespage-benefit-card">
             <div className="carrespage-benefit-icon">🤝</div>
-            <h3>Great Team</h3>
-            <p>Collaborate with talented, passionate professionals</p>
+            <h3 className='smallheading Allh1'  >Great Team</h3>
+            <p className='smallpara AllP'    >Collaborate with talented, passionate professionals</p>
           </div>
         </div>
       </section>
