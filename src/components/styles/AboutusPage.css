@@ -27,6 +27,26 @@
   min-height: 80vh;
 }
 
+
+.aboutpage-btn1-outline{
+  background: transparent;
+    color: #00bcd4;
+    border: 2px solid #00bcd4;
+        padding: 0.8rem 2rem;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+}
+.aboutpage-btn1-outline:hover{
+    background:white;
+  transform: translateY(-3px);
+  color: #008ba3;
+  border-color: #008ba3;
+}
+
+
 .aboutpage-hero-content {
   flex: 1;
   min-width: 300px;

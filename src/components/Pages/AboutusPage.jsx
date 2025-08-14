@@ -152,7 +152,7 @@ const AboutPage = () => {
           <p>We deliver cutting-edge automation solutions that drive efficiency, reduce costs, and unlock new possibilities for organizations of all sizes.</p>
           <div className="aboutpage-hero-buttons">
             <Link to="/services" className="aboutpage-btn-primary">Explore Our Services</Link>
-            <Link to="/contact" className="aboutpage-btn-outline">Schedule Consultation</Link>
+            <Link to="/contact" className="aboutpage-btn1-outline">Schedule Consultation</Link>
           </div>
         </div>
         <div className="aboutpage-hero-image">
