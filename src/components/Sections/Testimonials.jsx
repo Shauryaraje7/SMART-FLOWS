@@ -151,7 +151,7 @@ const TestimonialSlider = () => {
     <section id="testimonials" className="testimonials-section">
       <div className="container">
         <div className="section-header-testimonials">
-          <h2 className="section-title-testimonials Allh1 ">Trusted by <span>Innovators</span></h2>
+          <h2 className="section-title-testimonials Allh1 headings ">Trusted by <span>Innovators</span></h2>
           <p className="section-subtitle-testimonials headingpara  AllP ">Don't just take our word for it - here's what our partners say</p>
         </div>
 

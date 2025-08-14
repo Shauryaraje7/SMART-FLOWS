@@ -12,7 +12,7 @@
 }
 
 .section-title-testimonials {
-  font-size: clamp(2rem, 5vw, 3rem);
+  
   color: #0f172a;
   margin-bottom: 15px;
   line-height: 1.2;
@@ -236,15 +236,10 @@ margin-top: 20px;
     width: 280px;
   }
   
-  .section-title-testimonials {
-    font-size: clamp(1.8rem, 7vw, 2.2rem);
-  }
-  
+
 
   
-  .client-name {
-    font-size: 1.1rem;
-  }
+ 
 }
 
 @media (max-width: 480px) {
