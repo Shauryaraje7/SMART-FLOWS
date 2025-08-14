@@ -444,30 +444,14 @@ const CareersPage = () => {
                         name="phone"
                         value={formData.phone}
                         onChange={handleInputChange}
-                        placeholder="+1 (555) 123-4567"
+                        placeholder="+91 1234567890"
                         className={formErrors.phone ? 'error' : ''}
                       />
                       {formErrors.phone && <span className="carrespage-error-message">{formErrors.phone}</span>}
                     </div>
                   </div>
                   
-                  <div className="carrespage-form-group">
-                    <label htmlFor="resume">Resume/CV* (PDF, DOC, DOCX)</label>
-                    <div className="carrespage-file-upload">
-                      <input
-                        type="file"
-                        id="resume"
-                        name="resume"
-                        onChange={handleFileChange}
-                        accept=".pdf,.doc,.docx"
-                        className={formErrors.resume ? 'error' : ''}
-                      />
-                      <label htmlFor="resume" className="carrespage-file-label">
-                        {formData.resume ? formData.resume.name : 'Choose File'}
-                      </label>
-                    </div>
-                    {formErrors.resume && <span className="carrespage-error-message">{formErrors.resume}</span>}
-                  </div>
+
                   
                   <div className="carrespage-form-group">
                     <label htmlFor="coverLetter">Cover Letter (Optional)</label>

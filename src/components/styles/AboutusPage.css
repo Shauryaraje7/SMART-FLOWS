@@ -28,19 +28,20 @@
 }
 
 
-.aboutpage-btn1-outline{
+.aboutpage-btn1-outline {
   background: transparent;
-    color: #00bcd4;
-    border: 2px solid #00bcd4;
-        padding: 0.8rem 2rem;
-    border-radius: 8px;
-    font-weight: 600;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    font-size: 1rem;
+  color: #00bcd4;
+  border: 2px solid #00bcd4;
+  padding: 0.8rem 2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: 1rem;
 }
-.aboutpage-btn1-outline:hover{
-    background:white;
+
+.aboutpage-btn1-outline:hover {
+  background: white;
   transform: translateY(-3px);
   color: #008ba3;
   border-color: #008ba3;
@@ -76,7 +77,7 @@
   flex-wrap: wrap;
 }
 
-.aboutpage-btn-primary, 
+.aboutpage-btn-primary,
 .aboutpage-btn-outline {
   padding: 0.8rem 2rem;
   border-radius: 8px;
@@ -106,7 +107,7 @@
 }
 
 .aboutpage-btn-outline:hover {
-  background:white;
+  background: white;
   transform: translateY(-3px);
   color: #008ba3;
   border-color: #008ba3;
@@ -134,9 +135,17 @@
 }
 
 @keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-20px); }
-  100% { transform: translateY(0px); }
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
 }
 
 .aboutpage-glow-effect {
@@ -171,7 +180,7 @@
 .aboutpage-stat-item {
   padding: 2rem;
   min-width: 200px;
-  
+
 
   transform: translateY(20px);
   transition: opacity 0.6s ease, transform 0.6s ease;
@@ -278,7 +287,7 @@
   flex: 1;
   min-width: 300px;
   padding: 2rem;
-  
+
   transform: translateX(50px);
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
@@ -699,6 +708,7 @@
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
+
   .aboutpage-hero,
   .aboutpage-mission-section,
   .aboutpage-team-section {
@@ -706,27 +716,27 @@
     text-align: center;
     padding: 6rem 1.5rem;
   }
-  
+
   .aboutpage-mission-statement,
   .aboutpage-team-content p {
     margin-left: auto;
     margin-right: auto;
   }
-  
+
   .aboutpage-values-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .aboutpage-stats-container {
     flex-direction: column;
     gap: 2rem;
   }
-  
+
   .aboutpage-team-stats {
     flex-direction: column;
     gap: 1.5rem;
   }
-  
+
   .aboutpage-hero-buttons,
   .aboutpage-cta-buttons {
     justify-content: center;
@@ -734,6 +744,7 @@
 }
 
 @media (max-width: 480px) {
+
   .aboutpage-hero,
   .aboutpage-mission-section,
   .aboutpage-team-section,
@@ -742,13 +753,13 @@
   .aboutpage-cta {
     padding: 8rem 1rem;
   }
-  
+
   .aboutpage-hero-buttons,
   .aboutpage-cta-buttons {
     flex-direction: column;
     gap: 1rem;
   }
-  
+
   .aboutpage-btn-primary,
   .aboutpage-btn-outline {
     width: 100%;
