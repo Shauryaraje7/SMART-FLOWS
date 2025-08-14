@@ -251,10 +251,13 @@
 
 
 @media (max-width: 480px) {
-  .service-icon{
-    height: 40px;
-    width: 65px;
-  }
+
+.AutomationAnywher-Logo {
+  width: 75px;
+}
+.agenticailogo{
+  height: 65px;
+}
   
 
 }
