@@ -246,3 +246,15 @@
     scroll-behavior: auto !important;
   }
 }
+
+
+
+
+@media (max-width: 480px) {
+  .service-icon{
+    height: 40px;
+    width: 65px;
+  }
+  
+
+}
