@@ -20,5 +20,19 @@
       "src": "/(.*)",
       "dest": "/index.html"
     }
+  ],
+  "rewrites": [
+    {
+      "source": "/sitemap.xml",
+      "destination": "/sitemap.xml"
+    },
+    {
+      "source": "/robots.txt",
+      "destination": "/robots.txt"
+    },
+    {
+      "source": "/((?!api/|sitemap.xml|robots.txt|_next/|favicon.ico|sw.js).*)",
+      "destination": "/index.html"
+    }
   ]
 }
