@@ -1,30 +1,27 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
-import viteSitemap from 'vite-plugin-sitemap'; 
+import viteSitemap from 'vite-plugin-sitemap';
 
 const routes = [
-  { path: '/', lastmod: new Date() },
-  { path: '/services', lastmod: new Date() },
-  { path: '/courses',  lastmod: new Date() },
-  { path: '/blogpage',  lastmod: new Date() },
-  { path: '/aboutuspage',  lastmod: new Date() }
+  { path: '/', changefreq: 'weekly', priority: 1.0 },
+  { path: '/services', changefreq: 'weekly', priority: 0.9 },
+  { path: '/courses', changefreq: 'weekly', priority: 0.8 },
+  { path: '/blogpage', changefreq: 'weekly', priority: 0.7 },
+  { path: '/aboutuspage', changefreq: 'monthly', priority: 0.6 },
 ];
 
 export default defineConfig({
   plugins: [
     react(),
     viteSitemap({
-      baseUrl: 'http://smartflows.in/', // Must include protocol
-      routes: routes,
-      // Available options in v0.8.2:
-      changefreq: 'weekly',
-      priority: 0.8,
-      lastmod: true,
-      readable: true
-    })
+      baseUrl: 'https://www.smartflows.in',  // 🚨 Note: Use "https://" (not "http://")
+      routes,
+      generateRobotsTxt: true,  // Optional: creates robots.txt
+      // Force clean XML output (no extra namespaces if unused)
+      customEntries: [
+        { loc: '/', changefreq: 'weekly', priority: 1.0 },
+      ],
+    }),
   ],
-  build: {
-    outDir: 'dist',
-    emptyOutDir: true
-  }
+  build: { outDir: 'dist', emptyOutDir: true },
 });
