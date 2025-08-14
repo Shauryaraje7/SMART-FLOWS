@@ -189,7 +189,7 @@ const FooterSection = () => {
             <span>•</span>
             <a href="/sitemap">Sitemap</a>
           </div>
-          <p className="copyright">&copy; {new Date().getFullYear()} SmartFlows. All rights reserved.</p>
+          <p className="copyright">&copy; {new Date().getFullYear()} © 2025 SmartFlows. All rights reserved.</p>
         </div>
       </div>
     </footer>
