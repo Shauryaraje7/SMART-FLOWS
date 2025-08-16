@@ -7,7 +7,7 @@ import { fileURLToPath } from 'url';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const routes = [
-  { path: '/', changefreq: 'weekly', priority: '1.0' },
+  { path: '/', changefreq: 'weekly', priority: '1.0' },              
   { path: '/services', changefreq: 'weekly', priority: '0.9' },
   { path: '/courses', changefreq: 'weekly', priority: '0.8' },
   { path: '/blogpage', changefreq: 'weekly', priority: '0.7' },
