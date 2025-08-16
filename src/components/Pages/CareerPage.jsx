@@ -289,6 +289,52 @@ const CareersPage = () => {
         </div>
       </section>
 
+
+
+
+
+
+
+
+
+
+
+{/* Culture Section */}
+      <section className="carrespage-culture-section">
+        <div className="carrespage-culture-content">
+          <h2 className='Allh1 subheadings'  >Our Culture</h2>
+          <p className='AllP subheadingpara'  >At SmartFlows, we believe that great automation starts with great people. We foster a culture of collaboration, innovation, and continuous learning where every team member can thrive.</p>
+          <div className="carrespage-culture-points">
+            <div className="carrespage-culture-point">
+              <h3 className='Allh1 smallheading'  >Ownership</h3>
+              <p className='AllP smallpara'  >We trust our team to take initiative and deliver results</p>
+            </div>
+            <div className="carrespage-culture-point">
+              <h3 className='Allh1 smallheading'   >Learning</h3>
+              <p  className='AllP smallpara'  >Continuous growth is at the heart of what we do</p>
+            </div>
+            <div className="carrespage-culture-point">
+              <h3 className='Allh1 smallheading'  >Impact</h3>
+              <p className='AllP smallpara'  >See the direct results of your work with clients</p>
+            </div>
+          </div>
+          <Link to="/aboutuspage" className="carrespage-outline-button">Learn More About Us</Link>
+        </div>
+      </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       {/* Job Openings Section */}
       <section className="carrespage-job-openings" id="open-positions">
         <div className="carrespage-section-header">
@@ -353,28 +399,18 @@ const CareersPage = () => {
         </div>
       </section>
 
-      {/* Culture Section */}
-      <section className="carrespage-culture-section">
-        <div className="carrespage-culture-content">
-          <h2 className='Allh1 subheadings'  >Our Culture</h2>
-          <p className='AllP subheadingpara'  >At SmartFlows, we believe that great automation starts with great people. We foster a culture of collaboration, innovation, and continuous learning where every team member can thrive.</p>
-          <div className="carrespage-culture-points">
-            <div className="carrespage-culture-point">
-              <h3 className='Allh1 smallheading'  >Ownership</h3>
-              <p className='AllP smallpara'  >We trust our team to take initiative and deliver results</p>
-            </div>
-            <div className="carrespage-culture-point">
-              <h3 className='Allh1 smallheading'   >Learning</h3>
-              <p  className='AllP smallpara'  >Continuous growth is at the heart of what we do</p>
-            </div>
-            <div className="carrespage-culture-point">
-              <h3 className='Allh1 smallheading'  >Impact</h3>
-              <p className='AllP smallpara'  >See the direct results of your work with clients</p>
-            </div>
-          </div>
-          <Link to="/about" className="carrespage-outline-button">Learn More About Us</Link>
-        </div>
-      </section>
+      
+
+
+
+
+
+
+
+
+
+
+
 
       {/* CTA Section */}
       <section className="carrespage-careers-cta">

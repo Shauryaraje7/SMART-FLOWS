@@ -5,6 +5,7 @@ import Robot from '../../assets/robot3.png';
 import MissionImage from '../../assets/robot3.png'; 
 import TeamImage from '../../assets/robot3.png';
 import FooterSection from '../Sections/FooterSection.jsx';
+import RPAForm from '../RPAForm.jsx';
 
 // Placeholder images for courses
 import BeginnerCourseImg from '../../assets/UiPath-Logo.png';
@@ -15,8 +16,17 @@ const AboutPage = () => {
   const [projectsCompleted, setProjectsCompleted] = useState(0);
   const [satisfactionRate, setSatisfactionRate] = useState(0);
   const [automationHours, setAutomationHours] = useState(0);
+  const [showForm, setShowForm] = useState(false);
   
   const sectionRefs = useRef([]);
+
+  const handleBookAppointment = () => {
+    setShowForm(true);
+  };
+
+  const closeForm = () => {
+    setShowForm(false);
+  };
 
   useEffect(() => {
     // Animation for stats counting
@@ -152,7 +162,9 @@ const AboutPage = () => {
           <p>We deliver cutting-edge automation solutions that drive efficiency, reduce costs, and unlock new possibilities for organizations of all sizes.</p>
           <div className="aboutpage-hero-buttons">
             <Link to="/services" className="aboutpage-btn-primary">Explore Our Services</Link>
-            <Link to="/contact" className="aboutpage-btn1-outline">Schedule Consultation</Link>
+            <button className="aboutpage-btn1-outline" onClick={handleBookAppointment}>
+              Schedule Consultation
+            </button>
           </div>
         </div>
         <div className="aboutpage-hero-image">
@@ -240,7 +252,6 @@ const AboutPage = () => {
               <div className="aboutpage-team-stat-label">Industries Served</div>
             </div>
           </div>
-
         </div>
       </section>
 
@@ -321,13 +332,18 @@ const AboutPage = () => {
           <p>Whether you need enterprise automation solutions or want to build expertise within your team, we have the perfect offering for you.</p>
           <div className="aboutpage-cta-buttons">
             <Link to="/contact" className="aboutpage-btn-primary">Get Started</Link>
-            <Link to="/demo" className="aboutpage-btn-outline">Request Demo</Link>
+            <button className="aboutpage-btn-outline" onClick={handleBookAppointment}>
+              Request Demo
+            </button>
           </div>
         </div>
       </section>
 
       {/* Footer Section */}
       <FooterSection />
+
+      {/* RPA Form Modal */}
+      <RPAForm isOpen={showForm} onClose={closeForm} />
     </div>
   );
 };
