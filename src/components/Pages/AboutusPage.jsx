@@ -331,7 +331,7 @@ const AboutPage = () => {
           <h2>Ready to Transform Your Business with Automation?</h2>
           <p>Whether you need enterprise automation solutions or want to build expertise within your team, we have the perfect offering for you.</p>
           <div className="aboutpage-cta-buttons">
-            <Link to="/contact" className="aboutpage-btn-primary">Get Started</Link>
+            <Link to="/#contact" className="aboutpage-btn-primary">Get Started</Link>
             <button className="aboutpage-btn-outline" onClick={handleBookAppointment}>
               Request Demo
             </button>
