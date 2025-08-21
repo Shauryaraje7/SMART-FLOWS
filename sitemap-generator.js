@@ -19,7 +19,7 @@ const generateSitemap = () => {
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   ${routes.map(route => `
   <url>
-    <loc>https://www.smartflows.in${route.path}</loc>
+    <loc>https://smartflows.in${route.path}</loc>
     <lastmod>${new Date().toISOString()}</lastmod>
     <changefreq>${route.changefreq}</changefreq>
     <priority>${route.priority}</priority>
