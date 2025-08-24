@@ -273,57 +273,81 @@ const AboutPage = () => {
         </div>
       </section>
 
-      {/* Courses Section */}
-      <section className="aboutpage-courses-section" ref={el => sectionRefs.current[5] = el}>
-        <div className="aboutpage-section-header">
-          <div className="aboutpage-section-tag">LEARNING</div>
-          <h2>Build Your Automation Expertise</h2>
-          <p>Comprehensive training programs to develop automation skills at every level</p>
-        </div>
-        <div className="aboutpage-courses-grid">
-          {courses.map((course) => (
-            <div className="aboutpage-course-card" key={course.id}>
-              <Link to={`/courses/${course.title.toLowerCase().replace(/\s+/g, '-')}`} className="aboutpage-course-link">
-                <div className="aboutpage-course-image-container">
-                  <img 
-                    src={course.imageUrl} 
-                    alt={course.title}
-                    className="aboutpage-course-image"
-                    onError={(e) => {
-                      e.target.onerror = null;
-                      e.target.src = 'https://via.placeholder.com/400x250?text=Course+Image';
-                    }}
-                  />
-                  <div className="aboutpage-course-badge">{course.level}</div>
-                </div>
-                <div className="aboutpage-course-content">
-                  <h3 className="aboutpage-course-title">{course.title}</h3>
-                  <div className="aboutpage-course-meta">
-                    <span className="aboutpage-course-duration">{course.duration}</span>
-                    <span className="aboutpage-course-rating">
-                      <span className="aboutpage-course-stars">★★★★★</span>
-                      <span>({course.rating})</span>
-                    </span>
-                  </div>
-                  <p className="aboutpage-course-description">{course.description}</p>
-                  <div className="aboutpage-course-features">
-                    {course.features.map((feature, index) => (
-                      <div key={index} className="aboutpage-course-feature">
-                        <span className="aboutpage-course-feature-icon">✓</span>
-                        {feature}
-                      </div>
-                    ))}
-                  </div>
-                  <div className="aboutpage-course-footer">
-                    <span className="aboutpage-course-students">{course.students}+ students</span>
-                    <span className="aboutpage-course-link-text">View Details →</span>
-                  </div>
-                </div>
-              </Link>
+
+
+
+
+
+
+
+
+
+
+      
+<section className="aboutpage-courses-section" ref={el => sectionRefs.current[5] = el}>
+  <div className="aboutpage-section-header">
+    <div className="aboutpage-section-tag">LEARNING</div>
+    <h2>Build Your Automation Expertise</h2>
+    <p>Comprehensive training programs to develop automation skills at every level</p>
+  </div>
+  <div className="aboutpage-courses-grid">
+    {courses.map((course) => (
+      <div className="aboutpage-course-card" key={course.id}>
+        <Link to={`/courses/${course.title.toLowerCase().replace(/\s+/g, '-')}`} className="aboutpage-course-link">
+          <div className="aboutpage-course-image-container">
+            <img 
+              src={course.imageUrl} 
+              alt={course.title}
+              className="aboutpage-course-image"
+              onError={(e) => {
+                e.target.onerror = null;
+                e.target.src = 'https://via.placeholder.com/400x250?text=Course+Image';
+              }}
+            />
+            <div className="aboutpage-course-badge">{course.level}</div>
+          </div>
+          <div className="aboutpage-course-content">
+            <h3 className="aboutpage-course-title">{course.title}</h3>
+            <div className="aboutpage-course-meta">
+              <span className="aboutpage-course-duration">{course.duration}</span>
+              <span className="aboutpage-course-rating">
+                <span className="aboutpage-course-stars">★★★★★</span>
+                <span>({course.rating})</span>
+              </span>
             </div>
-          ))}
-        </div>
-      </section>
+            <p className="aboutpage-course-description">{course.description}</p>
+            <div className="aboutpage-course-features">
+              {course.features.map((feature, index) => (
+                <div key={index} className="aboutpage-course-feature">
+                  <span className="aboutpage-course-feature-icon">✓</span>
+                  {feature}
+                </div>
+              ))}
+            </div>
+            <div className="aboutpage-course-footer">
+              <span className="aboutpage-course-students">{course.students}+ students enrolled</span>
+              <span className="aboutpage-course-link-text">View Details →</span>
+            </div>
+          </div>
+        </Link>
+      </div>
+    ))}
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
       {/* CTA Section */}
       <section className="aboutpage-cta" ref={el => sectionRefs.current[6] = el}>
