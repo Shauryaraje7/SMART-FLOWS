@@ -2,8 +2,8 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/AboutusPage.css';
 import Robot from '../../assets/robot3.png';
-import MissionImage from '../../assets/robot3.png'; 
-import TeamImage from '../../assets/robot3.png';
+import Robot2 from '../../assets/robot3.png';
+import TeamImage from '../../assets/teamimg.png';
 import FooterSection from '../Sections/FooterSection.jsx';
 import RPAForm from '../RPAForm.jsx';
 
@@ -225,7 +225,7 @@ const AboutPage = () => {
           </div>
         </div>
         <div className="aboutpage-mission-image">
-          <img src={MissionImage} alt="Our team working" loading="lazy" />
+          <img src={Robot2} alt="Our team working" loading="lazy" />
         </div>
       </section>
 

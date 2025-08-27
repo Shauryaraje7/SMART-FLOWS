@@ -3,9 +3,17 @@ import { Link } from 'react-router-dom';
 import '../styles/BlogsPage.css';
 import FooterSection from '../Sections/FooterSection.jsx';
 
+// Import all blog images
+import rpaTrends2024 from '../../assets/The Future of RPA: Trends to Watch in 2024.png';
+import uiPathVsPowerAutomate from '../../assets/UiPath vs Power Automate: Choosing the Right Platform.png';
+import aiAgentsAutomation from '../../assets/Implementing AI Agents in Your Automation Strategy.png';
+import automationRoi from '../../assets/Measuring ROI on Automation Projects.png';
+import automationCoe from '../../assets/Building an Automation Center of Excellence.png';
+import rpaSecurity from '../../assets/Security Considerations for RPA Implementations.png';
+
 const BlogsPage = () => {
-  // Sample blog data with image placeholder
- const allBlogPosts = [
+  // Sample blog data with images
+  const allBlogPosts = [
     {
       id: 1,
       title: "The Future of RPA: Trends to Watch in 2024",
@@ -20,7 +28,7 @@ const BlogsPage = () => {
       date: "May 15, 2024",
       category: "Industry Trends",
       readTime: "5 min read",
-      imagePlaceholder: "rpa-trends-2024",
+      image: rpaTrends2024,
       tags: ["RPA", "AI", "Trends", "2024"]
     },
     {
@@ -37,7 +45,7 @@ const BlogsPage = () => {
       date: "April 28, 2024",
       category: "Product Comparison",
       readTime: "7 min read",
-      imagePlaceholder: "uipath-vs-powerautomate",
+      image: uiPathVsPowerAutomate,
       tags: ["UiPath", "Power Automate", "Comparison"]
     },
     {
@@ -54,7 +62,7 @@ const BlogsPage = () => {
       date: "April 10, 2024",
       category: "Technical Guide",
       readTime: "8 min read",
-      imagePlaceholder: "ai-agents-automation",
+      image: aiAgentsAutomation,
       tags: ["AI", "Agents", "Cognitive"]
     },
     {
@@ -71,7 +79,7 @@ const BlogsPage = () => {
       date: "March 22, 2024",
       category: "Business Insights",
       readTime: "6 min read",
-      imagePlaceholder: "automation-roi",
+      image: automationRoi,
       tags: ["ROI", "Metrics", "Business"]
     },
     {
@@ -88,7 +96,7 @@ const BlogsPage = () => {
       date: "March 5, 2024",
       category: "Best Practices",
       readTime: "9 min read",
-      imagePlaceholder: "automation-coe",
+      image: automationCoe,
       tags: ["CoE", "Best Practices"]
     },
     {
@@ -105,14 +113,11 @@ const BlogsPage = () => {
       date: "February 18, 2024",
       category: "Security",
       readTime: "5 min read",
-      imagePlaceholder: "rpa-security",
+      image: rpaSecurity,
       tags: ["Security", "RPA"]
     }
   ];
 
-
-
-  
   // State management
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedCategory, setSelectedCategory] = useState("All Categories");
@@ -190,8 +195,8 @@ const BlogsPage = () => {
       {/* Blog Hero Section */}
       <section className="blogsHero">
         <div className="heroContent">
-          <h1 className='Allh1 headings'  >Automation Insights & Trends</h1>
-          <p className='AllP headingpara'   >Expert perspectives on robotic process automation, AI integration, and digital transformation</p>
+          <h1 className='Allh1 headings'>Automation Insights & Trends</h1>
+          <p className='AllP headingpara'>Expert perspectives on robotic process automation, AI integration, and digital transformation</p>
           <div className="searchBar">
             <input 
               type="text" 
@@ -266,8 +271,8 @@ const BlogsPage = () => {
                     key={post.id}
                     onClick={() => handlePostClick(post)}
                   >
-                    <div className="cardImagePlaceholder">
-                      <div className="placeholderText">{post.imagePlaceholder}</div>
+                    <div className="cardImage">
+                      <img src={post.image} alt={post.title} />
                     </div>
                     <div className="cardContent">
                       <div className="postMeta">
@@ -356,7 +361,9 @@ const BlogsPage = () => {
                     key={post.id}
                     onClick={() => handlePostClick(post)}
                   >
-                    <div className="featuredImagePlaceholder"></div>
+                    <div className="featuredImage">
+                      <img src={post.image} alt={post.title} />
+                    </div>
                     <div className="featuredContent">
                       <h4>{post.title}</h4>
                       <span className="featuredDate">{post.date}</span>
@@ -373,8 +380,8 @@ const BlogsPage = () => {
         <div className="modalOverlay" onClick={closeModal}>
           <div className="modalContent" onClick={e => e.stopPropagation()}>
             <button className="closeModal" onClick={closeModal}>×</button>
-            <div className="modalImagePlaceholder">
-              <div className="placeholderText">{selectedPost.imagePlaceholder}</div>
+            <div className="modalImage">
+              <img src={selectedPost.image} alt={selectedPost.title} />
             </div>
             <div className="modalBody">
               <div className="modalMeta">

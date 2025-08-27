@@ -620,3 +620,79 @@
   gap: 0.5rem;
   margin-bottom: 1rem;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Image styles for blog cards */
+.cardImage {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 8px 8px 0 0;
+}
+
+.cardImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.blogCard:hover .cardImage img {
+  transform: scale(1.05);
+}
+
+/* Image styles for featured posts */
+.featuredImage {
+  width: 80px;
+  height: 60px;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+
+.featuredImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Modal image styles */
+.modalImage {
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.modalImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Remove placeholder styles if they exist */
+.cardImagePlaceholder,
+.modalImagePlaceholder,
+.featuredImagePlaceholder {
+  display: none;
+}
