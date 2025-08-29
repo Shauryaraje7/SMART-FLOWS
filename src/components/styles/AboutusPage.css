@@ -737,6 +737,11 @@ width: 100px;
 }
 
 @media (max-width: 480px) {
+.aboutpage-capability-icon-img{
+  display: block;
+}
+
+
   .aboutpage-courses-section {
     padding: 3rem 1rem;
   }
