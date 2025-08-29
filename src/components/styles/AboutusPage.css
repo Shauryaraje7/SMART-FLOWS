@@ -510,6 +510,24 @@
   padding: 0 1rem;
 }
 
+
+
+
+
+
+
+
+
+
+
+.aboutpage-capability-icon-img{
+transform: scale(1.9);
+width: 100px;
+}
+
+
+
+
 .aboutpage-course-card {
   background: white;
   border-radius: 16px;

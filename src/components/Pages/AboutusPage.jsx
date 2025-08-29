@@ -2,7 +2,9 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/AboutusPage.css';
 import Robot from '../../assets/robot3.png';
-import Robot2 from '../../assets/robot3.png';
+import aiimgforcard from '../../assets/Artificial_Intelligence_img.png';
+import system_integration from '../../assets/system_integration.png';
+
 import TeamImage from '../../assets/teamimg.png';
 import FooterSection from '../Sections/FooterSection.jsx';
 import RPAForm from '../RPAForm.jsx';
@@ -134,22 +136,26 @@ const AboutPage = () => {
     {
       title: "Robotic Process Automation",
       description: "UiPath, Automation Anywhere, Blue Prism, Power Automate with enterprise-grade implementations",
-      icon: "🤖"
+      icon: "🤖",
+      ariaLabel: "Robotic Process Automation"
     },
     {
       title: "Artificial Intelligence",
       description: "Document understanding, machine learning, cognitive automation and NLP integration",
-      icon: "🧠"
+      image: aiimgforcard,
+      alt: "Artificial Intelligence"
     },
     {
       title: "System Integration",
       description: "REST APIs, database connectors, legacy system automation with seamless data flow",
-      icon: "🔌"
+      image: system_integration,
+      alt: "System Integration"
     },
     {
       title: "Process Optimization",
       description: "Process mining, workflow analysis, performance benchmarking and continuous improvement",
-      icon: "📊"
+      icon: "📊",
+      ariaLabel: "Process Optimization"
     }
   ];
 
@@ -162,13 +168,13 @@ const AboutPage = () => {
           <p>We deliver cutting-edge automation solutions that drive efficiency, reduce costs, and unlock new possibilities for organizations of all sizes.</p>
           <div className="aboutpage-hero-buttons">
             <Link to="/services" className="aboutpage-btn-primary">Explore Our Services</Link>
-            <button className="aboutpage-btn1-outline" onClick={handleBookAppointment}>
+            <button className="aboutpage-btn-outline" onClick={handleBookAppointment}>
               Schedule Consultation
             </button>
           </div>
         </div>
         <div className="aboutpage-hero-image">
-          <img src={Robot} alt="Automation technology" loading="lazy" />
+          <img src={Robot} alt="Automation technology" />
           <div className="aboutpage-glow-effect"></div>
         </div>
       </section>  
@@ -203,36 +209,43 @@ const AboutPage = () => {
           </p>
           <div className="aboutpage-values-grid">
             <div className="aboutpage-value-card">
-              <div className="aboutpage-value-icon">🚀</div>
+              <div className="aboutpage-value-icon" aria-label="Innovation">🚀</div>
               <h3>Innovation</h3>
               <p>Pioneering new approaches to automation challenges with cutting-edge solutions</p>
             </div>
             <div className="aboutpage-value-card">
-              <div className="aboutpage-value-icon">🏆</div>
+              <div className="aboutpage-value-icon" aria-label="Excellence">🏆</div>
               <h3>Excellence</h3>
               <p>Reliable solutions with meticulous attention to detail and quality assurance</p>
             </div>
             <div className="aboutpage-value-card">
-              <div className="aboutpage-value-icon">🤝</div>
+              <div className="aboutpage-value-icon" aria-label="Partnership">🤝</div>
               <h3>Partnership</h3>
               <p>Working collaboratively to understand and solve your unique business challenges</p>
             </div>
             <div className="aboutpage-value-card">
-              <div className="aboutpage-value-icon">📈</div>
+              <div className="aboutpage-value-icon" aria-label="Impact">📈</div>
               <h3>Impact</h3>
               <p>Delivering solutions that create measurable business value and ROI</p>
             </div>
           </div>
         </div>
         <div className="aboutpage-mission-image">
-          <img src={Robot2} alt="Our team working" loading="lazy" />
+          <img src={Robot} alt="Our mission visualization" />
         </div>
       </section>
 
       {/* Team Section */}
       <section className="aboutpage-team-section" ref={el => sectionRefs.current[3] = el}>
         <div className="aboutpage-team-image">
-          <img src={TeamImage} alt="Our expert team" loading="lazy" />
+          <img 
+            src={TeamImage} 
+            alt="Our expert team" 
+            onError={(e) => {
+              e.target.onerror = null;
+              e.target.src = 'https://via.placeholder.com/600x400?text=Team+Image';
+            }}
+          />
         </div>
         <div className="aboutpage-team-content">
           <div className="aboutpage-section-tag">OUR TEAM</div>
@@ -265,7 +278,21 @@ const AboutPage = () => {
         <div className="aboutpage-capabilities-grid">
           {capabilities.map((capability, index) => (
             <div className="aboutpage-capability-card" key={index}>
-              <div className="aboutpage-capability-icon">{capability.icon}</div>
+              {capability.icon ? (
+                <div className="aboutpage-capability-icon" aria-label={capability.ariaLabel}>
+                  {capability.icon}
+                </div>
+              ) : (
+                <img 
+                  src={capability.image} 
+                  alt={capability.alt}
+                  className="aboutpage-capability-icon-img"
+                  onError={(e) => {
+                    e.target.onerror = null;
+                    e.target.src = 'https://via.placeholder.com/60x60?text=Icon';
+                  }}
+                />
+              )}
               <h3>{capability.title}</h3>
               <p>{capability.description}</p>
             </div>
@@ -273,81 +300,57 @@ const AboutPage = () => {
         </div>
       </section>
 
-
-
-
-
-
-
-
-
-
-
-      
-<section className="aboutpage-courses-section" ref={el => sectionRefs.current[5] = el}>
-  <div className="aboutpage-section-header">
-    <div className="aboutpage-section-tag">LEARNING</div>
-    <h2>Build Your Automation Expertise</h2>
-    <p>Comprehensive training programs to develop automation skills at every level</p>
-  </div>
-  <div className="aboutpage-courses-grid">
-    {courses.map((course) => (
-      <div className="aboutpage-course-card" key={course.id}>
-        <Link to={`/courses/${course.title.toLowerCase().replace(/\s+/g, '-')}`} className="aboutpage-course-link">
-          <div className="aboutpage-course-image-container">
-            <img 
-              src={course.imageUrl} 
-              alt={course.title}
-              className="aboutpage-course-image"
-              onError={(e) => {
-                e.target.onerror = null;
-                e.target.src = 'https://via.placeholder.com/400x250?text=Course+Image';
-              }}
-            />
-            <div className="aboutpage-course-badge">{course.level}</div>
-          </div>
-          <div className="aboutpage-course-content">
-            <h3 className="aboutpage-course-title">{course.title}</h3>
-            <div className="aboutpage-course-meta">
-              <span className="aboutpage-course-duration">{course.duration}</span>
-              <span className="aboutpage-course-rating">
-                <span className="aboutpage-course-stars">★★★★★</span>
-                <span>({course.rating})</span>
-              </span>
-            </div>
-            <p className="aboutpage-course-description">{course.description}</p>
-            <div className="aboutpage-course-features">
-              {course.features.map((feature, index) => (
-                <div key={index} className="aboutpage-course-feature">
-                  <span className="aboutpage-course-feature-icon">✓</span>
-                  {feature}
+      {/* Courses Section */}
+      <section className="aboutpage-courses-section" ref={el => sectionRefs.current[5] = el}>
+        <div className="aboutpage-section-header">
+          <div className="aboutpage-section-tag">LEARNING</div>
+          <h2>Build Your Automation Expertise</h2>
+          <p>Comprehensive training programs to develop automation skills at every level</p>
+        </div>
+        <div className="aboutpage-courses-grid">
+          {courses.map((course) => (
+            <div className="aboutpage-course-card" key={course.id}>
+              <Link to={`/courses/${course.title.toLowerCase().replace(/\s+/g, '-')}`} className="aboutpage-course-link">
+                <div className="aboutpage-course-image-container">
+                  <img 
+                    src={course.imageUrl} 
+                    alt={course.title}
+                    className="aboutpage-course-image"
+                    onError={(e) => {
+                      e.target.onerror = null;
+                      e.target.src = 'https://via.placeholder.com/400x250?text=Course+Image';
+                    }}
+                  />
+                  <div className="aboutpage-course-badge">{course.level}</div>
                 </div>
-              ))}
+                <div className="aboutpage-course-content">
+                  <h3 className="aboutpage-course-title">{course.title}</h3>
+                  <div className="aboutpage-course-meta">
+                    <span className="aboutpage-course-duration">{course.duration}</span>
+                    <span className="aboutpage-course-rating">
+                      <span className="aboutpage-course-stars">★★★★★</span>
+                      <span>({course.rating})</span>
+                    </span>
+                  </div>
+                  <p className="aboutpage-course-description">{course.description}</p>
+                  <div className="aboutpage-course-features">
+                    {course.features.map((feature, index) => (
+                      <div key={index} className="aboutpage-course-feature">
+                        <span className="aboutpage-course-feature-icon">✓</span>
+                        {feature}
+                      </div>
+                    ))}
+                  </div>
+                  <div className="aboutpage-course-footer">
+                    <span className="aboutpage-course-students">{course.students}+ students enrolled</span>
+                    <span className="aboutpage-course-link-text">View Details →</span>
+                  </div>
+                </div>
+              </Link>
             </div>
-            <div className="aboutpage-course-footer">
-              <span className="aboutpage-course-students">{course.students}+ students enrolled</span>
-              <span className="aboutpage-course-link-text">View Details →</span>
-            </div>
-          </div>
-        </Link>
-      </div>
-    ))}
-  </div>
-</section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+          ))}
+        </div>
+      </section>
 
       {/* CTA Section */}
       <section className="aboutpage-cta" ref={el => sectionRefs.current[6] = el}>
