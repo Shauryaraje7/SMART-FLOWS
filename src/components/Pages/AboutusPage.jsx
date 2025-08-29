@@ -168,7 +168,7 @@ const AboutPage = () => {
           <p>We deliver cutting-edge automation solutions that drive efficiency, reduce costs, and unlock new possibilities for organizations of all sizes.</p>
           <div className="aboutpage-hero-buttons">
             <Link to="/services" className="aboutpage-btn-primary">Explore Our Services</Link>
-            <button className="aboutpage-btn-outline" onClick={handleBookAppointment}>
+            <button className="aboutpage-btn-outline btn-at-top" onClick={handleBookAppointment}>
               Schedule Consultation
             </button>
           </div>
@@ -310,7 +310,7 @@ const AboutPage = () => {
         <div className="aboutpage-courses-grid">
           {courses.map((course) => (
             <div className="aboutpage-course-card" key={course.id}>
-              <Link to={`/courses/${course.title.toLowerCase().replace(/\s+/g, '-')}`} className="aboutpage-course-link">
+              <Link to={`/courses`} className="aboutpage-course-link">
                 <div className="aboutpage-course-image-container">
                   <img 
                     src={course.imageUrl} 
@@ -359,7 +359,7 @@ const AboutPage = () => {
           <p>Whether you need enterprise automation solutions or want to build expertise within your team, we have the perfect offering for you.</p>
           <div className="aboutpage-cta-buttons">
             <Link to="/#contact" className="aboutpage-btn-primary">Get Started</Link>
-            <button className="aboutpage-btn-outline" onClick={handleBookAppointment}>
+            <button className="aboutpage-btn-outline  btn-at-bottom " onClick={handleBookAppointment}>
               Request Demo
             </button>
           </div>
